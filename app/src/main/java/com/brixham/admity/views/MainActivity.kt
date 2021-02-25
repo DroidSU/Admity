@@ -1,4 +1,4 @@
-package com.brixham.admity
+package com.brixham.admity.views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import com.brixham.admity.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             // we used the postDelayed(Runnable, time) method
             // to send a message with a delayed time.
             Handler().postDelayed({
-                val intent = Intent(this, MainActivity2::class.java)
+                val intent = Intent(this, LoginScreen::class.java)
                 startActivity(intent)
                 finish()
             }, 1500) // 3000 is the delayed time in milliseconds.

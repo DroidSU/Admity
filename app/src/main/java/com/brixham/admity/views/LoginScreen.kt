@@ -1,13 +1,13 @@
-package com.brixham.admity
+package com.brixham.admity.views
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.brixham.admity.R
 
-class MainActivity2 : AppCompatActivity() {
+class LoginScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_login_screen)
 
 
     }
