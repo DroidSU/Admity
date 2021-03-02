@@ -38,7 +38,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_sId"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:padding="8dp"
+                android:background="@drawable/recedittxt"
                 android:hint="Student ID"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -46,30 +51,53 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center"
+
+                android:textColor="@color/white"
+                android:padding="8dp"
+                android:background="@drawable/recedittxt"
                 android:hint="Password"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:background="@drawable/recbutton"
+            />
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:backgroundTint="@color/teal_700"/>
-
+            android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forgot Password"
+            android:text="Forgot Password?"
             android:gravity="center"
             android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/textUnderline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap Here"
+                android:gravity="center"
+                android:textColor="@color/sky_blue"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
     </LinearLayout>
 <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
