@@ -27,7 +27,6 @@ interface ApiService {
             responseInterceptor: ResponseInterceptor
         ): ApiService {
 
-
             val requestInterceptor = Interceptor { chain ->
 
                 val url = chain.request()
