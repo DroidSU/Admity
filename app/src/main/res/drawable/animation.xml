@@ -2,7 +2,7 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
 
-    <item android:drawable="@drawable/group_873"
+    <item android:drawable="@drawable/ic_admity_logo"
         android:duration="350"/>
 
 

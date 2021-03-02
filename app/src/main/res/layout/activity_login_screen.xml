@@ -1,137 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
     android:orientation="vertical"
-    android:background="@drawable/bg_2"
-    tools:context=".views.LoginScreen">
+    tools:context=".views.LoginScreen"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/ic_admity_logo"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/ll_imageView"
         android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:gravity="center">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/group_873"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_sId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Student ID"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="30dp">
-
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:padding="10dp"
-        android:gravity="center"
-        android:inputType="textEmailAddress"
-        android:drawableLeft="@drawable/ic_mail"
-        android:background="@drawable/recedittxt"
-        android:hint="@string/your_email"
-        android:textSize="15sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/black"
-        app:passwordToggleDrawable="@drawable/ic_visibility">
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-
-        android:background="@drawable/recedittxt"
-        android:ems="10"
-        android:imeOptions="actionNext"
-        android:drawableLeft="@drawable/ic_padlock"
-        android:padding="10dp"
-        android:inputType="textPassword"
-        android:hint="@string/password"
-        android:textSize="15sp"
-        android:drawableStart="@drawable/ic_padlock" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:padding="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/recbutton"
-        android:textColor="@color/white"
-        android:text="Login" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_marginTop="10dp"
+        <Button
+            android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:shadowColor="@color/white"
-            android:text="Remember Me"
-            android:buttonTint="@color/white"
-            app:buttonTint="@color/white"
-
-            android:textColor="@color/white" />
-
-
+            android:text="Login"
+            android:backgroundTint="@color/teal_700"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Forgot Password"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"/>
-
-
-
-
-
-
-
-
-
-
-
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
-</LinearLayout>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="100dp"-->
+
+<!--        android:orientation="vertical">-->
 
 
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="30dp"-->
+<!--            android:orientation="vertical">-->
 
-    </LinearLayout>
-</LinearLayout>
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/editTextTextPersonName"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@drawable/recedittxt"-->
+<!--                    android:drawableLeft="@drawable/ic_mail"-->
+<!--                    android:ems="10"-->
+<!--                    android:gravity="center"-->
+<!--                    android:hint="@string/your_email"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:textSize="15sp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:passwordToggleDrawable="@drawable/ic_visibility"-->
+<!--                app:passwordToggleEnabled="true"-->
+<!--                app:passwordToggleTint="@color/black">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/editTextTextPersonName2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:background="@drawable/recedittxt"-->
+
+<!--                    android:drawableStart="@drawable/ic_padlock"-->
+<!--                    android:drawableLeft="@drawable/ic_padlock"-->
+<!--                    android:ems="10"-->
+<!--                    android:gravity="center"-->
+<!--                    android:hint="@string/password"-->
+<!--                    android:imeOptions="actionNext"-->
+<!--                    android:inputType="textPassword"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:textSize="15sp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:background="@drawable/recbutton"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Login"-->
+<!--                android:textColor="@color/white" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <androidx.appcompat.widget.AppCompatCheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:buttonTint="@color/white"-->
+<!--                    android:shadowColor="@color/white"-->
+<!--                    android:text="Remember Me"-->
+<!--                    android:textColor="@color/white"-->
+
+<!--                    app:buttonTint="@color/white" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="80dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="Forgot Password"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+
+</RelativeLayout>

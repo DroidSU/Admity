@@ -9,11 +9,11 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.brixham.admity.R
 
-class MainActivity : AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash_screen)
 
 
             // This is used to hide the status bar and make
