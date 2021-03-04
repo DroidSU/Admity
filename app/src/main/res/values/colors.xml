@@ -11,5 +11,6 @@
     <color name="sky_blue">#51D0FF</color>
     <color name="footer">#021319</color>
     <color name="sky_next_blue">#5E737A</color>
+    <color name="black">#000000</color>
 
 </resources>

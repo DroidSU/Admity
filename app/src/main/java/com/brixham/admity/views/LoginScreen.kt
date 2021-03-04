@@ -1,12 +1,17 @@
 package com.brixham.admity.views
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +47,12 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
 
     lateinit var msg: String
+    lateinit var linearLayout: LinearLayout
+    lateinit var alertImg: ImageView
+    lateinit var alertTxt: TextView
+    lateinit var alertbttn: Button
+
+
 
 
 
@@ -64,6 +75,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         btn_login.setOnClickListener {
             startLogin()
+
+
         }
     }
 
@@ -89,8 +102,13 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     }
 
     override fun callFailed(errorMessage: String) {
+
+        showDialog(title = String())
+
         Log.d(TAG, "callFailed: $errorMessage")
     }
+
+
 
     override fun callSuccess(data: Any) {
         val loginResponse = data as LoginResponseModel
@@ -102,14 +120,24 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         startActivity(intent)
     }
 
-    /*fun showProgress() {
-        val builder = AlertDialog.Builder(this)
-        val inflater = layoutInflater
-        val dialogview = inflater.inflate(R.layout.dialog_loading, null)
-        alertDialog.setView(dialogview)
-        alertDialog = builder.create()
-        alertDialog.show()
+    private fun showDialog(title: String) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.alart_password_invalid)
+        linearLayout = dialog.findViewById(R.id.linearlayoutdialog)
+
+        alertImg = findViewById(R.id.dialoglockimg)
+        alertTxt = findViewById(R.id.textInvalidPass)
+        alertbttn = findViewById(R.id.alartbttnOk)
 
 
-    }*/
+
+        alertbttn.setOnClickListener {
+            dialog.dismiss()
+        }
+        alertbttn.setOnClickListener { dialog.dismiss() }
+        dialog.show()
+
+    }
 }
