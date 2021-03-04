@@ -6,19 +6,17 @@ import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.utilities.Constants.Companion.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
+import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @POST("Login/Login")
-    @FormUrlEncoded
-    fun loginUser(@Field("Userid") userId  : String, @Field("Password") password : String, @Field("Fcmtoken") fcmToken : String): Deferred<LoginResponseModel>
+    fun loginUser(@Body body: HashMap<String, String>): Deferred<LoginResponseModel>
 
 
     companion object {
@@ -26,7 +24,6 @@ interface ApiService {
             connectivityInterceptor: ConnectivityInterceptor,
             responseInterceptor: ResponseInterceptor
         ): ApiService {
-
 
             val requestInterceptor = Interceptor { chain ->
 
@@ -38,6 +35,7 @@ interface ApiService {
                 val request = chain.request()
                     .newBuilder()
                     .url(url)
+                    .header("X-ApiKey", "8f92cb92-c007-448b-b488-brixham-1650492dfd00")
                     .build()
 
                 return@Interceptor chain.proceed(request)
@@ -46,6 +44,7 @@ interface ApiService {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
                 .addInterceptor(connectivityInterceptor)
+                .addInterceptor(BasicAuthInterceptor(username = "School_Project", password = "School@2021"))
                 .addInterceptor(responseInterceptor)
                 .build()
 
@@ -58,5 +57,15 @@ interface ApiService {
                 .build()
                 .create(ApiService::class.java)
         }
+    }
+}
+
+class BasicAuthInterceptor(username: String, password: String): Interceptor {
+    private var credentials: String = Credentials.basic(username, password)
+
+    override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
+        var request = chain.request()
+        request = request.newBuilder().header("Authorization", credentials).build()
+        return chain.proceed(request)
     }
 }
