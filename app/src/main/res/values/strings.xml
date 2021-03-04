@@ -2,6 +2,7 @@
     <string name="app_name">Admity</string>
     <string name="your_email">Your Email</string>
     <string name="password">Password</string>
+    <string name="your_string_here"><u>Tab Here</u></string>
 
 
 </resources>
