@@ -61,4 +61,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
 
+    //Lottie Files
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
 }
