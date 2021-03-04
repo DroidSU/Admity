@@ -1,11 +1,8 @@
 package com.brixham.admity.views
 
-import android.R.attr.button
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
-import android.text.Html
-//import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -59,16 +56,13 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         loginViewModel = ViewModelProviders.of(this, loginViewModelFactory).get(LoginViewModel::class.java)
         //showProgress()
+
         btn_login = findViewById(R.id.btn_login)
         editTextUserId = findViewById(R.id.editText_sId)
         editTextPassword = findViewById(R.id.editText_password)
         textUnderline = findViewById(R.id.textUnderline)
-        textUnderline.setText(Html.fromHtml(String.format(getString(R.string.your_string_here), )))
-        textUnderline.setPaintFlags(textUnderline.getPaintFlags() or Paint.UNDERLINE_TEXT_FLAG)
 
         btn_login.setOnClickListener {
-            val intent: Intent = Intent(this, DashBoard::class.java)
-            startActivity(intent)
             startLogin()
         }
     }
@@ -83,26 +77,29 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
             }
         }
         else{
-
+            if(userId.isEmpty())
+                Log.d(TAG, "startLogin: User ID is null")
+            else if(password.isEmpty())
+                Log.d(TAG, "startLogin: Password is null")
         }
     }
 
     override fun callStarted() {
-
-
-
-
-
         Log.d(TAG, "callStarted: ")
     }
 
     override fun callFailed(errorMessage: String) {
-
+        Log.d(TAG, "callFailed: $errorMessage")
     }
 
     override fun callSuccess(data: Any) {
         val loginResponse = data as LoginResponseModel
         Log.d(TAG, "callSuccess: "+loginResponse.message)
+
+        val intent: Intent = Intent(this, DashBoard::class.java)
+        // clear activity in back stack
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     /*fun showProgress() {
