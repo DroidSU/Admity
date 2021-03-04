@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_login"
     android:orientation="vertical"
     tools:context=".views.LoginScreen"
@@ -32,6 +33,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintEnabled="false"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
 
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            app:hintEnabled="false"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
 
@@ -60,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
-
+                android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:padding="8dp"
                 android:background="@drawable/recedittxt"
