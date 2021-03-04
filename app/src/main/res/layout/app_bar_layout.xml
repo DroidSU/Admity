@@ -7,7 +7,7 @@
     android:elevation="10dp"
     tools:context=".views.DashBoard"
 
-    tools:showIn="@layout/app_bar_main">
+    >
 
 
     <LinearLayout
@@ -30,14 +30,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_home1" />
+                android:src="@drawable/home" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textColor="@color/sky_next_blue"
+                android:textColor="@color/sky_blue"
                 android:text="Home" />
 
 
