@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.brixham.admity.R
@@ -16,19 +17,22 @@ import com.brixham.admity.R
 class DashBoard : AppCompatActivity() {
 
     private lateinit var imgBellIcon: ImageView
+    private lateinit var linearLayoutMessage: LinearLayout
+
     var adapter: CustomGrid? = null
     var web = arrayOf(
-        "Google",
-        "Github",
-        "Instagram",
-        "Facebook",
-        "Flickr",
-        "Pinterest",
-        "Quora",
-        "Twitter",
-        "Vimeo",
-        "WordPress",
-        "Youtube"
+        "Syllabu",
+        "School",
+        "Teacher",
+        "Attendance",
+        "Fees",
+        "Leave",
+        "Present",
+        "Insight",
+        "Event",
+        "Holiday",
+        "Notice",
+        "Parents"
 
     )
     var imageId = intArrayOf(
@@ -43,7 +47,7 @@ class DashBoard : AppCompatActivity() {
         R.drawable.event,
         R.drawable.holiday,
         R.drawable.notice,
-        R.drawable.present
+        R.drawable.parents
 
     )
 
@@ -65,7 +69,12 @@ class DashBoard : AppCompatActivity() {
 
 
         imgBellIcon = findViewById(R.id.imgBell)
-
+        linearLayoutMessage = findViewById(R.id.linearlayout_message)
+        linearLayoutMessage.setOnClickListener(View.OnClickListener {
+            var intent: Intent = Intent(this, Messages::class.java)
+            Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        })
 
 
 

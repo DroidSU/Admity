@@ -7,10 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="button_black">#002533</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#024406</color>
+    <color name="green">#05710C</color>
     <color name="sky_blue">#51D0FF</color>
     <color name="footer">#021319</color>
     <color name="sky_next_blue">#5E737A</color>
     <color name="black">#000000</color>
+    <color name="transparent">#887D7D</color>
 
 </resources>
