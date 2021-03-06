@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#21B2EC"
+    tools:context=".views.ChatAtivity"
+    tools:showIn="@layout/chat_edittext">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:id="@+id/chat_linearLayout"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
+            android:src="@drawable/ic_left_arrow"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rohit Seti"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginRight="120dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/segoe_ui"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chatNestedScrollView"
+        android:layout_below="@id/chat_linearLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerChat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+    <include layout="@layout/chat_edittext"/>
+
+
+
+
+
+
+
+</RelativeLayout>

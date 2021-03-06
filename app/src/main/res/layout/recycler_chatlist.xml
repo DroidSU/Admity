@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#21B2EC"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="end">
+    <TextView
+        android:id="@+id/textOutgoing"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+
+        app:autoSizeTextType="uniform"
+        android:lineSpacingExtra="3dp"
+        android:textAlignment="center"
+        app:autoSizeStepGranularity="8sp"
+        android:text="       "
+        android:background="@drawable/textbox_incoming_shape"
+        android:gravity="center_horizontal" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImgOutgoing"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/imgdp"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        
+        android:layout_gravity="start"
+        android:weightSum="2"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImgIncoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/imgdp"/>
+        <TextView
+            android:id="@+id/textIncoming"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:autoSizeTextType="uniform"
+            android:layout_marginLeft="10dp"
+            android:lineSpacingExtra="3dp"
+            app:autoSizeStepGranularity="8sp"
+            android:text="kfklvmvlkmvklfvmfkvmmmkm m mfbhfbfvbfvbfvfdvdvnjjnjnjn vjnj jn jncj n n n jfjjvvvvvnnnn  nnjn jvn vn vn v  "
+            android:background="@drawable/textbox_outgoing_shape"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

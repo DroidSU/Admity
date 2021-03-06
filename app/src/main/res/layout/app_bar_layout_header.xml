@@ -17,7 +17,7 @@
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp"
         android:weightSum="5"
-        android:background="@drawable/rec_card"
+        android:background="@drawable/gradient_background_blue"
         app:cardBackgroundColor="@color/sky_blue"
 
         tools:ignore="MissingConstraints">
