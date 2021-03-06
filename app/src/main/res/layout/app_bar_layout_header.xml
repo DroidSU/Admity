@@ -4,17 +4,22 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.DashBoard">
 
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/sky_blue"
+        android:weightSum="5"
         android:background="@drawable/rec_card"
+        app:cardBackgroundColor="@color/sky_blue"
+
         tools:ignore="MissingConstraints">
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +27,7 @@
 
 
             android:gravity="center_vertical"
-            android:weightSum="5"
+
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
             <ImageView
@@ -57,7 +62,7 @@
                 />
 
             <ImageView
-                android:id="@+id/imgBell"
+                android:id="@+id/dashboardImgBellIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="20dp"
@@ -68,7 +73,7 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgCircle"
+                android:id="@+id/dashboardImgCircleDp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"

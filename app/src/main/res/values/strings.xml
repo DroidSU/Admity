@@ -7,8 +7,11 @@
     <string name="faculties">Faculties</string>
     <string name="tap_here"><u>Tap Here</u></string>
     <string name="student_id">Student ID</string>
+    <string name="nav_view">Nav View</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
 
 
 </resources>
