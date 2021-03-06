@@ -13,5 +13,6 @@ class Constants {
         val SHARED_PREFS_USER_PROFILE_IMAGE = "user_profile_image"
         val SHARED_PREFS_STUDENT_ID = "user_student_id"
         val SHARED_PREFS_INS_ID = "user_ins_id"
+        val SHARED_PREFS_IS_LOGGED_IN = "is_user_logged_in"
     }
 }

@@ -1,19 +1,18 @@
 package com.brixham.admity.views
 
 import android.content.Intent
-import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.brixham.admity.R
 import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.network.NetworkCallback
+import com.brixham.admity.utilities.UtilityMethods
 import com.brixham.admity.viewmodels.LoginViewModel
 import com.brixham.admity.viewmodels.LoginViewModelFactory
 import com.google.android.material.textfield.TextInputEditText
@@ -33,20 +32,12 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     private lateinit var btn_login : Button
     private lateinit var editTextUserId : TextInputEditText
     private lateinit var editTextPassword : TextInputEditText
-    private lateinit var alertDialog: AlertDialog
-    private lateinit var inflater: LayoutInflater
-    private lateinit var dialogview: View
-    private lateinit var builder: AlertDialog.Builder
+    private lateinit var progressDialog: AlertDialog
     private lateinit var textUnderline: TextView
 
-
-
-    lateinit var msg: String
-
-
-
     private var userId = ""
-    var password = ""
+    private var password = ""
+
     var TAG = LoginScreen::class.java.simpleName
 
 
@@ -54,7 +45,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
-        loginViewModel = ViewModelProviders.of(this, loginViewModelFactory).get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
+
         //showProgress()
 
         btn_login = findViewById(R.id.btn_login)
@@ -65,6 +57,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         btn_login.setOnClickListener {
             startLogin()
         }
+
+        progressDialog = UtilityMethods().showProgressDialog(this)
     }
 
     private fun startLogin(){
@@ -85,31 +79,43 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     }
 
     override fun callStarted() {
-        Log.d(TAG, "callStarted: ")
+        CoroutineScope(Dispatchers.Main).launch {
+            if (!progressDialog.isShowing)
+                progressDialog.show()
+        }
     }
 
     override fun callFailed(errorMessage: String) {
-        Log.d(TAG, "callFailed: $errorMessage")
+        CoroutineScope(Dispatchers.Main).launch {
+            if(progressDialog.isShowing)
+                progressDialog.cancel()
+
+            Log.d(TAG, "callFailed: $errorMessage")
+            val failedDialog = UtilityMethods().showFailedDialog(this@LoginScreen, errorMessage)
+            val btnClose = failedDialog.findViewById<Button>(R.id.btn_close)
+            btnClose!!.setOnClickListener {
+                failedDialog.dismiss()
+            }
+
+            failedDialog.show()
+        }
     }
 
     override fun callSuccess(data: Any) {
-        val loginResponse = data as LoginResponseModel
-        Log.d(TAG, "callSuccess: "+loginResponse.message)
+        CoroutineScope(Dispatchers.Main).launch {
+            if(progressDialog.isShowing)
+                progressDialog.cancel()
 
-        val intent: Intent = Intent(this, DashBoard::class.java)
-        // clear activity in back stack
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
+            val loginResponse = data as LoginResponseModel
+            Log.d(TAG, "callSuccess: "+loginResponse.message)
+            if (loginResponse.status) {
+                val intent = Intent(this@LoginScreen, DashBoard::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+
+            }
+        }
     }
-
-    /*fun showProgress() {
-        val builder = AlertDialog.Builder(this)
-        val inflater = layoutInflater
-        val dialogview = inflater.inflate(R.layout.dialog_loading, null)
-        alertDialog.setView(dialogview)
-        alertDialog = builder.create()
-        alertDialog.show()
-
-
-    }*/
 }

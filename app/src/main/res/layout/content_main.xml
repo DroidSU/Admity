@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.DashBoard"
-    android:background="#F1EFEF"
-    tools:showIn="@layout/app_bar_main">
+    android:background="#F1EFEF">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
