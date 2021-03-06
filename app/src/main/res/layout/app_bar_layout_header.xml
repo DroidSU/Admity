@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.DashBoard">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        android:weightSum="5"
+        android:background="@drawable/gradient_background_blue"
+        app:cardBackgroundColor="@color/sky_blue"
+
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+
+            android:gravity="center_vertical"
+
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/mymenu1"
+                android:baselineAlignBottom="true"
+                />
+            <ImageView
+                android:id="@+id/imgBackHeading"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:src="@drawable/ic_left_arrow"
+                android:baselineAlignBottom="true"
+                />
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/logo_white"
+                android:layout_gravity="center"
+
+                />
+
+            <ImageView
+                android:id="@+id/dashboardImgBellIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="end"
+                android:src="@drawable/bellicon"
+                android:baselineAlignBottom="true"
+                />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/dashboardImgCircleDp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:gravity="end"
+                android:src="@drawable/imgdp"
+                android:baselineAlignBottom="true"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
