@@ -21,10 +21,12 @@ class Notification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)
 
-        imageBack = findViewById(R.id.imgBack)
+        imageBack = findViewById(R.id.imgBacknotification)
 
         imageBack.setOnClickListener(View.OnClickListener {
             var intent: Intent = Intent(this, DashBoard::class.java)
+            Intent.FLAG_ACTIVITY_CLEAR_TASK
+            Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         })
 

@@ -1,9 +1,13 @@
 package com.brixham.admity.views
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -56,6 +60,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         btn_login.setOnClickListener {
             startLogin()
+
+
         }
 
         progressDialog = UtilityMethods().showProgressDialog(this)
@@ -100,6 +106,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
             failedDialog.show()
         }
     }
+
+
 
     override fun callSuccess(data: Any) {
         CoroutineScope(Dispatchers.Main).launch {
