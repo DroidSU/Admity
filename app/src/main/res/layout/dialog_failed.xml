@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background_blue"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_failed"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:lottie_fileName="invalid_anim.json"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="true"/>
+
+    <TextView
+        android:id="@+id/tv_failed_dialog_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Invalid ID"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:text="OK"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>

@@ -13,10 +13,11 @@ class LoginRepositoryImpl(private val apiService: ApiService) : LoginRepository{
         fcmToken: String
     ): Result<LoginResponseModel> {
         return try {
-            var body : HashMap<String, String> = HashMap()
+            val body : HashMap<String, String> = HashMap()
             body.set(key = "Userid", value = userId)
             body.set(key = "Password", value = password)
             body.set(key = "Fcmtoken", value = fcmToken)
+
             val searchData = apiService.loginUser(body = body).await()
             Result.Success(searchData)
         }

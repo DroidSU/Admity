@@ -65,8 +65,8 @@ dependencies {
 
     //cardview
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'com.google.android.material:material:1.0.0'
-
+    //CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
+    // Lottie Files
+    implementation 'com.airbnb.android:lottie:3.6.1'
 }
