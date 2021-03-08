@@ -1,21 +1,18 @@
 package com.brixham.admity.views
 
-import android.app.Dialog
-import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.brixham.admity.R
 import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.network.NetworkCallback
+import com.brixham.admity.utilities.Constants
 import com.brixham.admity.utilities.UtilityMethods
 import com.brixham.admity.viewmodels.LoginViewModel
 import com.brixham.admity.viewmodels.LoginViewModelFactory
@@ -33,9 +30,9 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
     private val loginViewModelFactory: LoginViewModelFactory by instance()
     private lateinit var loginViewModel: LoginViewModel
-    private lateinit var btn_login : Button
-    private lateinit var editTextUserId : TextInputEditText
-    private lateinit var editTextPassword : TextInputEditText
+    private lateinit var btn_login: Button
+    private lateinit var editTextUserId: TextInputEditText
+    private lateinit var editTextPassword: TextInputEditText
     private lateinit var progressDialog: AlertDialog
     private lateinit var textUnderline: TextView
 
@@ -49,7 +46,8 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
-        loginViewModel = ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
+        loginViewModel =
+            ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
 
         //showProgress()
 
@@ -73,20 +71,19 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         progressDialog = UtilityMethods().showProgressDialog(this)
     }
 
-    private fun startLogin(){
+    private fun startLogin() {
         userId = editTextUserId.text.toString()
         password = editTextPassword.text.toString()
 
-        if(userId.isNotBlank() && userId.isNotEmpty() && password.isNotBlank() && password.isNotEmpty()){
+        if (userId.isNotBlank() && userId.isNotEmpty() && password.isNotBlank() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 loginViewModel.loginUser(userId, password, "", this@LoginScreen)
             }
-        }
-        else{
-            if(userId.isEmpty())
-                Log.d(TAG, "startLogin: User ID is null")
-            else if(password.isEmpty())
-                Log.d(TAG, "startLogin: Password is null")
+        } else {
+            if (userId.isEmpty())
+                editTextUserId.error = "User Id cannot be empty"
+            else if (password.isEmpty())
+                editTextPassword.error = "Password cannot be empty"
         }
     }
 
@@ -99,7 +96,7 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
     override fun callFailed(errorMessage: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            if(progressDialog.isShowing)
+            if (progressDialog.isShowing)
                 progressDialog.cancel()
 
             Log.d(TAG, "callFailed: $errorMessage")
@@ -114,21 +111,32 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     }
 
 
-
     override fun callSuccess(data: Any) {
         CoroutineScope(Dispatchers.Main).launch {
-            if(progressDialog.isShowing)
+            if (progressDialog.isShowing)
                 progressDialog.cancel()
 
             val loginResponse = data as LoginResponseModel
-            Log.d(TAG, "callSuccess: "+loginResponse.message)
+            Log.d(TAG, "callSuccess: " + loginResponse.message)
             if (loginResponse.status) {
+
+                // saving value in shared preference
+                val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+                val editor = sharedPrefs.edit()
+                editor.putBoolean(Constants.SHARED_PREFS_IS_LOGGED_IN, true)
+                editor.apply()
+
                 val intent = Intent(this@LoginScreen, DashBoard::class.java)
                 startActivity(intent)
                 finish()
-            }
-            else{
-
+            } else {
+                val failedDialog =
+                    UtilityMethods().showFailedDialog(this@LoginScreen, loginResponse.message)
+                failedDialog.show()
+                val btnClose = failedDialog.findViewById<Button>(R.id.btn_close)
+                btnClose!!.setOnClickListener {
+                    failedDialog.dismiss()
+                }
             }
         }
     }
