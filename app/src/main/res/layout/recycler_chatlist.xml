@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,14 +19,21 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="4dp"
+        android:paddingRight="10dp"
 
         app:autoSizeTextType="uniform"
-        android:lineSpacingExtra="3dp"
+        android:lineSpacingExtra="2dp"
         android:textAlignment="center"
-        app:autoSizeStepGranularity="8sp"
-        android:text="       "
+        app:autoSizeStepGranularity="2sp"
+        android:text="   "
         android:background="@drawable/textbox_incoming_shape"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        tools:targetApi="o"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"/>
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImgOutgoing"
             android:layout_width="wrap_content"
@@ -45,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        
+
         android:layout_gravity="start"
         android:weightSum="2"
         >
@@ -62,11 +70,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:autoSizeTextType="uniform"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingRight="20dp"
             android:layout_marginLeft="10dp"
-            android:lineSpacingExtra="3dp"
-            app:autoSizeStepGranularity="8sp"
-            android:text="kfklvmvlkmvklfvmfkvmmmkm m mfbhfbfvbfvbfvfdvdvnjjnjnjn vjnj jn jncj n n n jfjjvvvvvnnnn  nnjn jvn vn vn v  "
-            android:background="@drawable/textbox_outgoing_shape"/>
+            android:lineSpacingExtra="2dp"
+            app:autoSizeStepGranularity="2sp"
+            android:text="   "
+            android:background="@drawable/textbox_outgoing_shape"
+            android:layout_marginStart="10dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="10dp"
+            android:paddingBottom="5dp"/>
 
 
 

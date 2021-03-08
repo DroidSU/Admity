@@ -12,6 +12,7 @@
     <color name="footer">#021319</color>
     <color name="sky_next_blue">#5E737A</color>
     <color name="black">#000000</color>
-    <color name="transparent">#887D7D</color>
+    <color name="transparent">#7E7373</color>
+    <color name="background_col">#F1EFEF</color>
 
 </resources>

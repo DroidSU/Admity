@@ -56,7 +56,13 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
         btn_login = findViewById(R.id.btn_login)
         editTextUserId = findViewById(R.id.editText_sId)
         editTextPassword = findViewById(R.id.editText_password)
-        textUnderline = findViewById(R.id.textUnderline)
+        textUnderline = findViewById(R.id.textLoginUnderline)
+
+        textUnderline.setOnClickListener {
+            val intent = Intent(this@LoginScreen, ChangePassword::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btn_login.setOnClickListener {
             startLogin()

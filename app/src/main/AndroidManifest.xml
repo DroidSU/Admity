@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.ChatAtivity"></activity>
+        <activity android:name=".views.ChangePassword"></activity>
+        <activity android:name=".views.ChatAtivity" />
         <activity android:name=".views.Messages" />
         <activity android:name=".views.Notification" />
         <activity android:name=".views.DashBoard" />
