@@ -4,22 +4,19 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="10dp"
-    tools:context=".views.DashBoard"
-
-    >
-
+    tools:context=".views.HelpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="5"
+        android:gravity="bottom"
         android:layout_gravity="bottom"
         android:background="@drawable/corner_tool"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/linearLayout_homePage1"
+            android:id="@+id/linearLayout_homePage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,14 +28,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/home" />
+                android:src="@drawable/ic_home1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textColor="@color/sky_blue"
+                android:textColor="@color/sky_next_blue"
                 android:text="Home" />
 
 
@@ -51,7 +48,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/linearLayout_TaskPage1"
+            android:id="@+id/linearLayout_TaskPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -83,7 +80,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/linearLayout_messagePage1"
+            android:id="@+id/linearLayout_messagePage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -115,7 +112,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/linearLayout_helpPage1"
+            android:id="@+id/linearLayout_helpPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -127,14 +124,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_gravity="center"
-                android:src="@drawable/help"/>
+                android:src="@drawable/help_col"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textColor="@color/sky_next_blue"
+                android:textColor="@color/sky_blue"
                 android:text="Help" />
 
 
@@ -148,7 +145,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout_reportPage1"
+            android:id="@+id/linearLayout_reportPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -207,4 +204,7 @@
 
 
     </LinearLayout>
+
+
+
 </LinearLayout>

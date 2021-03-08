@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="10dp"
     app:cardCornerRadius="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     android:background="@drawable/gradient_background_blue">
 
     <RelativeLayout
@@ -12,16 +14,68 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/imgMenuIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/mymenu1"
+            android:visibility="gone"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+        <ImageView
+            android:id="@+id/imgIcLeftArrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_left_arrow"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
 
         <ImageView
+            android:id="@+id/imgLogoIcon"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:visibility="gone"
             android:src="@drawable/logo_white"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderMessage"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Message"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderNotification"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Notification"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderChangePwd"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Change Password"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderHelp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Help"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
             android:layout_centerInParent="true"/>
 
         <LinearLayout
@@ -32,10 +86,13 @@
             android:orientation="horizontal"
             android:gravity="center">
 
+
             <ImageView
+                android:id="@+id/imgHeaderBellIcon"
                 android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:src="@drawable/bellicon"
+                android:visibility="gone"
                 android:layout_weight="1"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp" />
@@ -45,6 +102,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/imgdp"
+                android:visibility="gone"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"/>
         </LinearLayout>

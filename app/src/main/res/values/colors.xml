@@ -8,11 +8,12 @@
     <color name="button_black">#002533</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#05710C</color>
-    <color name="sky_blue">#51D0FF</color>
+    <color name="sky_blue">#D051D0FF</color>
     <color name="footer">#021319</color>
     <color name="sky_next_blue">#5E737A</color>
     <color name="black">#000000</color>
-    <color name="transparent">#7E7373</color>
+    <color name="transparent">#786D6D</color>
     <color name="background_col">#F1EFEF</color>
+    <color name="view_col">#5CCCB3B3</color>
 
 </resources>

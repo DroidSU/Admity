@@ -17,6 +17,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/linearLayout_homePage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -48,6 +49,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linearLayout_TaskPage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,6 +81,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linearLayout_messagePage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -110,6 +113,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linearLayout_helpPage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -142,6 +146,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout_reportPage1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
