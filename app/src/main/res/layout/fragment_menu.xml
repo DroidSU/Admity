@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentMenu">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawer_xml"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/logoMenuImg"
+                android:layout_width="140dp"
+                android:layout_height="100dp"
+                android:src="@drawable/logo_admity"
+                 />
+
+
+
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#000000"/>
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:orientation="vertical">
+
+            <LinearLayout android:weightSum="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/changepasswordimg"
+                    android:layout_marginLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Institute"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_right_arrow"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="83dp"/>
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_changePassword"
+                android:weightSum="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/changepasswordimg"
+                    android:layout_marginLeft="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Transactions"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"/>
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_right_arrow"
+                    android:layout_marginLeft="55dp"/>
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout android:weightSum="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/setting"
+                    android:layout_marginLeft="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enquiry"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_right_arrow"
+                    android:layout_marginLeft="110dp"/>
+
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout android:weightSum="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/setting"
+                    android:layout_marginLeft="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FAQs"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_right_arrow"
+                    android:layout_marginLeft="125dp"/>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

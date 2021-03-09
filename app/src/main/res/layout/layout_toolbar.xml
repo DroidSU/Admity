@@ -77,7 +77,36 @@
             android:textSize="25sp"
             android:gravity="center"
             android:layout_centerInParent="true"/>
-
+        <TextView
+            android:id="@+id/textHeaderStudentProfile"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Help"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderPaymentHistory"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Help"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/textHeaderPaymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Help"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

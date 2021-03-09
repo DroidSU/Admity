@@ -31,7 +31,9 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
 
     //private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
+
     private lateinit var dashBordNavigationView: NavigationView
+    private lateinit var dashBordNavigationViewMenu: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,7 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
         dashBordNavigationView = findViewById(R.id.nav_view)
+        dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
         dashBordNavigationView.setNavigationItemSelectedListener(this)
         linearLayoutReport.setOnClickListener(View.OnClickListener {
             var intent1: Intent = Intent(this, ChatAtivity::class.java)
@@ -59,9 +62,10 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             startActivity(intent2)
         })
         imgMenuIcon.setOnClickListener(View.OnClickListener {
-            var intent2: Intent = Intent(this, ChangePassword::class.java)
+            dashBordDrawerLayout.openDrawer(Gravity.LEFT)
+            /*var intent2: Intent = Intent(this, ChangePassword::class.java)
             Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent2)
+            startActivity(intent2)*/
         })
         linearLayoutMessage.setOnClickListener(View.OnClickListener {
             var intent3: Intent = Intent(this, Messages::class.java)
@@ -90,6 +94,7 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
 
 
         }
+
         /*linearLayoutChangePassword.setOnClickListener {
             var intent4: Intent = Intent(this, ChangePassword::class.java)
             Intent.FLAG_ACTIVITY_CLEAR_TASK

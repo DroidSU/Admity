@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".views.DashBoard"
-    tools:openDrawer="end">
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -15,10 +15,21 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         android:background="@drawable/drawer_xml"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/fragment_profile"
         tools:ignore="RtlHardcoded" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/drawer_right"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/fragment_menu"
+        tools:ignore="RtlHardcoded"/>
 
     <LinearLayout
         android:layout_width="match_parent"
