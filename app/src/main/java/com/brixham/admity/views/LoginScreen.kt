@@ -8,8 +8,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.brixham.admity.R
+import com.brixham.admity.fragments.FragmentChangePassword
+import com.brixham.admity.fragments.HomeFragment
 import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.Constants
@@ -45,22 +48,17 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
-
-        loginViewModel =
-            ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
-
-        //showProgress()
-
+        //loginViewModel = ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
         btn_login = findViewById(R.id.btn_login)
         editTextUserId = findViewById(R.id.editText_sId)
         editTextPassword = findViewById(R.id.editText_password)
         textUnderline = findViewById(R.id.textLoginUnderline)
 
-        /*textUnderline.setOnClickListener {
+        textUnderline.setOnClickListener {
             val intent = Intent(this@LoginScreen, ChangePassword::class.java)
             startActivity(intent)
             finish()
-        }*/
+        }
 
         btn_login.setOnClickListener {
             startLogin()
@@ -70,6 +68,9 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         progressDialog = UtilityMethods().showProgressDialog(this)
     }
+
+
+
 
     private fun startLogin() {
         userId = editTextUserId.text.toString()

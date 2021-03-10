@@ -38,7 +38,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="85dp">
+        android:layout_marginTop="90dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

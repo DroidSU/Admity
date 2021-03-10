@@ -6,8 +6,11 @@ import com.brixham.admity.network.interceptors.ConnectivityInterceptor
 import com.brixham.admity.network.interceptors.ConnectivityInterceptorImpl
 import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptorImpl
+import com.brixham.admity.repositories.ChangePasswordRepository
+import com.brixham.admity.repositories.ChangePasswordRepositoryImpl
 import com.brixham.admity.repositories.LoginRepository
 import com.brixham.admity.repositories.LoginRepositoryImpl
+import com.brixham.admity.viewmodels.ChangePasswordViewModelFactory
 import com.brixham.admity.viewmodels.LoginViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -27,9 +30,13 @@ class CustomApplication : Application(), KodeinAware {
         bind() from singleton { ApiService(instance(), instance()) }
 
         bind<LoginRepository>() with singleton { LoginRepositoryImpl(instance()) }
+        bind<ChangePasswordRepository>() with singleton { ChangePasswordRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
+                instance()
+            )
+            ChangePasswordViewModelFactory(
                 instance()
             )
         }

@@ -31,8 +31,8 @@ class Messages : AppCompatActivity() {
         backImgMsg = findViewById(R.id.imgIcLeftArrow)
         imgMsgBellIcon = findViewById(R.id.imgHeaderBellIcon)
         textViewMsg = findViewById(R.id.textHeaderMessage)
-        linearLayoutHomePage = findViewById(R.id.linearLayout_homePage2)
-        linearLayoutHelpPage = findViewById(R.id.linearLayout_helpPage2)
+        //linearLayoutHomePage = findViewById(R.id.linearLayout_homePage2)
+        //linearLayoutHelpPage = findViewById(R.id.linearLayout_helpPage2)
         backImgMsg.setOnClickListener(View.OnClickListener {
             var intent: Intent = Intent(this, DashBoard::class.java)
             startActivity(intent)

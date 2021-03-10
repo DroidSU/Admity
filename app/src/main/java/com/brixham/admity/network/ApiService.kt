@@ -1,5 +1,6 @@
 package com.brixham.admity.network
 
+import com.brixham.admity.models.ChangePasswordResponseModel
 import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.network.interceptors.ConnectivityInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptor
@@ -18,6 +19,9 @@ import java.util.concurrent.TimeUnit
 interface ApiService {
     @POST("Login/Login")
     fun loginUser(@Body body: HashMap<String, String>): Deferred<LoginResponseModel>
+    @POST("Credentials/Passwordchange")
+    fun changepwdUser(@Body body: HashMap<String, String>): Deferred<ChangePasswordResponseModel>
+
 
 
     companion object {
@@ -37,6 +41,7 @@ interface ApiService {
                     .newBuilder()
                     .url(url)
                     .header("X-ApiKey", "8f92cb92-c007-448b-b488-brixham-1650492dfd00")
+                    .header("A-Token", "dRrg6L0Zzn42HhVvBPD8XlFTtbp5I5ik45")
                     .build()
 
                 return@Interceptor chain.proceed(request)

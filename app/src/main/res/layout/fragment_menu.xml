@@ -88,7 +88,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout_changePassword"
+                android:id="@+id/linearLayout_myTransaction"
                 android:weightSum="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

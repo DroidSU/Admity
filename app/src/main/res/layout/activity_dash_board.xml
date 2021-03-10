@@ -15,10 +15,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:layout_marginTop="20dp"
-        android:visibility="gone"
         android:background="@drawable/drawer_xml"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/fragment_profile"
+        app:headerLayout="@layout/profile_layout"
         tools:ignore="RtlHardcoded" />
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view_menu"
@@ -37,11 +36,21 @@
         android:orientation="vertical">
 
         <include layout="@layout/layout_toolbar"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dashBoard_frameLayout"/>
 
-        <include
-            layout="@layout/content_main"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+
+        <include layout="@layout/content_main"/>
+
+
+
+
 
     </LinearLayout>
+
+
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -3,17 +3,700 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <include layout="@layout/layout_toolbar"/>
+    android:background="@color/background_col"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.StudentProfile"
+    >
 
+    <include layout="@layout/layout_toolbar"/>
+  <FrameLayout
+      android:id="@+id/profile_FrameLayout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center">
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profStudent_circleImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/imgdp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        app:civ_border_color="@color/white"
+        android:background="@drawable/circle_img_shape"
+        android:layout_marginLeft="150dp"/>
+      <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:layout_gravity="top|end"
+          android:src="@drawable/camerapic"
+          android:background="@drawable/camera_roundshape"
+          android:layout_marginTop="55dp"/>
+
+  </FrameLayout>
+
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/studentProfile_scrollView"
+       android:layout_below="@id/profile_FrameLayout">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_student_prof"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp">
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/studntname_img"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textSize="15sp"
+                    android:text="@string/student_name"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="Rita Debnath"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@color/sky_next_blue"/>
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/student_id_name"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Student Id"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="AS0141910045"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/guardian_name"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:textSize="15sp"
+                        android:text="@string/guardian_name"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/segoe_ui"
+                        android:text="Rohit Debnath"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@color/sky_next_blue"/>
+
+            </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/guardian_mobile"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:textSize="15sp"
+                        android:text="@string/guardian_mob_no"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/segoe_ui"
+                        android:textColor="@color/black"
+                        android:text="9876543210"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@color/sky_next_blue"/>
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/blood_group"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:text="@string/blood_group"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:textColor="@color/black"
+                            android:text="B-"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/dob"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:text="@string/date_of_birth"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:textColor="@color/black"
+                            android:text="12/02/2008"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/class_img"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Class"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:gravity="center_horizontal"
+                            android:text="10"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/class_img"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Roll No"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="COM06"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/session"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Session"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="2019-2020"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/gender"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Gender"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="Femele"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/religion"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Religion"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="Hindu"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/nationality"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Nationality"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:text="India"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/sky_next_blue"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/adhaar_card_img"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textSize="15sp"
+                            android:text="Adhaar Card No"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:fontFamily="@font/segoe_ui"
+                            android:text="234fbvvvbnf"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
 
 
+                </LinearLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/studentProfile_scrollView"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADDRESS DETAILS"
+            android:textColor="@color/sky_blue"
+            android:textStyle="bold"
+            android:fontFamily="@font/segoe_ui"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:text="Lorem Ipsum...."
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:elevation="100dp"
+            android:background="@drawable/textview_corner"/>
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/change_request"
+            android:textColor="@color/white"
+            android:background="@drawable/corner_blue_button"/>
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
 
 
 

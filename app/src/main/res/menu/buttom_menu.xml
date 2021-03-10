@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/home"
+        android:id="@+id/buttonHome"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_home1"/>
+    <item android:id="@+id/buttonTask"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:title="@string/task"
+        android:icon="@drawable/test"/>
+    <item android:id="@+id/buttonChat"
+        android:title="@string/chat"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/chat"/>
+    <item android:id="@+id/buttonHelp"
+        android:title="@string/help"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/help"/>
+    <item android:id="@+id/buttonReport"
+        android:title="@string/report"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/report"/>
+
+
+
+</menu>
