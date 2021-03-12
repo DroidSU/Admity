@@ -7,5 +7,6 @@ data class LoginResponseData(
     val name: String,
     val profileimage: String,
     val studentID: String,
-    val userid: String
+    val userid: String,
+    val aToken: String?,
 )

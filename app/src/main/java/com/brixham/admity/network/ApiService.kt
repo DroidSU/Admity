@@ -20,10 +20,12 @@ import java.util.concurrent.TimeUnit
 interface ApiService {
     @POST("Login/Login")
     fun loginUser(@Body body: HashMap<String, String>): Deferred<LoginResponseModel>
+
     @POST("Credentials/Passwordchange")
-    fun changepwdUser(@Body body: HashMap<String, String>): Deferred<ChangePasswordResponseModel>
-    @GET("Profile/ProfileDataFetch")
-    fun studentprofileUser(@Body body: HashMap<String, String>): Deferred<StudentProfileResponseModel>
+    fun changePwdUser(@HeaderMap headers: Map<String, String>, @Body body: HashMap<String, String>): Deferred<ChangePasswordResponseModel>
+
+    @POST("Profile/ProfileDataFetch")
+    fun getStudentProfile(@HeaderMap headers: Map<String, String>): Deferred<StudentProfileResponseModel>
 
 
 
@@ -44,7 +46,6 @@ interface ApiService {
                     .newBuilder()
                     .url(url)
                     .header("X-ApiKey", "8f92cb92-c007-448b-b488-brixham-1650492dfd00")
-                    .header("A-Token", "dRrg6L0Zzn42HhVvBPD8XlFTtbp5I5ik45")
                     .build()
 
                 return@Interceptor chain.proceed(request)

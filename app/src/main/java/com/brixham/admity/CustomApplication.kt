@@ -6,12 +6,10 @@ import com.brixham.admity.network.interceptors.ConnectivityInterceptor
 import com.brixham.admity.network.interceptors.ConnectivityInterceptorImpl
 import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptorImpl
-import com.brixham.admity.repositories.ChangePasswordRepository
-import com.brixham.admity.repositories.ChangePasswordRepositoryImpl
-import com.brixham.admity.repositories.LoginRepository
-import com.brixham.admity.repositories.LoginRepositoryImpl
+import com.brixham.admity.repositories.*
 import com.brixham.admity.viewmodels.ChangePasswordViewModelFactory
 import com.brixham.admity.viewmodels.LoginViewModelFactory
+import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -31,12 +29,16 @@ class CustomApplication : Application(), KodeinAware {
 
         bind<LoginRepository>() with singleton { LoginRepositoryImpl(instance()) }
         bind<ChangePasswordRepository>() with singleton { ChangePasswordRepositoryImpl(instance()) }
+        bind<StudentProfileDataRepository>() with singleton { StudentProfileRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
                 instance()
             )
             ChangePasswordViewModelFactory(
+                instance()
+            )
+            StudentProfileViewModelFactory(
                 instance()
             )
         }

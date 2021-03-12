@@ -1,5 +1,6 @@
 package com.brixham.admity.views
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -45,6 +46,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
     private var oldPassword = ""
     private var newPassword = ""
     private var newConfPassword = ""
+    private var authToken = ""
 
     var TAG = ChangePassword::class.java.simpleName
 
@@ -54,6 +56,8 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         changepwdViewModel =
             ViewModelProvider(this, changepwdViewModelFactory).get(ChangePasswordViewModel::class.java)
+
+        getUserDetails()
 
         backImgChangePwd = findViewById(R.id.imgIcLeftArrow)
         imgBellIconChangePwd = findViewById(R.id.imgHeaderBellIcon)
@@ -73,6 +77,14 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
 
     }
 
+    private fun getUserDetails() {
+        val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
+        authToken = sharedPrefs.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
+        if(authToken.isEmpty()){
+            authToken = Constants.DEFAULT_AUTH_TOKEN
+        }
+    }
+
     private fun startChangePwd() {
         oldPassword = etOldPwd.text.toString()
         newPassword = etNewPwd.text.toString()
@@ -80,7 +92,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         if (oldPassword.isNotBlank() && newPassword.isNotEmpty() || newConfPassword.isNotBlank()  && newPassword.isNotBlank() || newConfPassword.isNotBlank() && newPassword.isNotEmpty() || newConfPassword.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
-                changepwdViewModel.changepwdUser(oldPassword, newPassword,  this@ChangePassword)
+                changepwdViewModel.changepwdUser(authToken, oldPassword, newPassword,  this@ChangePassword)
             }
         } else {
             if (oldPassword.isEmpty())
@@ -113,15 +125,9 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
 
             val changePasswordResponse: ChangePasswordResponseModel = data as ChangePasswordResponseModel
             Log.d(TAG, "callSuccess: " + changePasswordResponse.message)
+
             if (changePasswordResponse.status) {
-
-                // saving value in shared preference
-                val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
-                val editor = sharedPrefs.edit()
-                editor.putBoolean(Constants.SHARED_PREFS_NEW_PWD, true)
-                editor.apply()
-
-                val intent = Intent(this@ChangePassword, LoginScreen::class.java)
+                val intent = Intent(this@ChangePassword, DashBoard::class.java)
                 startActivity(intent)
                 finish()
             } else {
