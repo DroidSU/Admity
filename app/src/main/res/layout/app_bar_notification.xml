@@ -4,8 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="10dp"
-    tools:showIn="@layout/app_bar_main2">
+    android:elevation="10dp">
 
 
     <LinearLayout

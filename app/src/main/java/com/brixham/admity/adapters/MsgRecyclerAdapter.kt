@@ -1,8 +1,5 @@
-package com.brixham.admity.adaptars
+package com.brixham.admity.adapters
 
-import android.annotation.SuppressLint
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

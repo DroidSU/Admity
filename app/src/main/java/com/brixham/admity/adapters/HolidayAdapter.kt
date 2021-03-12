@@ -1,4 +1,4 @@
-package com.brixham.admity.adaptars
+package com.brixham.admity.adapters
 
 import android.view.LayoutInflater
 import android.view.View

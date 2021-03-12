@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
-import com.brixham.admity.adaptars.RecyclerAdapter
+import com.brixham.admity.adapters.RecyclerAdapter
 
 class Notification : AppCompatActivity() {
 
