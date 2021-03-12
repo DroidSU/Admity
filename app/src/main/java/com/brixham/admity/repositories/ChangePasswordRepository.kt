@@ -4,5 +4,5 @@ import com.brixham.admity.models.ChangePasswordResponseModel
 import com.brixham.admity.network.Result
 
 interface ChangePasswordRepository {
-    suspend fun changepwdUser(oldPassword : String, newPassword : String): Result<ChangePasswordResponseModel>
+    suspend fun changepwdUser(authToken : String, oldPassword : String, newPassword : String): Result<ChangePasswordResponseModel>
 }

@@ -7,9 +7,9 @@ import com.brixham.admity.repositories.ChangePasswordRepository
 import com.brixham.admity.repositories.LoginRepository
 
 class ChangePasswordViewModel(private val changepwdRepository: ChangePasswordRepository) : ViewModel(){
-    suspend fun changepwdUser(oldPassword : String, newPassword : String, networkCallback: NetworkCallback){
+    suspend fun changepwdUser(authToken : String, oldPassword : String, newPassword : String, networkCallback: NetworkCallback){
         networkCallback.callStarted()
-        val loginResponse = changepwdRepository.changepwdUser(oldPassword = oldPassword, newPassword = newPassword)
+        val loginResponse = changepwdRepository.changepwdUser(oldPassword = oldPassword, newPassword = newPassword, authToken = authToken)
 
         if (loginResponse is Result.Success<*>){
             networkCallback.callSuccess(loginResponse.data)

@@ -48,7 +48,9 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
-        //loginViewModel = ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
+
+        loginViewModel = ViewModelProvider(this, loginViewModelFactory).get(LoginViewModel::class.java)
+
         btn_login = findViewById(R.id.btn_login)
         editTextUserId = findViewById(R.id.editText_sId)
         editTextPassword = findViewById(R.id.editText_password)
@@ -121,10 +123,13 @@ class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
             Log.d(TAG, "callSuccess: " + loginResponse.message)
             if (loginResponse.status) {
 
+                val authToken: String = loginResponse.data.aToken ?: Constants.DEFAULT_AUTH_TOKEN
+
                 // saving value in shared preference
                 val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
                 val editor = sharedPrefs.edit()
                 editor.putBoolean(Constants.SHARED_PREFS_IS_LOGGED_IN, true)
+                editor.putString(Constants.SHARED_PREFS_AUTH_TOKEN, authToken)
                 editor.apply()
 
                 val intent = Intent(this@LoginScreen, DashBoard::class.java)

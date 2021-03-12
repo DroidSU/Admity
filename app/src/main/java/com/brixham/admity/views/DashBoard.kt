@@ -44,7 +44,7 @@ class DashBoard : AppCompatActivity(){
         showDashBoard()
 
         imgBellIcon.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, EventDetails::class.java))
+            startActivity(Intent(this, ChangePassword::class.java))
         })
 
         imgMenuIcon.setOnClickListener(View.OnClickListener {

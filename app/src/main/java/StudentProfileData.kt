@@ -1,7 +1,4 @@
-package com.brixham.admity.models
-
-data class StudentProfileResponseData(
-
+data class StudentProfileData(
     val aadhar_card_no: Any,
     val adhar_CardURL: Any,
     val admission_Date: Any,

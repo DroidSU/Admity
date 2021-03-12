@@ -21,12 +21,12 @@
         android:id="@+id/profStudent_circleImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/imgdp"
         android:layout_marginTop="50dp"
         app:civ_border_color="@color/white"
         android:background="@drawable/circle_img_shape"
         android:layout_marginLeft="150dp"/>
       <ImageView
+          android:id="@+id/profCam_img"
           android:layout_width="20dp"
           android:layout_height="20dp"
           android:layout_gravity="center|top"
@@ -86,12 +86,13 @@
                     android:textSize="15sp"
                     android:text="@string/student_name"/>
                 <TextView
+                    android:id="@+id/student_fullName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/segoe_ui"
-                    android:text="Rita Debnath"
+                    android:text="  "
                     android:gravity="center_horizontal"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
@@ -129,12 +130,13 @@
                             android:textSize="15sp"
                             android:text="Student Id"/>
                         <TextView
+                            android:id="@+id/studentprofile_Id"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="AS0141910045"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:gravity="center_horizontal" />
@@ -172,12 +174,13 @@
                         android:textSize="15sp"
                         android:text="@string/guardian_name"/>
                     <TextView
+                        android:id="@+id/studentGuardianName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="30dp"
                         android:fontFamily="@font/segoe_ui"
-                        android:text="Rohit Debnath"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -216,13 +219,14 @@
                         android:textSize="15sp"
                         android:text="@string/guardian_mob_no"/>
                     <TextView
+                        android:id="@+id/student_contactNo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="30dp"
                         android:fontFamily="@font/segoe_ui"
                         android:textColor="@color/black"
-                        android:text="9876543210"
+                        android:text=""
                         android:gravity="center_horizontal"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -240,7 +244,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="28dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:weightSum="3">
@@ -259,13 +263,14 @@
                             android:text="@string/blood_group"
                             android:textSize="15sp" />
                         <TextView
+                            android:id="@+id/student_bloodGrp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
                             android:textColor="@color/black"
-                            android:text="B-"
+                            android:text=""
                             android:textAlignment="center"
                             android:textStyle="bold"
                             android:gravity="center_horizontal" />
@@ -284,7 +289,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="28dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:weightSum="3">
@@ -303,13 +308,14 @@
                             android:text="@string/date_of_birth"
                             android:textSize="15sp" />
                         <TextView
+                            android:id="@+id/student_dob"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
                             android:textColor="@color/black"
-                            android:text="12/02/2008"
+                            android:text=""
                             android:gravity="center_horizontal"
                             android:textStyle="bold"/>
                     </LinearLayout>
@@ -327,7 +333,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="28dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:weightSum="3">
@@ -346,13 +352,14 @@
                             android:textSize="15sp"
                             android:text="Class"/>
                         <TextView
+                            android:id="@+id/student_class"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
                             android:gravity="center_horizontal"
-                            android:text="10"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
                     </LinearLayout>
@@ -370,7 +377,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="28dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:weightSum="3">
@@ -389,12 +396,13 @@
                             android:textSize="15sp"
                             android:text="Roll No"/>
                         <TextView
+                            android:id="@+id/student_RollNo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="COM06"
+                            android:text=""
                             android:gravity="center_horizontal"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
@@ -432,12 +440,13 @@
                             android:textSize="15sp"
                             android:text="Session"/>
                         <TextView
+                            android:id="@+id/student_session"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="2019-2020"
+                            android:text=""
                             android:gravity="center_horizontal"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
@@ -475,12 +484,13 @@
                             android:textSize="15sp"
                             android:text="Gender"/>
                         <TextView
+                            android:id="@+id/student_gender"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="Femele"
+                            android:text=""
                             android:gravity="center_horizontal"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
@@ -517,16 +527,18 @@
                             android:gravity="start"
                             android:textSize="15sp"
                             android:text="Religion"/>
+
                         <TextView
+                            android:id="@+id/student_religion"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_height="25dp"
                             android:layout_marginLeft="30dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="Hindu"
                             android:gravity="center_horizontal"
+                            android:text=""
                             android:textColor="@color/black"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -561,6 +573,7 @@
                             android:textSize="15sp"
                             android:text="Nationality"/>
                         <TextView
+                            android:id="@+id/student_Nationality"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -568,7 +581,7 @@
                             android:fontFamily="@font/segoe_ui"
                             android:gravity="center_horizontal"
                             android:textColor="@color/black"
-                            android:text="India"
+                            android:text=""
                             android:textStyle="bold"/>
                     </LinearLayout>
                     <View
@@ -604,12 +617,13 @@
                             android:textSize="15sp"
                             android:text="Adhaar Card No"/>
                         <TextView
+                            android:id="@+id/student_adhaarCardNo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"
                             android:fontFamily="@font/segoe_ui"
-                            android:text="234fbvvvbnf"
+                            android:text=""
                             android:gravity="center_horizontal"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
@@ -669,12 +683,12 @@
             app:cardElevation="10dp"
             app:cardCornerRadius="10dp">
         <TextView
+            android:id="@+id/student_address"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-
-            android:text="Lorem Ipsum...."
+            android:text=" "
             android:textSize="20sp"
             android:textColor="@color/black"
             android:gravity="center"
