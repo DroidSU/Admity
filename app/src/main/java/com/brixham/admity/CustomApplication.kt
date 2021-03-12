@@ -35,9 +35,15 @@ class CustomApplication : Application(), KodeinAware {
             LoginViewModelFactory(
                 instance()
             )
+        }
+
+        bind() from provider {
             ChangePasswordViewModelFactory(
                 instance()
             )
+        }
+
+        bind() from provider {
             StudentProfileViewModelFactory(
                 instance()
             )
