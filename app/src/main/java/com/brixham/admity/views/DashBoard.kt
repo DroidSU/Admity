@@ -5,15 +5,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.GridView
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentTransaction
 import com.brixham.admity.R
+import com.brixham.admity.adaptars.DashBoardGridAdapter
+import com.brixham.admity.fragments.EventDetailsFragment
+import com.brixham.admity.fragments.HomeFragment
+import com.brixham.admity.fragments.NotificationFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
@@ -24,10 +31,11 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
     private lateinit var imgBellIcon: ImageView
     private lateinit var imgLogoIcon: ImageView
     private lateinit var dashboardImgCircleDP: ImageView
-    private lateinit var linearLayoutMessage: LinearLayout
-    private lateinit var linearLayoutHelp: LinearLayout
-    private lateinit var linearLayoutReport: LinearLayout
-    private lateinit var linearLayoutChangePassword: LinearLayout
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var buttonChat: Menu
+    private lateinit var linearLayoutChangePwd: LinearLayout
+    private lateinit var dashBoardGrid: GridView
+    private lateinit var gridAdapter: DashBoardGridAdapter
 
     //private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
@@ -35,31 +43,32 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
     private lateinit var dashBordNavigationView: NavigationView
     private lateinit var dashBordNavigationViewMenu: NavigationView
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-
         imgBellIcon = findViewById(R.id.imgHeaderBellIcon)
         imgMenuIcon = findViewById(R.id.imgMenuIcon)
         imgLogoIcon = findViewById(R.id.imgLogoIcon)
-        linearLayoutMessage = findViewById(R.id.linearLayout_messagePage1)
-        linearLayoutHelp = findViewById(R.id.linearLayout_helpPage1)
-        //linearLayoutChangePassword = findViewById(R.id.linearLayout_changePassword)
-        linearLayoutReport = findViewById(R.id.linearLayout_reportPage1)
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
         dashBordNavigationView = findViewById(R.id.nav_view)
         dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
+        //dashBoardGrid = findViewById(R.id.gridView_dashboard)
+        //gridAdapter = DashBoardGridAdapter(applicationContext,textStudentPanel, imagesStudentPanel)
+        //dashBoardGrid.adapter
+
+
+
         dashBordNavigationView.setNavigationItemSelectedListener(this)
-        linearLayoutReport.setOnClickListener(View.OnClickListener {
-            var intent1: Intent = Intent(this, ChatAtivity::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent1)
-        })
+        showDashBoard()
+
+
+
+
         imgBellIcon.setOnClickListener(View.OnClickListener {
-            var intent2: Intent = Intent(this, Notification::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent2)
+            startActivity(Intent(this, EventDetails::class.java))
         })
         imgMenuIcon.setOnClickListener(View.OnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.LEFT)
@@ -67,30 +76,21 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent2)*/
         })
-        linearLayoutMessage.setOnClickListener(View.OnClickListener {
-            var intent3: Intent = Intent(this, Messages::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent3)
-        })
-        linearLayoutHelp.setOnClickListener {
-            var intent4: Intent = Intent(this, HelpActivity::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent4)
-        }
+
 
         imgMenuIcon.visibility = View.VISIBLE
         imgLogoIcon.visibility = View.VISIBLE
         imgBellIcon.visibility = View.VISIBLE
         dashboardImgCircleDP.visibility = View.VISIBLE
-
-
-
-
         //dashBordNavigationView = findViewById(R.id.nav_view)
-
-
         dashboardImgCircleDP.setOnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
+            linearLayoutChangePwd = findViewById(R.id.linearLayout_changePassword)
+            linearLayoutChangePwd.setOnClickListener {
+                Log.d("TAG", "onNavigationItemSelected: Trigerred")
+
+
+            }
 
 
         }
@@ -102,6 +102,22 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             finish()
         }*/
     }
+
+
+
+
+
+
+    private fun showDashBoard() {
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+// Replace the contents of the container with the new fragment
+        ft.replace(R.id.dashBoard_frameLayout, HomeFragment())
+        //ft.replace(R.id.dashBoard_frameLayout, EventDetailsFragment())
+// or ft.add(R.id.your_placeholder, new FooFragment());
+// Complete the changes added above
+        ft.commit()
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (item.isChecked){
@@ -113,7 +129,6 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             Log.d("TAG", "onNavigationItemSelected: Trigerred")
             startActivity(Intent(this, ChangePassword::class.java))
         }
-
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
         dashBordDrawerLayout.closeDrawer(GravityCompat.START)

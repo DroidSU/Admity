@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Admity</string>
     <string name="your_email">Your Email</string>
     <string name="password">Password</string>
@@ -13,8 +13,34 @@
     <string name="navigation_drawer_open">navigation_drawer_open</string>
     <string name="navigation_drawer_close">navigation_drawer_close</string>
     <string name="enter_your_new_password">Enter Your New Password</string>
-    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_your_password">Enter Your Old Password</string>
     <string name="re_enter_your_new_password">Re-enter Your New Password</string>
+    <string name="home">Home</string>
+    <string name="task">Task</string>
+    <string name="chat">Chat</string>
+
+    <string name="report">Report</string>
+    <string name="student_name">Student Name</string>
+    <string name="guardian_name">Guardian Name</string>
+    <string name="guardian_mob_no">Guardian Mob No</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="change_request">Change Request</string>
+    <string name="help">Help</string>
+    <string name="student_profile">Student Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="notification">Notification</string>
+    <string name="message">Message</string>
+    <string name="payment_history">Payment History</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="attendance">Attendance</string>
+    <string name="view_selected_date_classes"><u>View Selected Date Classes</u></string>
+    <string name="confirm">Confirm</string>
+    <string name="fees">Fees</string>
+    <string name="holiday">Holiday</string>
+    <string name="transport">Transport</string>
+    <string name="event_details">Event Details</string>
+    <string name="holiday_view">Holiday View</string>
     <array name="autosize_text_sizes">
         <item>10sp</item>
         <item>12sp</item>
