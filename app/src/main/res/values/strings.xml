@@ -36,6 +36,11 @@
     <string name="attendance">Attendance</string>
     <string name="view_selected_date_classes"><u>View Selected Date Classes</u></string>
     <string name="confirm">Confirm</string>
+    <string name="fees">Fees</string>
+    <string name="holiday">Holiday</string>
+    <string name="transport">Transport</string>
+    <string name="event_details">Event Details</string>
+    <string name="holiday_view">Holiday View</string>
     <array name="autosize_text_sizes">
         <item>10sp</item>
         <item>12sp</item>

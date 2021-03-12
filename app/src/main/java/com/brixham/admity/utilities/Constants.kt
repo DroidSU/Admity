@@ -7,6 +7,7 @@ class Constants {
         val A_Token = "dRrg6L0Zzn42HhVvBPD8XlFTtbp5I5ik45"
         val LOGIN_URL = BASE_URL + "Login/Login"
         val CHANGE_PWD_URL = BASE_URL + "Credentials/Passwordchange"
+        val STUDENT_PROFILE_DATA_FETCH = BASE_URL + "Profile/ProfileDataFetch"
         val SHARED_PREF_FILE_NAME = "admity_prefs"
         val SHARED_PREFS_USER_ID = "user_id"
         val SHARED_PREFS_USER_NAME = "user_name"
@@ -18,5 +19,6 @@ class Constants {
         val SHARED_PREFS_IS_LOGGED_IN = "is_user_logged_in"
         val SHARED_PREFS_OLD_PWD = "is_user_old_pwd"
         val SHARED_PREFS_NEW_PWD = "is_user_new_pwd"
+        val SHARED_PREFS_STUDENT_PROFILE_DATA = "user_profile_data"
     }
 }

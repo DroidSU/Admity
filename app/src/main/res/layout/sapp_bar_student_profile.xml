@@ -8,11 +8,14 @@
     tools:context=".views.StudentProfile"
     >
 
-    <include layout="@layout/layout_toolbar"/>
+    <include layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
   <FrameLayout
       android:id="@+id/profile_FrameLayout"
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
       android:layout_gravity="center">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profStudent_circleImg"
@@ -26,10 +29,11 @@
       <ImageView
           android:layout_width="20dp"
           android:layout_height="20dp"
-          android:layout_gravity="top|end"
+          android:layout_gravity="center|top"
           android:src="@drawable/camerapic"
           android:background="@drawable/camera_roundshape"
-          android:layout_marginTop="55dp"/>
+          android:layout_marginTop="55dp"
+          android:layout_marginLeft="34dp"/>
 
   </FrameLayout>
 
@@ -38,6 +42,10 @@
        android:layout_height="wrap_content"
        android:id="@+id/studentProfile_scrollView"
        android:layout_below="@id/profile_FrameLayout">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:id="@+id/card_student_prof"
             android:layout_width="match_parent"
@@ -90,7 +98,7 @@
             </LinearLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:background="@color/sky_next_blue"/>
@@ -133,7 +141,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -177,7 +185,7 @@
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:background="@color/sky_next_blue"/>
@@ -220,7 +228,7 @@
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:background="@color/sky_next_blue"/>
@@ -264,7 +272,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -307,7 +315,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -350,7 +358,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -393,7 +401,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -436,7 +444,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -479,7 +487,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -522,7 +530,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -565,7 +573,7 @@
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:layout_marginLeft="28dp"
                         android:layout_marginRight="25dp"
                         android:background="@color/sky_next_blue"/>
@@ -638,13 +646,13 @@
 
 
 
-   </androidx.core.widget.NestedScrollView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/studentProfile_scrollView"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:orientation="vertical">
         <TextView
@@ -659,9 +667,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:cardElevation="10dp"
-            app:cardCornerRadius="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            app:cardCornerRadius="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -700,7 +706,7 @@
 
 
 
-
-
+       </LinearLayout>
+   </androidx.core.widget.NestedScrollView>
 
    </RelativeLayout>

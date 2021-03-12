@@ -2,6 +2,7 @@ package com.brixham.admity.network
 
 import com.brixham.admity.models.ChangePasswordResponseModel
 import com.brixham.admity.models.LoginResponseModel
+import com.brixham.admity.models.StudentProfileResponseModel
 import com.brixham.admity.network.interceptors.ConnectivityInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.utilities.Constants.Companion.BASE_URL
@@ -21,6 +22,8 @@ interface ApiService {
     fun loginUser(@Body body: HashMap<String, String>): Deferred<LoginResponseModel>
     @POST("Credentials/Passwordchange")
     fun changepwdUser(@Body body: HashMap<String, String>): Deferred<ChangePasswordResponseModel>
+    @GET("Profile/ProfileDataFetch")
+    fun studentprofileUser(@Body body: HashMap<String, String>): Deferred<StudentProfileResponseModel>
 
 
 

@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
 import com.brixham.admity.R
 import com.brixham.admity.adaptars.DashBoardGridAdapter
+import com.brixham.admity.fragments.EventDetailsFragment
 import com.brixham.admity.fragments.HomeFragment
 import com.brixham.admity.fragments.NotificationFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -67,7 +68,7 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
 
 
         imgBellIcon.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, ChangePassword::class.java))
+            startActivity(Intent(this, EventDetails::class.java))
         })
         imgMenuIcon.setOnClickListener(View.OnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.LEFT)
@@ -111,6 +112,7 @@ class DashBoard : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
 // Replace the contents of the container with the new fragment
         ft.replace(R.id.dashBoard_frameLayout, HomeFragment())
+        //ft.replace(R.id.dashBoard_frameLayout, EventDetailsFragment())
 // or ft.add(R.id.your_placeholder, new FooFragment());
 // Complete the changes added above
         ft.commit()

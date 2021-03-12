@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.FeesAllFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admission Fees 2021"
+                    android:textSize="23sp"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1st April - 10th April 2021"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/segoe_ui"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="bottom"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Status : Paid"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="@color/green"
+                    android:fontFamily="@font/segoe_ui_bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:text="Rs. 11999"
+                    android:layout_gravity="bottom"
+                    android:gravity="end"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
+            </LinearLayout>
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+          <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annual Fees 2021"
+                android:textSize="23sp"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textColor="@color/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3rd May - 10th May 2021"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/segoe_ui"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status : Pending"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/segoe_ui_bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:text="Rs. 32999"
+                android:layout_gravity="bottom"
+                android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Fees 2021"
+                android:textSize="23sp"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textColor="@color/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1st March - 10th March 2021"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/segoe_ui"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status : Paid"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/segoe_ui_bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:text="Rs. 1999"
+                android:layout_gravity="bottom"
+                android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tution Fees 2021"
+                android:textSize="23sp"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textColor="@color/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2nd April - 10th April 2021"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/segoe_ui"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status : Pending"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/segoe_ui_bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:text="Rs. 500"
+                android:layout_gravity="bottom"
+                android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
