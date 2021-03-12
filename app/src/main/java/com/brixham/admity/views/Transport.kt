@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
-import com.brixham.admity.adaptars.HolidayAdapter
-import com.brixham.admity.adaptars.TransportAdapter
+import com.brixham.admity.adapters.TransportAdapter
 
 class Transport : AppCompatActivity() {
 

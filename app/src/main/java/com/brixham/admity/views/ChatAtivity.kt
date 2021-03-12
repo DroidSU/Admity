@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
-import com.brixham.admity.adaptars.ChatRecyclerAdapter
-import com.brixham.admity.adaptars.MsgRecyclerAdapter
+import com.brixham.admity.adapters.ChatRecyclerAdapter
 
 class ChatAtivity : AppCompatActivity() {
 

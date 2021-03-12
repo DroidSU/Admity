@@ -36,13 +36,5 @@ class HelpActivity : AppCompatActivity() {
             finish()
 
         })
-        linearLayoutMessagePage.setOnClickListener(View.OnClickListener {
-            var intent: Intent = Intent(this, Messages::class.java)
-            startActivity(intent)
-            finish()
-
-        })
-
-
     }
 }

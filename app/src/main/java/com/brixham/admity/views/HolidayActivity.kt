@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
-import com.brixham.admity.adaptars.HolidayAdapter
-import com.brixham.admity.adaptars.MsgRecyclerAdapter
+import com.brixham.admity.adapters.HolidayAdapter
 
 class HolidayActivity : AppCompatActivity() {
 

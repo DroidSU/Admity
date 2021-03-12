@@ -7,11 +7,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
-import androidx.fragment.app.FragmentManager
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.brixham.admity.R
-import com.brixham.admity.adaptars.FeesPagerAdapter
+import com.brixham.admity.adapters.FeesPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 class FeesActivity : AppCompatActivity() {
