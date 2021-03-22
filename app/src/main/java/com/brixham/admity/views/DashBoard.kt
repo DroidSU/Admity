@@ -190,6 +190,10 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.buttonHome -> {
+                    imgMenuIcon.visibility = View.VISIBLE
+                    imgLogoIcon.visibility = View.VISIBLE
+                    imgBellIcon.visibility = View.VISIBLE
+                    dashboardImgCircleDP.visibility = View.VISIBLE
                     //toolbar.setTitle(resources.getString(R.string.message))
                     loadFragment(HomeFragment.newInstance(""))
                     return@OnNavigationItemSelectedListener true

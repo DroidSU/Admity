@@ -204,25 +204,47 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+            <Button
+                android:layout_width="220dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/corner_blue_button"
+                android:layout_weight="1"
+                android:background="@drawable/rec_red_button"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:padding="8dp"
-                android:textSize="20dp"
-                android:text="Submit"
+                android:textSize="15sp"
+                android:text="Upload Screenshot"
                 android:textColor="@color/white"
                 android:shadowColor="@color/transparent"
                 android:shadowDx="1.5"
                 android:shadowDy="1.5"
                 android:shadowRadius="2"/>
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rec_green_utton"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="8dp"
+                    android:textSize="15sp"
+                    android:text="Send"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/transparent"
+                    android:shadowDx="1.5"
+                    android:shadowDy="1.5"
+                    android:shadowRadius="2"/>
 
-
+            </LinearLayout>
 
 
 
