@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/ll_stdprofile"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="5dp"
-    android:background="@drawable/drawer_xml"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileCirleImg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/imgdp" />
-
-        <TextView
-            android:id="@+id/textProfileName"
-            android:layout_width="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/segoe_ui"
-            android:text="Rita Debnath"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:gravity="center"
+
+
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCirleImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/imgdp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/drawer_textProfileFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bethany Cline"
+                android:textSize="30dp"
+                android:fontFamily="@font/segoe_ui"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Class(10)"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/textProfileName"/>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +64,7 @@
         android:layout_gravity="end"
         android:orientation="vertical">
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -162,5 +172,6 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>-->
+
 </LinearLayout>

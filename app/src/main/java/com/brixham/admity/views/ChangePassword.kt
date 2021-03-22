@@ -70,6 +70,16 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         imgBellIconChangePwd.visibility = View.VISIBLE
         textViewtChangePwd.visibility = View.VISIBLE
 
+        imgBellIconChangePwd.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, Notification::class.java))
+            finish()
+        })
+        backImgChangePwd.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, DashBoard::class.java))
+            finish()
+        })
+
+
         butonChangePwd.setOnClickListener {
             startChangePwd()
         }
@@ -127,7 +137,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
             Log.d(TAG, "callSuccess: " + changePasswordResponse.message)
 
             if (changePasswordResponse.status) {
-                val intent = Intent(this@ChangePassword, DashBoard::class.java)
+                val intent = Intent(this@ChangePassword, LoginScreen::class.java)
                 startActivity(intent)
                 finish()
             } else {

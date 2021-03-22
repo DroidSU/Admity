@@ -1,5 +1,6 @@
 package com.brixham.admity.views
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,7 +31,16 @@ class FeesActivity : AppCompatActivity() {
         backImgMsg.visibility = View.VISIBLE
         imgMsgBellIcon.visibility = View.VISIBLE
         textViewMsg.visibility = View.VISIBLE
-
+        backImgMsg.setOnClickListener {
+            var intent: Intent = Intent(this, DashBoard::class.java)
+            startActivity(intent)
+            finish()
+        }
+        imgMsgBellIcon.setOnClickListener {
+            var intent: Intent = Intent(this, Notification::class.java)
+            startActivity(intent)
+            finish()
+        }
         //toolbar = findViewById(R.id.Feeslayout_toolbaar)
         //setSupportActionBar(toolbar)
         feesTabLayout = findViewById(R.id.fees_tabLayout)

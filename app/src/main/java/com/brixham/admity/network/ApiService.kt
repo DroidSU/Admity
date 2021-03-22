@@ -1,6 +1,7 @@
 package com.brixham.admity.network
 
 import com.brixham.admity.models.ChangePasswordResponseModel
+import com.brixham.admity.models.HolidayResponseModel
 import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.models.StudentProfileResponseModel
 import com.brixham.admity.network.interceptors.ConnectivityInterceptor
@@ -26,6 +27,9 @@ interface ApiService {
 
     @POST("Profile/ProfileDataFetch")
     fun getStudentProfile(@HeaderMap headers: Map<String, String>): Deferred<StudentProfileResponseModel>
+
+    @POST("Myinstitute/Instituteholiday")
+    fun getHoliday(@HeaderMap headers: Map<String, String>): Deferred<List<HolidayResponseModel>>
 
 
 

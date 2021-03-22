@@ -32,16 +32,48 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:src="@color/transparent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
                 <TextView
-                    android:id="@+id/textHoliday_name"
+                    android:id="@+id/textHoliday_Id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Holiday Name 1"
-                    android:textSize="23sp"
-                    android:layout_marginTop="40dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/segoe_ui"/>
+                    <TextView
+                        android:id="@+id/textHoliday_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Holiday Name 1"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/segoe_ui"/>
+                    <TextView
+                        android:id="@+id/textView_Date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Date"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:id="@+id/textView_dateYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8th March 2021"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="16sp"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,33 +92,25 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="20dp"
                     android:src="@drawable/holiday_time_icon"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
+
                     <TextView
-                        android:id="@+id/textView_Date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="Date"
+                        android:id="@+id/textView_HolidayDescription"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        app:autoSizeTextType="uniform"
+                        android:lineSpacingExtra="3dp"
+                        app:autoSizeStepGranularity="8sp"
                         android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"/>
-                    <TextView
-                        android:id="@+id/textView_dateYear"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="8th March 2021"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"/>
+
                     
                     
                     
                     
-                </LinearLayout>
+
 
 
 

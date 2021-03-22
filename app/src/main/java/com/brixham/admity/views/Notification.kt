@@ -30,9 +30,8 @@ class Notification : AppCompatActivity() {
         //linearLayoutHomePage1 = findViewById(R.id.linearLayout_HomePage)
         imageBackNotification.setOnClickListener(View.OnClickListener {
             var intent: Intent = Intent(this, DashBoard::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
+            finish()
 
         })
        /* linearLayoutHomePage1.setOnClickListener(View.OnClickListener {

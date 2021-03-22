@@ -6,7 +6,9 @@
     tools:context=".fragments.FragmentMessage">
 
     <!-- TODO: Update blank fragment layout -->
-    <include layout="@layout/app_bar_header_msg"/>
-    <include layout="@layout/app_bar_layout"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>
