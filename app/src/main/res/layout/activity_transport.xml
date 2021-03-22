@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/about_background"
-    tools:context=".views.Transport">
+    tools:context=".views.TransportActivity">
 
     <include layout="@layout/layout_toolbar"/>
-    <include layout="@layout/holiday_layout"/>
+
 
 </LinearLayout>

@@ -8,43 +8,34 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
+import com.brixham.admity.models.HolidayResponseData
+import com.brixham.admity.models.HolidayResponseModel
 import com.brixham.admity.viewmodels.HolidayViewModel
 
-class HolidayAdapter(private val holidayViewModel: List<HolidayViewModel>, private val context: Context): RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
-
-    private val images1 = intArrayOf(R.drawable.happy_womens_day,R.drawable.happy_womens_day,R.drawable.happy_womens_day,R.drawable.happy_womens_day,R.drawable.happy_womens_day)
-    private val textV1 = arrayOf(" ","Holiday Id","Holiday Id","Holiday Id","Holiday Id")
-    private val textV2 = arrayOf("Holiday Name 1","Holiday Name 2","Holiday Name 3","Holiday Name 4","Holiday Name 5")
-    private val images2 = intArrayOf(R.drawable.holiday_time_icon,R.drawable.holiday_time_icon,R.drawable.holiday_time_icon,R.drawable.holiday_time_icon,R.drawable.holiday_time_icon)
-    private val textV3 = arrayOf("Date","Date","Date","Date","Date")
-    private val textV4 = arrayOf("8th March 2021","8th March 2021","8th March 2021","8th March 2021","8th March 2021")
-
+class HolidayAdapter(private val context: Context, private val holidayResponseList: List<HolidayResponseData>): RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        var displayHolidayImageView : ImageView = view.findViewById(R.id.holiday_cicleImg)
         var textViewHolidayId: TextView = view.findViewById(R.id.textHoliday_Id)
-        var textViewHolidayName: TextView = view.findViewById(R.id.textHoliday_name)
-        var displayHolidayTimeImageView : ImageView = view.findViewById(R.id.holiday_timeCircleImg)
-        var textViewDate: TextView = view.findViewById(R.id.textView_Date)
-        var textViewDateYear: TextView = view.findViewById(R.id.textView_dateYear)
+        var textViewHolidayTitle: TextView = view.findViewById(R.id.textHoliday_title)
+        var textViewDate: TextView = view.findViewById(R.id.textView_holiday_date)
+        var textViewDescription: TextView = view.findViewById(R.id.textView_HolidayDescription)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolidayAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.holiday_list, parent, false)
+        val v = LayoutInflater.from(context).inflate(R.layout.holiday_list, parent, false)
         return ViewHolder(v)
     }
     override fun onBindViewHolder(holder: HolidayAdapter.ViewHolder, position: Int) {
-        val dataModel=holidayViewModel.get(position)
+        val dataModel = holidayResponseList[position]
 
-        holder.displayHolidayImageView.setImageResource(images1[position])
-        //holder.textViewHolidayId.text = listOf(dataModel)
-        holder.displayHolidayTimeImageView.setImageResource(images2[position])
-        holder.textViewDate.text = textV3[position]
-        holder.textViewDateYear.text = textV4[position]
+        holder.textViewHolidayId.text = dataModel.pk_holidayId.toString()
+        holder.textViewHolidayTitle.text = dataModel.holiday_Title
+        holder.textViewDate.text = dataModel.date
+        holder.textViewDescription.text = dataModel.holiday_Des
     }
     override fun getItemCount(): Int {
-        return holidayViewModel.size
+        return holidayResponseList.size
     }
 
 

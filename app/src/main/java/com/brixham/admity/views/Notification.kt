@@ -18,7 +18,7 @@ class Notification : AppCompatActivity() {
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
     private lateinit var recycler_adaptar : RecyclerView
     private lateinit var imageBackNotification: ImageView
-    private lateinit var textViewNotification: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var linearLayoutHomePage1: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,23 +26,16 @@ class Notification : AppCompatActivity() {
         setContentView(R.layout.activity_notification)
 
         imageBackNotification = findViewById(R.id.imgIcLeftArrow)
-        textViewNotification = findViewById(R.id.textHeaderNotification)
-        //linearLayoutHomePage1 = findViewById(R.id.linearLayout_HomePage)
-        imageBackNotification.setOnClickListener(View.OnClickListener {
-            var intent: Intent = Intent(this, DashBoard::class.java)
+        textViewHeader = findViewById(R.id.toolbar_header)
+        imageBackNotification.setOnClickListener {
+            val intent = Intent(this, DashBoard::class.java)
             startActivity(intent)
             finish()
+        }
 
-        })
-       /* linearLayoutHomePage1.setOnClickListener(View.OnClickListener {
-            var intent1: Intent = Intent(this, DashBoard::class.java)
-            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent1)
-
-        })*/
         imageBackNotification.visibility = View.VISIBLE
-        textViewNotification.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Notification"
 
         recycler_adaptar = findViewById(R.id.recyclerNotification)
 

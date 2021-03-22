@@ -43,15 +43,10 @@ import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
 
-class DashBoardActivity : AppCompatActivity() {
-
-
-
-}
-
-
 class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, KodeinAware, NetworkCallback{
     override val kodein by closestKodein()
+
+    // for student data
     private val studentprofileViewModelFactory: StudentProfileViewModelFactory by instance()
     private lateinit var studentprofileViewModel: StudentProfileViewModel
 
@@ -61,7 +56,6 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var dashboardImgCircleDP: ImageView
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var drawerTextFullName: TextView
-    private lateinit var dashBoardTextName: TextView
     private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
 
@@ -75,7 +69,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     var drawerTextName = ""
     var dashboardTextName = ""
 
-    private var authToken = "";
+    private var authToken = ""
     //var fragment: Fragment? = null
     //var fragmentTransaction: FragmentTransaction? = null
 
@@ -86,17 +80,14 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             studentprofileViewModel.getStudentProfile(authToken, this@DashBoard)
         }
     }
-    var fragment: Fragment? = null
-    var fragmentTransaction: FragmentTransaction? = null
-
 
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-        val dateFormat =
-            DateFormat.getDateFormat(applicationContext)
+
+        // Initialising student profile data
         studentprofileViewModel = ViewModelProvider(this, studentprofileViewModelFactory).get(StudentProfileViewModel::class.java)
 
         imgBellIcon = findViewById(R.id.imgHeaderBellIcon)
@@ -104,10 +95,9 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         imgLogoIcon = findViewById(R.id.imgLogoIcon)
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView = findViewById(R.id.dashboard_bottom_navigation)
         dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
         //drawerTextFullName = findViewById(R.id.drawer_textProfileFullName)
-        //dashBoardTextName = findViewById(R.id.textView_salutation)
         dashBordNavigationViewMenu.setNavigationItemSelectedListener(this)
         navigationView = findViewById(R.id.nav_view)
         //toolbar = findViewById(R.id.toolbar)
@@ -120,36 +110,40 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
         }
 
-        loadFragment(HomeFragment())
+
         imgMenuIcon.visibility = View.VISIBLE
         imgLogoIcon.visibility = View.VISIBLE
         imgBellIcon.visibility = View.VISIBLE
         dashboardImgCircleDP.visibility = View.VISIBLE
         //showDashBoard()
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            val id = menuItem.itemId
-            if (id == R.id.buttonHome) {
-                //toolbar.setTitle(resources.getString(R.string.message))
-                loadFragment(HomeFragment())
-                return@OnNavigationItemSelectedListener true
-            } else if (id == R.id.buttonTask) {
-                return@OnNavigationItemSelectedListener true
-            } else if (id == R.id.buttonChat) {
-                //toolbar.setTitle(resources.getString(R.string.message))
-                loadFragment(FragmentMessage())
+            when (menuItem.itemId) {
+                R.id.buttonHome -> {
+                    //toolbar.setTitle(resources.getString(R.string.message))
+                    loadFragment(HomeFragment.newInstance(""))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.buttonTask -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.buttonChat -> {
+                    //toolbar.setTitle(resources.getString(R.string.message))
+                    loadFragment(FragmentMessage())
 
-                return@OnNavigationItemSelectedListener true
-            } else if (id == R.id.buttonHelp) {
-                //toolbar.setTitle(resources.getString(R.string.help))
-                loadFragment(fragment = HelpFragment())
-                return@OnNavigationItemSelectedListener true
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.buttonHelp -> {
+                    //toolbar.setTitle(resources.getString(R.string.help))
+                    loadFragment(fragment = HelpFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.buttonReport -> {
+                    //toolbar.setTitle(resources.getString(R.string.help))
+                    //loadFragment(HelpFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                else -> return@OnNavigationItemSelectedListener false
             }
-            else if (id == R.id.buttonReport) {
-                //toolbar.setTitle(resources.getString(R.string.help))
-                //loadFragment(HelpFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            return@OnNavigationItemSelectedListener false
         })
 
 
@@ -179,24 +173,20 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
 
     private fun loadFragment(fragment: Fragment) {
-        var transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.dashBoard_frameLayout, fragment)
         transaction.commit()
-
     }
 
 
-    /*override fun onStart() {
+    override fun onStart() {
         super.onStart()
         val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
         authToken = sharedPrefs.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
 
-        // REMOVE LATER
-        authToken = Constants.DEFAULT_AUTH_TOKEN;
         Log.d(TAG, "onStart: $authToken")
         getStudentDetails()
-
-    }*/
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -205,8 +195,6 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 val intent =
                     Intent(this, StudentProfile::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
-
-
             }
             R.id.menu_change_password -> {
                 val intent =
@@ -274,21 +262,8 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         return true
     }
 
-
-
-    /*private fun showDashBoard() {
-        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-        // Replace the contents of the container with the new fragment
-        ft.replace(R.id.dashBoard_frameLayout, HomeFragment.newInstance())
-        //ft.replace(R.id.dashBoard_frameLayout, EventDetailsFragment())
-        // or ft.add(R.id.your_placeholder, new FooFragment());
-        // Complete the changes added above
-        ft.commit()
-    }*/
-
     override fun callStarted() {
         CoroutineScope(Dispatchers.Main).launch {
-
         }
     }
 
@@ -307,9 +282,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     }
 
     private fun displayName(studentProfileResponse: StudentProfileResponseModel) {
-        //drawerTextFullName.text = studentProfileResponse.data.s_fName
-        dashBoardTextName.text = studentProfileResponse.data.s_fName
-
+        loadFragment(HomeFragment.newInstance(studentProfileResponse.data.s_fName))
     }
 
 

@@ -5,5 +5,5 @@ import com.brixham.admity.models.StudentProfileResponseModel
 import com.brixham.admity.network.Result
 
 interface HolidayRepository {
-    suspend fun getHoliday(authToken: String): Result<List<HolidayResponseModel>>
+    suspend fun getHoliday(authToken: String): Result<HolidayResponseModel>
 }

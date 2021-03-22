@@ -12,17 +12,18 @@ class EventDetails : AppCompatActivity() {
 
     private lateinit var backImgMsg: ImageView
     private lateinit var imgEventDetailsBellIcon: ImageView
-    private lateinit var textViewEventDetails: TextView
+    private lateinit var textViewHeader: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
         backImgMsg = findViewById(R.id.imgIcLeftArrow)
         imgEventDetailsBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewEventDetails = findViewById(R.id.textHeaderEventDetails)
+        textViewHeader = findViewById(R.id.toolbar_header)
+        textViewHeader.text = "Events"
 
         backImgMsg.visibility = View.VISIBLE
-        textViewEventDetails.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
         imgEventDetailsBellIcon.visibility = View.VISIBLE
 
         imgEventDetailsBellIcon.setOnClickListener(View.OnClickListener {

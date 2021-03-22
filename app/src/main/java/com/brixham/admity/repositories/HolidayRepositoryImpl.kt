@@ -9,11 +9,11 @@ import com.brixham.admity.network.Result
 import java.io.IOException
 
 class HolidayRepositoryImpl(private val apiService: ApiService) : HolidayRepository {
-    override suspend fun getHoliday(authToken: String): Result<List<HolidayResponseModel>> {
+    override suspend fun getHoliday(authToken: String): Result<HolidayResponseModel> {
         return try {
             val headerMap : HashMap<String, String> = HashMap()
             headerMap.set(key = "A-Token", value = authToken)
-            val searchData: List<HolidayResponseModel> = apiService.getHoliday(headers = headerMap).await()
+            val searchData: HolidayResponseModel = apiService.getHoliday(headers = headerMap).await()
             Log.d("Holiday", "holidayUser: ${searchData.toString()}")
             Result.Success(searchData)
         }

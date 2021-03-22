@@ -14,14 +14,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.brixham.admity.R
 import com.brixham.admity.models.ChangePasswordResponseModel
-import com.brixham.admity.models.LoginResponseModel
 import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.Constants
 import com.brixham.admity.utilities.UtilityMethods
 import com.brixham.admity.viewmodels.ChangePasswordViewModel
 import com.brixham.admity.viewmodels.ChangePasswordViewModelFactory
-import com.brixham.admity.viewmodels.LoginViewModel
-import com.brixham.admity.viewmodels.LoginViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,7 +33,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
     private lateinit var changepwdViewModel: ChangePasswordViewModel
     private lateinit var backImgChangePwd: ImageView
     private lateinit var imgBellIconChangePwd: ImageView
-    private lateinit var textViewtChangePwd: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var butonChangePwd: Button
     private lateinit var progressDialog: AlertDialog
     private lateinit var etOldPwd: EditText
@@ -61,14 +58,15 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         backImgChangePwd = findViewById(R.id.imgIcLeftArrow)
         imgBellIconChangePwd = findViewById(R.id.imgHeaderBellIcon)
-        textViewtChangePwd = findViewById(R.id.textHeaderChangePwd)
+        textViewHeader = findViewById(R.id.toolbar_header)
         etOldPwd = findViewById(R.id.et_OldPwd)
         etNewPwd = findViewById(R.id.et_NewPwd)
         etNewCnfPwd = findViewById(R.id.et_ConfirmNewPwd)
         butonChangePwd = findViewById(R.id.changePassword_Button)
         backImgChangePwd.visibility = View.VISIBLE
         imgBellIconChangePwd.visibility = View.VISIBLE
-        textViewtChangePwd.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Change Password"
 
         imgBellIconChangePwd.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, Notification::class.java))

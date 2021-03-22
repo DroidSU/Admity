@@ -11,18 +11,19 @@ import com.brixham.admity.R
 class AccountsSettings : AppCompatActivity() {
 
     private lateinit var backImgAccountSettings: ImageView
-    private lateinit var textViewAccountSettings: TextView
+    private lateinit var textViewHeader: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accounts_settings)
         backImgAccountSettings = findViewById(R.id.imgIcLeftArrow)
-        textViewAccountSettings = findViewById(R.id.textHeaderAccountSettings)
+        textViewHeader = findViewById(R.id.toolbar_header)
 
         backImgAccountSettings.visibility = View.VISIBLE
-        textViewAccountSettings.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Account Settings"
 
         backImgAccountSettings.setOnClickListener {
-            var intent: Intent = Intent(this, DashBoard::class.java)
+            val intent: Intent = Intent(this, DashBoard::class.java)
             startActivity(intent)
             finish()
         }

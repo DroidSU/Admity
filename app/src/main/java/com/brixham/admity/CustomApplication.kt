@@ -52,7 +52,7 @@ class CustomApplication : Application(), KodeinAware {
         }
         bind() from provider {
             HolidayViewModelFactory(
-
+                instance()
             )
         }
     }

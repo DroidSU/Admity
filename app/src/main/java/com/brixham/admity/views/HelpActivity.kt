@@ -13,7 +13,7 @@ class HelpActivity : AppCompatActivity() {
 
     private lateinit var backImgHelp: ImageView
     private lateinit var imgHelpBellIcon: ImageView
-    private lateinit var textViewHelp: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var linearLayoutHomePage: LinearLayout
     private lateinit var linearLayoutMessagePage: LinearLayout
 
@@ -22,19 +22,19 @@ class HelpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_help)
         backImgHelp = findViewById(R.id.imgIcLeftArrow)
         imgHelpBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewHelp = findViewById(R.id.textHeaderHelp)
+        textViewHeader = findViewById(R.id.toolbar_header)
         linearLayoutHomePage = findViewById(R.id.linearLayout_homePage)
         linearLayoutMessagePage = findViewById(R.id.linearLayout_messagePage)
 
         backImgHelp.visibility = View.VISIBLE
         imgHelpBellIcon.visibility = View.VISIBLE
-        textViewHelp.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Help"
 
-        linearLayoutHomePage.setOnClickListener(View.OnClickListener {
-            var intent: Intent = Intent(this, DashBoard::class.java)
+        linearLayoutHomePage.setOnClickListener {
+            val intent: Intent = Intent(this, DashBoard::class.java)
             startActivity(intent)
             finish()
-
-        })
+        }
     }
 }
