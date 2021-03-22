@@ -63,7 +63,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var dashBordNavigationViewMenu: NavigationView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var alertDialog: AlertDialog.Builder
-   // private lateinit var fragment: Fragment
+    // private lateinit var fragment: Fragment
 
 
     var drawerTextName = ""
@@ -218,7 +218,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         val intent =
                             Intent(this, LoginScreen::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
-                         })
+                    })
                 alertDialog.setNegativeButton(
                     "No",
                     DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
@@ -245,9 +245,9 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 startActivity(intent)*/
             }
             R.id.menu_faqs -> {
-               /* val intent =
-                    Intent(this, ChangePassword::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)*/
+                /* val intent =
+                     Intent(this, ChangePassword::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                 startActivity(intent)*/
             }
         }
         val dashBoardDrawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)

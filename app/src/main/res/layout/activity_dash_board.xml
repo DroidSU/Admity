@@ -63,14 +63,7 @@
         app:menu="@menu/menu_drawer"
         tools:ignore="DuplicateIds,RtlHardcoded">
 
-        <ExpandableListView
-            android:id="@+id/expandableListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:background="@android:color/white"
-            android:dividerHeight="0dp"
-            android:groupIndicator="@null" />
+        
 
 
     </com.google.android.material.navigation.NavigationView>
@@ -85,7 +78,30 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/fragment_menu"
         app:menu="@menu/left_menu_drawer"
+
         tools:ignore="DuplicateIds,RtlHardcoded" />
+
+
+
+        <ExpandableListView
+            android:id="@+id/expandable_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:nestedScrollingEnabled="true"
+            android:groupIndicator="@null"
+            android:divider="@null"/>
+
+        
+
+
+
+
+
+
+
+
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

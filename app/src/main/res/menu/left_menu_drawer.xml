@@ -7,10 +7,24 @@
         <item android:title="@string/my_institute"
             android:id="@+id/menu_institute"
             android:enabled="true"
+            android:checked="true"
             android:icon="@drawable/institute"
-            app:showAsAction="ifRoom">
+            app:showAsAction="never">
 
-
+            <menu>
+                <group>
+                <item android:title="My Prospectus"
+                    android:id="@+id/menu_prospectus"
+                    android:icon="@drawable/institute"
+                    app:showAsAction="collapseActionView"
+                    />
+                <item android:title="My Prospectus"
+                    android:id="@+id/menu_prospectus1"
+                    android:icon="@drawable/institute"
+                    app:showAsAction="collapseActionView"
+                    />
+                </group>
+            </menu>
 
 
         </item>
