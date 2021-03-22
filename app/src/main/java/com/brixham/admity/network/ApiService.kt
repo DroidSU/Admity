@@ -29,7 +29,7 @@ interface ApiService {
     fun getStudentProfile(@HeaderMap headers: Map<String, String>): Deferred<StudentProfileResponseModel>
 
     @POST("Myinstitute/Instituteholiday")
-    fun getHoliday(@HeaderMap headers: Map<String, String>): Deferred<List<HolidayResponseModel>>
+    fun getHoliday(@HeaderMap headers: Map<String, String>): Deferred<HolidayResponseModel>
 
 
 

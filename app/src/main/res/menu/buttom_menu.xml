@@ -6,8 +6,8 @@
         android:id="@+id/buttonHome"
         app:showAsAction="ifRoom"
         android:enabled="true"
+        android:icon="@drawable/ic_home1" />
 
-        android:icon="@drawable/ic_home1"/>
     <item android:id="@+id/buttonTask"
         android:enabled="true"
         app:showAsAction="ifRoom"
@@ -28,7 +28,5 @@
         android:enabled="true"
         app:showAsAction="ifRoom"
         android:icon="@drawable/report"/>
-
-
 
 </menu>

@@ -1,5 +1,6 @@
 package com.brixham.admity.fragments
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.GridView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.brixham.admity.R
 import com.brixham.admity.adapters.DashboardGridAdapter
@@ -24,6 +26,7 @@ import com.brixham.admity.utilities.Constants
 import com.brixham.admity.viewmodels.StudentProfileViewModel
 import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
 import com.brixham.admity.views.DashBoard
+import com.brixham.admity.views.HolidayActivity
 import com.brixham.admity.views.RoutineActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -40,18 +43,12 @@ import kotlin.collections.ArrayList
 import kotlin.reflect.KProperty
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 /**
  * A simple [Fragment] subclass.
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(){
 
     private lateinit var currentView: View
     private lateinit var gridView: GridView
@@ -61,33 +58,30 @@ class HomeFragment : Fragment() {
     private lateinit var simpleDateFormat: SimpleDateFormat
     private lateinit var simpleTimeFormat: SimpleDateFormat
     private lateinit var dashBoardTextName: TextView
-   // private lateinit var sharedPrefs: SharedPreferences
     private lateinit var gridAdapter : DashboardGridAdapter
     private lateinit var listOfGridModels : ArrayList<DashboardGridModel>
+
     var Date: String? = null
     var Time: String? = null
 
 
-    private var authToken = "";
-
-
     private var TAG = HomeFragment::class.java.simpleName
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-        //studentprofileViewModel = ViewModelProvider(this, studentprofileViewModelFactory).get(StudentProfileViewModel::class.java)
         // Inflate the layout for this fragment
         currentView = inflater.inflate(R.layout.fragment_home, container, false)
 
         initGridModules()
+
         textDate = currentView.findViewById(R.id.textDateMonthYear)
         textTime = currentView.findViewById(R.id.textTime)
         calendar = Calendar.getInstance()
@@ -97,27 +91,30 @@ class HomeFragment : Fragment() {
         Time = simpleTimeFormat.format(calendar.time)
         textDate.text = Date
         textTime.text = Time
+
         dashBoardTextName = currentView.findViewById(R.id.textView_salutation)
 
         gridView = currentView.findViewById(R.id.gridView_home)
         gridAdapter = DashboardGridAdapter(context, R.layout.item_dashboard_grid, listOfGridModels)
         gridView.adapter = gridAdapter
-        gridView.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+
+        gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             if (position == 0) {
                 startActivity(Intent(activity, RoutineActivity::class.java))
-            } else if (position == 1) {
-                //startActivity(Intent(activity, FeesActivity::class.java))
-
+            } else if (position == 9) {
+                startActivity(Intent(activity, HolidayActivity::class.java))
             }
-        })
+        }
+
+        dashBoardTextName.text = arguments?.getString(STUDENT_NAME)
 
         return currentView
     }
 
-    /*override fun onStart() {
+    override fun onStart() {
         super.onStart()
-        val sharedPref: SharedPreferences = get
-    }*/
+        val sharedPref= context!!.getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
+    }
 
 
     private fun initGridModules() {
@@ -141,35 +138,20 @@ class HomeFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance() = HomeFragment().apply {
+        fun newInstance(name : String) : HomeFragment{
+            val fragment = HomeFragment()
+
+            val bundle = Bundle().apply {
+                putString(STUDENT_NAME, name)
+            }
+
+            fragment.arguments = bundle
+
+            return fragment
         }
+
+        private const val STUDENT_NAME = "student_name"
     }
-
-    /*override fun callStarted() {
-        CoroutineScope(Dispatchers.Main).launch {
-
-        }
-    }
-
-    override fun callFailed(errorMessage: String) {
-        CoroutineScope(Dispatchers.Main).launch {
-            Log.d(TAG, "callFailed: $errorMessage")
-        }
-    }
-
-    override fun callSuccess(data: Any) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val studentProfileResponse= data as StudentProfileResponseModel
-            Log.d(TAG, "callSuccess: " + studentProfileResponse.message)
-            displayName(studentProfileResponse)
-        }
-    }
-    private fun displayName(studentProfileResponse: StudentProfileResponseModel) {
-        //drawerTextFullName.text = studentProfileResponse.data.s_fName
-        dashBoardTextName.text = studentProfileResponse.data.s_fName
-
-    }*/
-
 }
 
 

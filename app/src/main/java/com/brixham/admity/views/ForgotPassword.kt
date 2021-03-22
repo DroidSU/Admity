@@ -15,7 +15,7 @@ import com.brixham.admity.utilities.UtilityMethods
 class ForgotPassword : AppCompatActivity(), NetworkCallback {
 
     private lateinit var imageBackForgotPassword: ImageView
-    private lateinit var textViewForgotPassword: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var buttonForgotPassword: Button
     private lateinit var progressDialog: AlertDialog
 
@@ -23,22 +23,20 @@ class ForgotPassword : AppCompatActivity(), NetworkCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
         imageBackForgotPassword = findViewById(R.id.imgIcLeftArrow)
-        textViewForgotPassword = findViewById(R.id.textHeaderForgotPassword)
+        textViewHeader = findViewById(R.id.toolbar_header)
         buttonForgotPassword = findViewById(R.id.button_forgot_pwd)
         imageBackForgotPassword.visibility = View.VISIBLE
-        textViewForgotPassword.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Forgot Password"
 
-        imageBackForgotPassword.setOnClickListener(View.OnClickListener {
-            var intent: Intent = Intent(this, LoginScreen::class.java)
+        imageBackForgotPassword.setOnClickListener {
+            val intent: Intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
             finish()
-
-        })
+        }
         progressDialog = UtilityMethods().showProgressDialog(this)
         buttonForgotPassword.setOnClickListener {
-
         }
-
     }
 
     override fun callStarted() {

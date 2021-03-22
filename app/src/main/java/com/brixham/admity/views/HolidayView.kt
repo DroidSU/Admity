@@ -12,7 +12,7 @@ class HolidayView : AppCompatActivity() {
 
     private lateinit var backImgMsg: ImageView
     private lateinit var imgHolidayViewBellIcon: ImageView
-    private lateinit var textViewHolidayView: TextView
+    private lateinit var textViewHeader: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +20,16 @@ class HolidayView : AppCompatActivity() {
 
         backImgMsg = findViewById(R.id.imgIcLeftArrow)
         imgHolidayViewBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewHolidayView = findViewById(R.id.textHeaderHolidayView)
+        textViewHeader = findViewById(R.id.toolbar_header)
         backImgMsg.visibility = View.VISIBLE
-        textViewHolidayView.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+
+        textViewHeader.text = "Holiday"
+
         imgHolidayViewBellIcon.visibility = View.VISIBLE
 
-        imgHolidayViewBellIcon.setOnClickListener(View.OnClickListener {
+        imgHolidayViewBellIcon.setOnClickListener {
             startActivity(Intent(this, StudentProfile::class.java))
-        })
+        }
     }
 }

@@ -9,10 +9,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
 import com.brixham.admity.adapters.HolidayAdapter
+import com.brixham.admity.models.HolidayResponseData
 import com.brixham.admity.models.HolidayResponseModel
 import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.Constants
@@ -32,16 +35,18 @@ class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
     private val holidayViewModelFactory: HolidayViewModelFactory  by instance()
     private lateinit var holidayViewModel: HolidayViewModel
 
-    private lateinit var backImgMsg: ImageView
+    private lateinit var imageViewBackButton: ImageView
     private lateinit var imgHolidayBellIcon: ImageView
-    private lateinit var textViewHoliday: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var progressDialog: AlertDialog
+    private lateinit var toolbar : Toolbar
 
     private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<HolidayAdapter.ViewHolder>? = null
-    private lateinit var recycler_adaptar : RecyclerView
+    private lateinit var adapter : HolidayAdapter
+    private lateinit var recyclerView : RecyclerView
 
-    private var authToken = "";
+    private var authToken = ""
+    private var holidayList : List<HolidayResponseData> = ArrayList()
 
 
     private var TAG = HolidayActivity::class.java.simpleName
@@ -56,28 +61,31 @@ class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_holiday)
 
-        //holidayViewModel = ViewModelProvider(this, holidayViewModelFactory).get(HolidayViewModel::class.java)
+        toolbar = findViewById(R.id.holiday_toolbar)
+        setSupportActionBar(toolbar)
+
+        holidayViewModel = ViewModelProvider(this, holidayViewModelFactory).get(HolidayViewModel::class.java)
 
 
-        backImgMsg = findViewById(R.id.imgIcLeftArrow)
+        imageViewBackButton = findViewById(R.id.imgIcLeftArrow)
+        imageViewBackButton.visibility = View.VISIBLE
+        imageViewBackButton.setOnClickListener {
+            finish()
+        }
+
         imgHolidayBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewHoliday = findViewById(R.id.textHeaderHoliday)
-        recycler_adaptar = findViewById(R.id.recycler_holiday)
-        backImgMsg.visibility = View.VISIBLE
-        imgHolidayBellIcon.visibility = View.VISIBLE
-        textViewHoliday.visibility = View.VISIBLE
+        textViewHeader = findViewById(R.id.toolbar_header)
+        textViewHeader.text = "Holiday"
 
+        recyclerView = findViewById(R.id.recycler_holiday)
 
+        imgHolidayBellIcon.visibility = View.GONE
+        textViewHeader.visibility = View.VISIBLE
 
-        layoutManager = LinearLayoutManager(this)
-        recycler_adaptar.layoutManager = layoutManager
-
-
-        //adapter = HolidayAdapter()
-        recycler_adaptar.adapter = adapter
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
 
         progressDialog = UtilityMethods().showProgressDialog(this)
-
     }
 
 
@@ -87,9 +95,6 @@ class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
         val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
         authToken = sharedPrefs.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
 
-        // REMOVE LATER
-        authToken = Constants.DEFAULT_AUTH_TOKEN;
-        Log.d(TAG, "onStart: $authToken")
         getHoliday()
     }
 
@@ -115,8 +120,8 @@ class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
             Log.d(TAG, "callSuccess: " + holidayResponse.message)
 
             if (holidayResponse.status) {
+                holidayList = holidayResponse.data
                 displayHolidayDetails(holidayResponse)
-
             } else {
                 val failedDialog =
                     UtilityMethods().showFailedDialog(this@HolidayActivity, holidayResponse.message)
@@ -130,7 +135,9 @@ class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
     }
 
     private fun displayHolidayDetails(holidayResponse: HolidayResponseModel) {
-
+        adapter = HolidayAdapter(this, holidayResponse.data)
+        recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
 

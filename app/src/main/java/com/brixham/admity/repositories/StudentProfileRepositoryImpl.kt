@@ -13,8 +13,11 @@ class StudentProfileRepositoryImpl(private val apiService: ApiService) : Student
         return try {
             val headerMap : HashMap<String, String> = HashMap()
             headerMap.set(key = "A-Token", value = authToken)
+
             val searchData: StudentProfileResponseModel = apiService.getStudentProfile(headers = headerMap).await()
+
             Log.d("Student Profile", "studentprofileUser: ${searchData.toString()}")
+
             Result.Success(searchData)
         }
         catch (ex : ResponseException){

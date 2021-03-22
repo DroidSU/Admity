@@ -35,7 +35,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
 
     private lateinit var backImgStudentProf: ImageView
     private lateinit var imgBellIconStudentProf: ImageView
-    private lateinit var textViewtudentProf: TextView
+    private lateinit var textViewHeader: TextView
     private lateinit var progressDialog: AlertDialog
 
     private lateinit var textViewStudentFullName: TextView
@@ -76,7 +76,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         backImgStudentProf = findViewById(R.id.imgIcLeftArrow)
         imgBellIconStudentProf = findViewById(R.id.imgHeaderBellIcon)
         circleStdProfileImgView = findViewById(R.id.profStudent_circleImg)
-        textViewtudentProf = findViewById(R.id.textHeaderStudentProfile)
+        textViewHeader = findViewById(R.id.toolbar_header)
         textViewStudentFullName = findViewById(R.id.student_fullName)
         textViewStudentId = findViewById(R.id.studentprofile_Id)
         textViewStudentGuardianName = findViewById(R.id.studentGuardianName)
@@ -95,7 +95,8 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
 
         backImgStudentProf.visibility = View.VISIBLE
         imgBellIconStudentProf.visibility = View.VISIBLE
-        textViewtudentProf.visibility = View.VISIBLE
+
+        textViewHeader.text = getString(R.string.student_profile)
 
         imgBellIconStudentProf.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, Notification::class.java))

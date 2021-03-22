@@ -11,7 +11,6 @@ import androidx.viewpager.widget.ViewPager
 import com.brixham.admity.R
 import com.brixham.admity.adapters.RoutineAdaper
 import com.google.android.material.tabs.TabLayout
-import xdroid.widget.HorizontalSpinner
 
 class RoutineActivity : AppCompatActivity() {
 
@@ -20,16 +19,17 @@ class RoutineActivity : AppCompatActivity() {
     private lateinit var routineViewPager: ViewPager
     private lateinit var backImgRoutine: ImageView
     private lateinit var imgRoutineBellIcon: ImageView
-    private lateinit var textViewRoutine: TextView
+    private lateinit var textViewHeader: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
         backImgRoutine = findViewById(R.id.imgIcLeftArrow)
         imgRoutineBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewRoutine = findViewById(R.id.textHeaderRoutine)
+        textViewHeader = findViewById(R.id.toolbar_header)
+        textViewHeader.text = getString(R.string.routine)
         backImgRoutine.visibility = View.VISIBLE
         imgRoutineBellIcon.visibility = View.VISIBLE
-        textViewRoutine.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
 
        backImgRoutine.setOnClickListener {
            var intent: Intent = Intent(this, DashBoard::class.java)

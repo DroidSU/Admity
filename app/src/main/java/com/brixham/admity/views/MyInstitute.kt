@@ -13,16 +13,17 @@ class MyInstitute : AppCompatActivity() {
 
     private lateinit var backImgInstitute: ImageView
     private lateinit var imgInstituteViewBellIcon: ImageView
-    private lateinit var textViewInstitute: TextView
+    private lateinit var textViewHeader: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_institute)
         backImgInstitute = findViewById(R.id.imgIcLeftArrow)
         imgInstituteViewBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewInstitute = findViewById(R.id.textHeaderMyInstitute)
+        textViewHeader = findViewById(R.id.toolbar_header)
+        textViewHeader.text = getString(R.string.my_institute)
         backImgInstitute.visibility = View.VISIBLE
-        textViewInstitute.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
         imgInstituteViewBellIcon.visibility = View.VISIBLE
 
         backImgInstitute.setOnClickListener {

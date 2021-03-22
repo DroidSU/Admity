@@ -5,131 +5,130 @@
     android:id="@+id/dashBoard_home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment"
-    android:background="#f1efef">
+    android:background="#f1efef"
+    tools:context=".fragments.HomeFragment">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1efef"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#f1efef">
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shadow_background"
+            app:cardBackgroundColor="#E9FCFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/shadow_background"
-                app:cardElevation="10dp"
-                app:cardBackgroundColor="#E9FCFF"
-                app:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:id="@+id/textView_salutation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/segoe_ui"
-                        android:textStyle="bold"
-                        android:text="Good Morning Bethany"
-                        android:textColor="@color/sky_blue"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingExtra="5dp"
-                        android:padding="5dp"
-                        android:text="Lorem ipsum, or lipsum as it is  sometimes knows, graphic or web design"
-                        app:autoSizeStepGranularity="8sp"
-                        app:autoSizeTextType="uniform" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:src="@drawable/illustration" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/shadow_background"
-                app:cardElevation="10dp"
-                app:cardBackgroundColor="#E9FCFF"
-                app:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/segoe_ui"
-                        android:text="Today's Status"
-                        android:textStyle="bold"
-                        android:textColor="@color/sky_blue"
-                        android:textSize="18sp" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/segoe_ui"
-                        android:text="NORMAL DAY"
-                        android:textSize="18sp" />
-
-
-                    <TextView
-                        android:id="@+id/textDateMonthYear"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/segoe_ui"
-                        android:text="daymonthyear"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
-                    android:id="@+id/textTime"
+                    android:id="@+id/textView_salutation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
                     android:fontFamily="@font/segoe_ui"
-                    android:padding="10dp"
-                    android:text="Time"
+                    android:text="Good Morning Bethany"
+                    android:textColor="@color/sky_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"
+                    android:padding="5dp"
+                    android:text="Lorem ipsum, or lipsum as it is  sometimes knows, graphic or web design"
+                    app:autoSizeStepGranularity="8sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:src="@drawable/illustration" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shadow_background"
+            app:cardBackgroundColor="#E9FCFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="Today's Status"
+                    android:textColor="@color/sky_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="NORMAL DAY"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/textDateMonthYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="daymonthyear"
+                    android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="10dp"
+                android:text="Time"
+                android:textSize="15sp" />
 
-            <GridView
-                android:id="@+id/gridView_home"
-                android:layout_width="match_parent"
-                android:layout_height="380dp"
-                android:columnWidth="60dp"
-                android:gravity="center"
-                android:numColumns="3"
-                android:stretchMode="columnWidth" />
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <GridView
+            android:id="@+id/gridView_home"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:columnWidth="60dp"
+            android:gravity="center"
+            android:numColumns="3"
+            android:stretchMode="columnWidth" />
+
+    </LinearLayout>
 
 </RelativeLayout>

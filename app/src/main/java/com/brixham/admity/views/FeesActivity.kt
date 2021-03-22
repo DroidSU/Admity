@@ -19,7 +19,7 @@ class FeesActivity : AppCompatActivity() {
     private lateinit var feesViewPager: ViewPager
     private lateinit var backImgMsg: ImageView
     private lateinit var imgMsgBellIcon: ImageView
-    private lateinit var textViewMsg: TextView
+    private lateinit var textViewHeader: TextView
     //private lateinit var feesAdapter: FeesPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +27,12 @@ class FeesActivity : AppCompatActivity() {
 
         backImgMsg = findViewById(R.id.imgIcLeftArrow)
         imgMsgBellIcon = findViewById(R.id.imgHeaderBellIcon)
-        textViewMsg = findViewById(R.id.textHeaderFees)
+        textViewHeader = findViewById(R.id.toolbar_header)
         backImgMsg.visibility = View.VISIBLE
         imgMsgBellIcon.visibility = View.VISIBLE
-        textViewMsg.visibility = View.VISIBLE
+        textViewHeader.visibility = View.VISIBLE
+        textViewHeader.text = "Fees Activity"
+
         backImgMsg.setOnClickListener {
             var intent: Intent = Intent(this, DashBoard::class.java)
             startActivity(intent)
