@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brixham.admity.R
 import com.brixham.admity.adapters.MsgRecyclerAdapter
+import com.brixham.admity.adapters.RecyclerAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,13 +25,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentMessage : Fragment() {
 
-    private lateinit var backImgMsg: ImageView
-    private lateinit var imgMsgBellIcon: ImageView
-    private lateinit var textViewMsg: TextView
 
+
+    private lateinit var currentView: View
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<MsgRecyclerAdapter.ViewHolder>? = null
     private lateinit var recycler_adaptar : RecyclerView
+
+
 
 
     private var param1: String? = null
@@ -38,9 +41,7 @@ class FragmentMessage : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            backImgMsg.visibility = View.VISIBLE
-            textViewMsg.visibility = View.VISIBLE
-            imgMsgBellIcon.visibility = View.VISIBLE
+
 
 
 
@@ -56,6 +57,21 @@ class FragmentMessage : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_message, container, false)
+
+
+        showMessage()
+        //layoutManager = LinearLayoutManager(this)
+
+
+
+        recycler_adaptar = currentView.findViewById(R.id.message_recycler_view)
+        recycler_adaptar.layoutManager = layoutManager
+        adapter = MsgRecyclerAdapter()
+        recycler_adaptar.adapter = adapter
+    }
+
+    private fun showMessage() {
+        TODO("Not yet implemented")
     }
 
     companion object {

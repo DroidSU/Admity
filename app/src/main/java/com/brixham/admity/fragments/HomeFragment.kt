@@ -1,19 +1,50 @@
 package com.brixham.admity.fragments
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Button
 import android.widget.GridView
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.brixham.admity.R
 import com.brixham.admity.adapters.DashboardGridAdapter
 import com.brixham.admity.models.DashboardGridModel
+import com.brixham.admity.models.StudentProfileResponseModel
+import com.brixham.admity.network.NetworkCallback
+import com.brixham.admity.utilities.Constants
+import com.brixham.admity.viewmodels.StudentProfileViewModel
+import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
+import com.brixham.admity.views.DashBoard
+import com.brixham.admity.views.RoutineActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.internal.Internal.instance
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.KodeinPropertyDelegateProvider
+import org.kodein.di.android.closestKodein
+import org.kodein.di.generic.instance
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.reflect.KProperty
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
 
 /**
  * A simple [Fragment] subclass.
@@ -24,8 +55,25 @@ class HomeFragment : Fragment() {
 
     private lateinit var currentView: View
     private lateinit var gridView: GridView
+    private lateinit var textDate: TextView
+    private lateinit var textTime: TextView
+    private lateinit var calendar: Calendar
+    private lateinit var simpleDateFormat: SimpleDateFormat
+    private lateinit var simpleTimeFormat: SimpleDateFormat
+    private lateinit var dashBoardTextName: TextView
+   // private lateinit var sharedPrefs: SharedPreferences
     private lateinit var gridAdapter : DashboardGridAdapter
     private lateinit var listOfGridModels : ArrayList<DashboardGridModel>
+    var Date: String? = null
+    var Time: String? = null
+
+
+    private var authToken = "";
+
+
+    private var TAG = HomeFragment::class.java.simpleName
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,38 +83,93 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-
+        //studentprofileViewModel = ViewModelProvider(this, studentprofileViewModelFactory).get(StudentProfileViewModel::class.java)
         // Inflate the layout for this fragment
         currentView = inflater.inflate(R.layout.fragment_home, container, false)
 
         initGridModules()
+        textDate = currentView.findViewById(R.id.textDateMonthYear)
+        textTime = currentView.findViewById(R.id.textTime)
+        calendar = Calendar.getInstance()
+        simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
+        simpleTimeFormat = SimpleDateFormat("HH:mm")
+        Date = simpleDateFormat.format(calendar.time)
+        Time = simpleTimeFormat.format(calendar.time)
+        textDate.text = Date
+        textTime.text = Time
+        dashBoardTextName = currentView.findViewById(R.id.textView_salutation)
 
         gridView = currentView.findViewById(R.id.gridView_home)
         gridAdapter = DashboardGridAdapter(context, R.layout.item_dashboard_grid, listOfGridModels)
         gridView.adapter = gridAdapter
+        gridView.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+            if (position == 0) {
+                startActivity(Intent(activity, RoutineActivity::class.java))
+            } else if (position == 1) {
+                //startActivity(Intent(activity, FeesActivity::class.java))
+
+            }
+        })
 
         return currentView
     }
 
+    /*override fun onStart() {
+        super.onStart()
+        val sharedPref: SharedPreferences = get
+    }*/
+
+
     private fun initGridModules() {
         listOfGridModels = ArrayList()
 
+        listOfGridModels.add(DashboardGridModel(R.drawable.present, "Routine"))
         listOfGridModels.add(DashboardGridModel(R.drawable.syllabus, "Syllabus"))
-        listOfGridModels.add(DashboardGridModel(R.drawable.school, "About"))
         listOfGridModels.add(DashboardGridModel(R.drawable.teacher, "Faculties"))
+        listOfGridModels.add(DashboardGridModel(R.drawable.exam, "Exam"))
         listOfGridModels.add(DashboardGridModel(R.drawable.attendance, "Attendance"))
         listOfGridModels.add(DashboardGridModel(R.drawable.fee, "Fees"))
-        listOfGridModels.add(DashboardGridModel(R.drawable.leave, "Leave"))
-        listOfGridModels.add(DashboardGridModel(R.drawable.present, "Class"))
-        listOfGridModels.add(DashboardGridModel(R.drawable.present, "Insight"))
+        listOfGridModels.add(DashboardGridModel(R.drawable.assignment, "Assignment"))
+        listOfGridModels.add(DashboardGridModel(R.drawable.notice, "Notice"))
         listOfGridModels.add(DashboardGridModel(R.drawable.event, "Event"))
         listOfGridModels.add(DashboardGridModel(R.drawable.holiday, "Holiday"))
-        listOfGridModels.add(DashboardGridModel(R.drawable.notice, "Notice"))
+        listOfGridModels.add(DashboardGridModel(R.drawable.leave, "Leave"))
         listOfGridModels.add(DashboardGridModel(R.drawable.parents, "Parents"))
+
+
+
     }
 
     companion object{
         fun newInstance() = HomeFragment().apply {
         }
     }
+
+    /*override fun callStarted() {
+        CoroutineScope(Dispatchers.Main).launch {
+
+        }
+    }
+
+    override fun callFailed(errorMessage: String) {
+        CoroutineScope(Dispatchers.Main).launch {
+            Log.d(TAG, "callFailed: $errorMessage")
+        }
+    }
+
+    override fun callSuccess(data: Any) {
+        CoroutineScope(Dispatchers.Main).launch {
+            val studentProfileResponse= data as StudentProfileResponseModel
+            Log.d(TAG, "callSuccess: " + studentProfileResponse.message)
+            displayName(studentProfileResponse)
+        }
+    }
+    private fun displayName(studentProfileResponse: StudentProfileResponseModel) {
+        //drawerTextFullName.text = studentProfileResponse.data.s_fName
+        dashBoardTextName.text = studentProfileResponse.data.s_fName
+
+    }*/
+
 }
+
+

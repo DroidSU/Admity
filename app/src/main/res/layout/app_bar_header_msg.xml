@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.Messages">
+    >
 
     <include layout="@layout/layout_toolbar"
         android:id="@+id/include_toolbarlayout"/>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbarStyle="insideOverlay"
-                android:scrollbars="vertical"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:verticalScrollbarPosition="defaultPosition"
 
-                android:layout_below="@id/include_toolbarlayout"
-                >
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerMesssage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
-            </androidx.core.widget.NestedScrollView>
+
+
+        <include layout="@layout/content_main"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            />
 
 
 
@@ -36,6 +34,4 @@
 
 
 
-
-
-</RelativeLayout>
+</LinearLayout>

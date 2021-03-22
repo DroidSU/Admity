@@ -11,7 +11,7 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
@@ -73,7 +73,7 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/dashboardImgCircleDp"
+                android:id="@+id/dashboardImgCircleDisplay"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"

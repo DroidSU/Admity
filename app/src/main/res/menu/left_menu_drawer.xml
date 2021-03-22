@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <group android:checkableBehavior="none">
+        <item android:title="@string/my_institute"
+            android:id="@+id/menu_institute"
+            android:enabled="true"
+            android:icon="@drawable/institute"
+            app:showAsAction="ifRoom">
+
+
+
+
+        </item>
+        <item android:title="@string/my_transaction"
+            android:id="@+id/menu_transaction"
+            android:icon="@drawable/transaction"
+            app:showAsAction="never">
+
+
+
+
+
+        </item>
+        <item android:title="@string/enquiry"
+            android:id="@+id/menu_enquiry"
+            android:icon="@drawable/enquiry" />
+        <item android:title="@string/faqs"
+            android:id="@+id/menu_faqs"
+            android:icon="@drawable/logout"
+            />
+    </group>
+
+</menu>

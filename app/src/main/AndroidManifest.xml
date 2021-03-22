@@ -15,7 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.HolidayView"></activity>
+        <activity android:name=".views.ForgotPassword"></activity>
+        <activity android:name=".views.AccountsSettings" />
+        <activity android:name=".views.MyInstitute" />
+        <activity android:name=".views.MainActivity1" />
+        <activity android:name=".views.RoutineActivity" />
+        <activity android:name=".views.HolidayView" />
         <activity android:name=".views.EventDetails" />
         <activity android:name=".views.Transport" />
         <activity android:name=".views.HolidayActivity" />

@@ -6,6 +6,6 @@
     tools:context=".fragments.NotificationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <include layout="@layout/app_bar_layout"/>
+
 
 </FrameLayout>

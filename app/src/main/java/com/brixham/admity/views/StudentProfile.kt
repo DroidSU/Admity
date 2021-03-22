@@ -97,6 +97,11 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         imgBellIconStudentProf.visibility = View.VISIBLE
         textViewtudentProf.visibility = View.VISIBLE
 
+        imgBellIconStudentProf.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, Notification::class.java))
+            finish()
+        })
+
         backImgStudentProf.setOnClickListener {
             startActivity(Intent(this, DashBoard::class.java))
             finish()
@@ -159,6 +164,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
     private fun displayDetails(studentProfileResponse: StudentProfileResponseModel) {
 
         textViewStudentFullName.text = studentProfileResponse.data.s_fName
+        //textViewStudentFullName.text = studentProfileResponse.data.s_lName
         textViewStudentId.text = studentProfileResponse.data.pk_studentId as CharSequence?
         textViewStudentGuardianName.text = studentProfileResponse.data.s_FatherName
         textViewStudentMobileNo.text = studentProfileResponse.data.s_ContactNo
