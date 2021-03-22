@@ -106,14 +106,13 @@ class HomeFragment : Fragment(){
             }
         }
 
-        dashBoardTextName.text = arguments?.getString(STUDENT_NAME)
+        dashBoardTextName.text = arguments?.getString("Good Morning, $STUDENT_NAME")
 
         return currentView
     }
 
     override fun onStart() {
         super.onStart()
-        val sharedPref= context!!.getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
     }
 
 

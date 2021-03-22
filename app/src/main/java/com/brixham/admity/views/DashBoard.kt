@@ -1,17 +1,17 @@
 package com.brixham.admity.views
 
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import android.text.format.DateFormat
 import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.ExpandableListView
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,7 +25,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.brixham.admity.R
-import com.brixham.admity.fragments.FragmentDashBoard
 import com.brixham.admity.fragments.FragmentMessage
 import com.brixham.admity.fragments.HelpFragment
 import com.brixham.admity.fragments.HomeFragment
@@ -47,7 +46,8 @@ import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
 
-class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, KodeinAware, NetworkCallback{
+class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, KodeinAware,
+    NetworkCallback {
     override val kodein by closestKodein()
 
     // for student data
@@ -58,25 +58,21 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var imgBellIcon: ImageView
     private lateinit var imgLogoIcon: ImageView
     private lateinit var dashboardImgCircleDP: ImageView
+    private lateinit var backIcon : ImageView
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var drawerTextFullName: TextView
+    private lateinit var toolbarHeader: TextView
     private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
     private lateinit var expandableNavigationListView: ExpandableNavigationListView
 
-    private  lateinit var navigationView: NavigationView
+    private lateinit var navigationView: NavigationView
     private lateinit var dashBordNavigationViewMenu: NavigationView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var alertDialog: AlertDialog.Builder
-    // private lateinit var fragment: Fragment
-
-
-    var drawerTextName = ""
-    var dashboardTextName = ""
 
     private var authToken = ""
-    //var fragment: Fragment? = null
-    //var fragmentTransaction: FragmentTransaction? = null
+    private var userName = ""
 
     private var TAG = DashBoard::class.java.simpleName
 
@@ -93,61 +89,82 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         setContentView(R.layout.activity_dash_board)
 
         // Initialising student profile data
-        studentprofileViewModel = ViewModelProvider(this, studentprofileViewModelFactory).get(StudentProfileViewModel::class.java)
+        studentprofileViewModel = ViewModelProvider(
+            this,
+            studentprofileViewModelFactory
+        ).get(StudentProfileViewModel::class.java)
+
+        sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+        authToken = sharedPreferences.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
+        userName = sharedPreferences.getString(Constants.SHARED_PREFS_USER_NAME, "")!!
 
         imgBellIcon = findViewById(R.id.imgHeaderBellIcon)
         imgMenuIcon = findViewById(R.id.imgMenuIcon)
         imgLogoIcon = findViewById(R.id.imgLogoIcon)
+        toolbarHeader = findViewById(R.id.toolbar_header)
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
         bottomNavigationView = findViewById(R.id.dashboard_bottom_navigation)
         dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
+        backIcon = findViewById(R.id.imgIcLeftArrow)
+
         //drawerTextFullName = findViewById(R.id.drawer_textProfileFullName)
         dashBordNavigationViewMenu.setNavigationItemSelectedListener(this)
         navigationView = findViewById(R.id.nav_view)
         expandableNavigationListView = findViewById(R.id.expandable_navigation)
         expandableNavigationListView.init(this).addHeaderModel(
-            HeaderModel("My Institute", R.drawable.institute, true).addChildModel(ChildModel("Institute Prospectus"))
+            HeaderModel(
+                "My Institute",
+                R.drawable.institute,
+                true
+            ).addChildModel(ChildModel("Institute Prospectus"))
                 .addChildModel(ChildModel("Institute Profile"))
                 .addChildModel(ChildModel("Institute Holiday"))
                 .addChildModel(ChildModel("Institute Download"))
                 .addChildModel(ChildModel("Institute Notice"))
                 .addChildModel(ChildModel("Institute Guardian Call"))
-                .addChildModel(ChildModel("Institute Guardian Meeting")))
+                .addChildModel(ChildModel("Institute Guardian Meeting"))
+        )
             .addHeaderModel(HeaderModel("My Transaction", R.drawable.transaction))
             .addHeaderModel(HeaderModel("Enquiry", R.drawable.enquiry))
             .addHeaderModel(HeaderModel("FAQs", R.drawable.faqs)).build()
             .addOnGroupClickListener(ExpandableListView.OnGroupClickListener { parent, v, groupPosition, id ->
                 expandableNavigationListView.setSelected(groupPosition)
-
                 //drawer.closeDrawer(GravityCompat.START);
-                if (id == 0L) {
-                    //Home Menu
+                when (id) {
+                    0L -> {
+                        //Home Menu
 
-                    //dashBordDrawerLayout.closeDrawer(GravityCompat.START)
-                } else if (id == 1L) {
-                    //Cart Menu
-                    /*val intent =
-                        Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
-                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)*/
-                    /*Common.showToast(context, "Cart Select")
-                    drawer.closeDrawer(GravityCompat.START)*/
-                } else if (id == 2L) {
-                            //Categories Menu
+                        //dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    1L -> {
+                        //Cart Menu
+                        /*val intent =
+                                    Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                startActivity(intent)
+                                dashBordDrawerLayout.closeDrawer(GravityCompat.START)*/
+                        /*Common.showToast(context, "Cart Select")
+                                drawer.closeDrawer(GravityCompat.START)*/
+                    }
+                    2L -> {
+                        //Categories Menu
 
-                        } else if (id == 3L) {
-                    //Orders Menu
-                   /* Common.showToast(context, "Orders")
-                    drawer.closeDrawer(GravityCompat.START)*/
-                } else if (id == 4L) {
-                    //Wishlist Menu
-                    /*Common.showToast(context, "Wishlist Selected")
-                    drawer.closeDrawer(GravityCompat.START)*/
-                } else if (id == 5L) {
-                    //Notifications Menu
-                    /*Common.showToast(context, "Notifications")
-                    drawer.closeDrawer(GravityCompat.START)*/
+                    }
+                    3L -> {
+                        //Orders Menu
+                        /* Common.showToast(context, "Orders")
+                                 drawer.closeDrawer(GravityCompat.START)*/
+                    }
+                    4L -> {
+                        //Wishlist Menu
+                        /*Common.showToast(context, "Wishlist Selected")
+                                drawer.closeDrawer(GravityCompat.START)*/
+                    }
+                    5L -> {
+                        //Notifications Menu
+                        /*Common.showToast(context, "Notifications")
+                                drawer.closeDrawer(GravityCompat.START)*/
+                    }
                 }
                 false
             })
@@ -155,7 +172,10 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 expandableNavigationListView.setSelected(groupPosition, childPosition)
                 if (id == 0L) {
                     val intent =
-                        Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        Intent(
+                            this,
+                            MyInstitute::class.java
+                        ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                     dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                 } else if (id == 1L) {
@@ -170,7 +190,6 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             })
 
 
-
         //toolbar = findViewById(R.id.toolbar)
 
         //toolbar.setTitle(getResources().getString(R.string.home_page));
@@ -181,35 +200,24 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
         }
 
+       initInitialView()
 
-        imgMenuIcon.visibility = View.VISIBLE
-        imgLogoIcon.visibility = View.VISIBLE
-        imgBellIcon.visibility = View.VISIBLE
-        dashboardImgCircleDP.visibility = View.VISIBLE
-        //showDashBoard()
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.buttonHome -> {
-                    imgMenuIcon.visibility = View.VISIBLE
-                    imgLogoIcon.visibility = View.VISIBLE
-                    imgBellIcon.visibility = View.VISIBLE
-                    dashboardImgCircleDP.visibility = View.VISIBLE
-                    //toolbar.setTitle(resources.getString(R.string.message))
-                    loadFragment(HomeFragment.newInstance(""))
+                    initInitialView()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonTask -> {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonChat -> {
-                    //toolbar.setTitle(resources.getString(R.string.message))
-                    loadFragment(FragmentMessage())
-
+                    initChatFragment()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonHelp -> {
                     //toolbar.setTitle(resources.getString(R.string.help))
-                    loadFragment(fragment = HelpFragment())
+                    loadFragment(fragment = HelpFragment.newInstance())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonReport -> {
@@ -237,14 +245,33 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         })
 
 
-
-
-
-
-
         //var view : View = dashBordNavigationView.getHeaderView(0)
     }
 
+    private fun initChatFragment() {
+        imgMenuIcon.visibility = VISIBLE
+        imgLogoIcon.visibility = GONE
+        imgBellIcon.visibility = GONE
+        dashboardImgCircleDP.visibility = VISIBLE
+        backIcon.visibility = GONE
+        toolbarHeader.visibility = VISIBLE
+
+        toolbarHeader.text = resources.getString(R.string.message)
+
+        loadFragment(FragmentMessage.newInstance())
+    }
+
+    private fun initInitialView() {
+        imgMenuIcon.visibility = VISIBLE
+        imgLogoIcon.visibility = VISIBLE
+        imgBellIcon.visibility = VISIBLE
+        backIcon.visibility = GONE
+        dashboardImgCircleDP.visibility = VISIBLE
+
+        toolbarHeader.visibility = GONE
+
+        loadFragment(HomeFragment.newInstance(name = userName))
+    }
 
 
     private fun loadFragment(fragment: Fragment) {
@@ -256,10 +283,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onStart() {
         super.onStart()
-        val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
-        authToken = sharedPrefs.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
 
-        Log.d(TAG, "onStart: $authToken")
         getStudentDetails()
     }
 
@@ -268,17 +292,26 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.menu_student_profile -> {
                 //Toast.makeText(this, "student Profile", Toast.LENGTH_LONG).show()
                 val intent =
-                    Intent(this, StudentProfile::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    Intent(
+                        this,
+                        StudentProfile::class.java
+                    ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             }
             R.id.menu_change_password -> {
                 val intent =
-                    Intent(this, ChangePassword::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    Intent(
+                        this,
+                        ChangePassword::class.java
+                    ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             }
             R.id.menu_settings -> {
                 val intent =
-                    Intent(this, AccountsSettings::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    Intent(
+                        this,
+                        AccountsSettings::class.java
+                    ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             }
             R.id.menu_logout -> {
@@ -291,7 +324,10 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     "Yes",
                     DialogInterface.OnClickListener { dialog, id ->
                         val intent =
-                            Intent(this, LoginScreen::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            Intent(
+                                this,
+                                LoginScreen::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
                     })
                 alertDialog.setNegativeButton(
@@ -300,14 +336,14 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 alertDialog.setNeutralButton(
                     "Cancel",
                     DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
-                val builder:AlertDialog = alertDialog.create()
+                val builder: AlertDialog = alertDialog.create()
                 builder.show()
 
             }
 
 
-           /* R.id.menu_transaction -> {
-                *//*val intent =
+            /* R.id.menu_transaction -> {
+                 *//*val intent =
                     Intent(this, HelpActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)*//*
             }
@@ -330,8 +366,6 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.left_menu_drawer, menu)
-
-
         return true
     }
 
@@ -348,17 +382,16 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun callSuccess(data: Any) {
         CoroutineScope(Dispatchers.Main).launch {
-            val studentProfileResponse= data as StudentProfileResponseModel
-            Log.d(TAG, "callSuccess: " + studentProfileResponse.message)
-            displayName(studentProfileResponse)
+            val studentProfileResponse = data as StudentProfileResponseModel
+
+            if (studentProfileResponse.data.s_fName != userName) {
+                val editor = sharedPreferences.edit()
+                editor.putString(Constants.SHARED_PREFS_USER_NAME, studentProfileResponse.data.s_fName)
+                loadFragment(HomeFragment.newInstance(studentProfileResponse.data.s_fName))
+                editor.apply()
+            }
         }
     }
-
-    private fun displayName(studentProfileResponse: StudentProfileResponseModel) {
-        loadFragment(HomeFragment.newInstance(studentProfileResponse.data.s_fName))
-    }
-
-
 }
 
 
