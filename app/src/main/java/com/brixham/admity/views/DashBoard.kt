@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ExpandableListView
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
@@ -35,6 +36,9 @@ import com.brixham.admity.viewmodels.StudentProfileViewModel
 import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.techatmosphere.expandablenavigation.model.ChildModel
+import com.techatmosphere.expandablenavigation.model.HeaderModel
+import com.techatmosphere.expandablenavigation.view.ExpandableNavigationListView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -58,6 +62,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var drawerTextFullName: TextView
     private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
+    private lateinit var expandableNavigationListView: ExpandableNavigationListView
 
     private  lateinit var navigationView: NavigationView
     private lateinit var dashBordNavigationViewMenu: NavigationView
@@ -100,6 +105,72 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         //drawerTextFullName = findViewById(R.id.drawer_textProfileFullName)
         dashBordNavigationViewMenu.setNavigationItemSelectedListener(this)
         navigationView = findViewById(R.id.nav_view)
+        expandableNavigationListView = findViewById(R.id.expandable_navigation)
+        expandableNavigationListView.init(this).addHeaderModel(
+            HeaderModel("My Institute", R.drawable.institute, true).addChildModel(ChildModel("Institute Prospectus"))
+                .addChildModel(ChildModel("Institute Profile"))
+                .addChildModel(ChildModel("Institute Holiday"))
+                .addChildModel(ChildModel("Institute Download"))
+                .addChildModel(ChildModel("Institute Notice"))
+                .addChildModel(ChildModel("Institute Guardian Call"))
+                .addChildModel(ChildModel("Institute Guardian Meeting")))
+            .addHeaderModel(HeaderModel("My Transaction", R.drawable.transaction))
+            .addHeaderModel(HeaderModel("Enquiry", R.drawable.enquiry))
+            .addHeaderModel(HeaderModel("FAQs", R.drawable.faqs)).build()
+            .addOnGroupClickListener(ExpandableListView.OnGroupClickListener { parent, v, groupPosition, id ->
+                expandableNavigationListView.setSelected(groupPosition)
+
+                //drawer.closeDrawer(GravityCompat.START);
+                if (id == 0L) {
+                    //Home Menu
+
+                    //dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                } else if (id == 1L) {
+                    //Cart Menu
+                    /*val intent =
+                        Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)*/
+                    /*Common.showToast(context, "Cart Select")
+                    drawer.closeDrawer(GravityCompat.START)*/
+                } else if (id == 2L) {
+                            //Categories Menu
+
+                        } else if (id == 3L) {
+                    //Orders Menu
+                   /* Common.showToast(context, "Orders")
+                    drawer.closeDrawer(GravityCompat.START)*/
+                } else if (id == 4L) {
+                    //Wishlist Menu
+                    /*Common.showToast(context, "Wishlist Selected")
+                    drawer.closeDrawer(GravityCompat.START)*/
+                } else if (id == 5L) {
+                    //Notifications Menu
+                    /*Common.showToast(context, "Notifications")
+                    drawer.closeDrawer(GravityCompat.START)*/
+                }
+                false
+            })
+            .addOnChildClickListener(ExpandableListView.OnChildClickListener { parent, v, groupPosition, childPosition, id ->
+                expandableNavigationListView.setSelected(groupPosition, childPosition)
+                if (id == 0L) {
+                    val intent =
+                        Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                } else if (id == 1L) {
+                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                } else if (id == 2L) {
+
+                } else if (id == 3L) {
+
+                }
+                dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                false
+            })
+
+
+
         //toolbar = findViewById(R.id.toolbar)
 
         //toolbar.setTitle(getResources().getString(R.string.home_page));
@@ -229,27 +300,25 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 builder.show()
 
             }
-            R.id.menu_institute -> {
-                val intent =
-                    Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)
-            }
-            R.id.menu_transaction -> {
-                /*val intent =
+
+
+           /* R.id.menu_transaction -> {
+                *//*val intent =
                     Intent(this, HelpActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)*/
+                startActivity(intent)*//*
             }
             R.id.menu_enquiry -> {
-                /*val intent =
+                *//*val intent =
                     Intent(this, ::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)*/
+                startActivity(intent)*//*
             }
             R.id.menu_faqs -> {
-                /* val intent =
+                *//* val intent =
                      Intent(this, ChangePassword::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                 startActivity(intent)*/
-            }
+                 startActivity(intent)*//*
+            }*/
         }
+
         val dashBoardDrawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         dashBoardDrawerLayout.closeDrawer(GravityCompat.END)
         return true
@@ -257,8 +326,8 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.left_menu_drawer, menu)
-        var menuItem: MenuItem = menu!!.findItem(R.id.menu_institute)
-        menuInflater.inflate(R.menu.sub_menu, menuItem.subMenu)
+
+
         return true
     }
 

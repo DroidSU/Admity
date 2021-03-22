@@ -3,48 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <group android:checkableBehavior="none">
-        <item android:title="@string/my_institute"
-            android:id="@+id/menu_institute"
-            android:enabled="true"
-            android:checked="true"
-            android:icon="@drawable/institute"
-            app:showAsAction="never">
 
-            <menu>
-                <group>
-                <item android:title="My Prospectus"
-                    android:id="@+id/menu_prospectus"
-                    android:icon="@drawable/institute"
-                    app:showAsAction="collapseActionView"
-                    />
-                <item android:title="My Prospectus"
-                    android:id="@+id/menu_prospectus1"
-                    android:icon="@drawable/institute"
-                    app:showAsAction="collapseActionView"
-                    />
-                </group>
-            </menu>
-
-
-        </item>
-        <item android:title="@string/my_transaction"
-            android:id="@+id/menu_transaction"
-            android:icon="@drawable/transaction"
-            app:showAsAction="never">
-
-
-
-
-
-        </item>
-        <item android:title="@string/enquiry"
-            android:id="@+id/menu_enquiry"
-            android:icon="@drawable/enquiry" />
-        <item android:title="@string/faqs"
-            android:id="@+id/menu_faqs"
-            android:icon="@drawable/logout"
-            />
-    </group>
 
 </menu>

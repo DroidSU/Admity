@@ -76,5 +76,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation  'com.shamanland:xdroid-widget:0.2.2'
     implementation 'com.github.nirwannursabda:expandable-navigation:0.1.2'
-    implementation 'com.github.dvinfosys:Navigation-ListView:1.0.0'
+    //implementation 'com.github.dvinfosys:Navigation-ListView:1.0.0'
+    //implementation  'com.mikepenz:materialdrawer:5.2.0@aar'
 }
