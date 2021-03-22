@@ -30,7 +30,7 @@ class DashBoard : AppCompatActivity(){
     //private lateinit var toolbar: Toolbar
     private lateinit var dashBordDrawerLayout: DrawerLayout
 
-    private lateinit var dashBordNavigationView: NavigationView
+    private lateinit var navViewProfile: NavigationView
     private lateinit var dashBordNavigationViewMenu: NavigationView
 
 
@@ -53,7 +53,11 @@ class DashBoard : AppCompatActivity(){
 
         dashboardImgCircleDP.setOnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
-            linearLayoutChangePwd = findViewById(R.id.linearLayout_changePassword)
+            linearLayoutChangePwd.setOnClickListener {
+                val intent = Intent(this, ChangePassword::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
@@ -63,7 +67,8 @@ class DashBoard : AppCompatActivity(){
         imgLogoIcon = findViewById(R.id.imgLogoIcon)
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
-        dashBordNavigationView = findViewById(R.id.nav_view)
+        navViewProfile = findViewById(R.id.nav_view)
+        linearLayoutChangePwd = findViewById(R.id.linearLayout_changePassword)
         dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
 
         imgMenuIcon.visibility = View.VISIBLE
