@@ -121,9 +121,8 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 true
             ).addChildModel(ChildModel("Institute Prospectus"))
                 .addChildModel(ChildModel("Institute Profile"))
-                .addChildModel(ChildModel("Institute Holiday"))
                 .addChildModel(ChildModel("Institute Download"))
-                .addChildModel(ChildModel("Institute Notice"))
+                .addChildModel(ChildModel("Institute Timetable"))
                 .addChildModel(ChildModel("Institute Guardian Call"))
                 .addChildModel(ChildModel("Institute Guardian Meeting"))
         )
@@ -176,7 +175,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     val intent =
                         Intent(
                             this,
-                            MyInstitute::class.java
+                            MyProspectus::class.java
                         ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                     dashBordDrawerLayout.closeDrawer(GravityCompat.START)
@@ -244,6 +243,14 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonHelp -> {
+                    imgMenuIcon.visibility = VISIBLE
+                    imgLogoIcon.visibility = GONE
+                    imgBellIcon.visibility = GONE
+                    dashboardImgCircleDP.visibility = VISIBLE
+                    backIcon.visibility = GONE
+                    toolbarHeader.visibility = VISIBLE
+
+                    toolbarHeader.text = resources.getString(R.string.help)
                     //toolbar.setTitle(resources.getString(R.string.help))
                     loadFragment(fragment = HelpFragment.newInstance())
                     return@OnNavigationItemSelectedListener true
