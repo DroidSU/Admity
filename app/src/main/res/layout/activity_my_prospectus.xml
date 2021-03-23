@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/new_background"
+    tools:context=".views.MyProspectus">
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/myprospectus_layout_toolbar"/>
+
+
+        <ExpandableListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/myprospectus_layout_toolbar"
+            android:id="@+id/myprospectus_expandablelistView"
+            android:background="@drawable/corner_chat_edittext"
+            android:dividerHeight="0.1dp">
+
+
+
+        </ExpandableListView>
+
+
+
+
+
+    <include layout="@layout/content_main"
+        android:id="@+id/myprospectus_contain_main"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

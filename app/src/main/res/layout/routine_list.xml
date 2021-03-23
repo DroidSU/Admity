@@ -16,11 +16,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-    <ImageView
+    <LinearLayout
             android:layout_width="110dp"
             android:layout_height="120dp"
-            android:background="@drawable/corner_image"/>
-            />
+            android:background="@drawable/corner_image">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="MATH"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:fontFamily="@font/segoe_ui"/>
+
+
+
+
+
+
+    </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

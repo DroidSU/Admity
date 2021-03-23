@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -93,8 +94,9 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewStudentAddress = findViewById(R.id.student_address)
 
 
-        backImgStudentProf.visibility = View.VISIBLE
-        imgBellIconStudentProf.visibility = View.VISIBLE
+        backImgStudentProf.visibility = VISIBLE
+        imgBellIconStudentProf.visibility = VISIBLE
+        textViewHeader.visibility = VISIBLE
 
         textViewHeader.text = getString(R.string.student_profile)
 
