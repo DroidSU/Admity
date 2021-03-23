@@ -6,21 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F1EFEF"
-    tools:context=".views.Notification">
+    tools:context=".views.NotificationActivity">
 
     <include layout="@layout/layout_toolbar"
-        android:id="@+id/layout_toolbaar_notification"/>
+        android:id="@+id/layout_toolbar_notification"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerNotification"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout_toolbaar_notification"
-        android:layout_above="@id/notification_content_main"
-        />
-    <include layout="@layout/content_main"
+        android:layout_height="match_parent"
+        android:background="#F1EFEF"
+        android:layout_below="@id/layout_toolbar_notification"
+        android:layout_above="@id/notification_bottom_navigation"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/notification_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/notification_content_main"/>
+        android:layout_gravity="bottom"
+        android:background="@drawable/corner_tool"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:menu="@menu/buttom_menu"
+        android:visibility="gone"/>
 </RelativeLayout>

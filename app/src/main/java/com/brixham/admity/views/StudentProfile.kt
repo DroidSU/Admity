@@ -99,7 +99,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewHeader.text = getString(R.string.student_profile)
 
         imgBellIconStudentProf.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, Notification::class.java))
+            startActivity(Intent(this, NotificationActivity::class.java))
             finish()
         })
 

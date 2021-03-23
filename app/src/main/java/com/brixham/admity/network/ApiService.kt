@@ -1,9 +1,6 @@
 package com.brixham.admity.network
 
-import com.brixham.admity.models.ChangePasswordResponseModel
-import com.brixham.admity.models.HolidayResponseModel
-import com.brixham.admity.models.LoginResponseModel
-import com.brixham.admity.models.StudentProfileResponseModel
+import com.brixham.admity.models.*
 import com.brixham.admity.network.interceptors.ConnectivityInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.utilities.Constants.Companion.BASE_URL
@@ -31,7 +28,8 @@ interface ApiService {
     @POST("Myinstitute/Instituteholiday")
     fun getHoliday(@HeaderMap headers: Map<String, String>): Deferred<HolidayResponseModel>
 
-
+    @POST("Notification/StudentNotification")
+    fun getNotifications(@HeaderMap headers: Map<String, String>) : Deferred<NotificationsResponseModel>
 
     companion object {
         operator fun invoke(

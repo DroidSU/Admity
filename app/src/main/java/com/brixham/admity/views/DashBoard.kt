@@ -73,6 +73,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     private var authToken = ""
     private var userName = ""
+    private var itemId = R.id.buttonHome
 
     private var TAG = DashBoard::class.java.simpleName
 
@@ -105,6 +106,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         dashBordDrawerLayout = findViewById(R.id.drawer_layout)
         dashboardImgCircleDP = findViewById(R.id.dashboardImgCircleDp)
         bottomNavigationView = findViewById(R.id.dashboard_bottom_navigation)
+
         dashBordNavigationViewMenu = findViewById(R.id.nav_view_menu)
         backIcon = findViewById(R.id.imgIcLeftArrow)
 
@@ -200,7 +202,33 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
         }
 
-       initInitialView()
+        if(intent.hasExtra("itemId")){
+            itemId = intent.getIntExtra("itemId",0)
+            bottomNavigationView.selectedItemId = itemId
+
+            when (itemId){
+                R.id.buttonHome -> {
+                    initInitialView()
+                }
+                R.id.buttonTask -> {
+                }
+                R.id.buttonChat -> {
+                    initChatFragment()
+                }
+                R.id.buttonHelp -> {
+                    //toolbar.setTitle(resources.getString(R.string.help))
+                    loadFragment(fragment = HelpFragment.newInstance())
+                }
+                R.id.buttonReport -> {
+                    //toolbar.setTitle(resources.getString(R.string.help))
+                    //loadFragment(HelpFragment())
+                }
+                else -> return
+            }
+        }
+        else{
+            initInitialView()
+        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -236,13 +264,16 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         imgMenuIcon.setOnClickListener(View.OnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.LEFT)
         })
+
         /*dashboardImgCircleDP.setOnClickListener {
             dashBordDrawerLayout.openDrawer(Gravity.RIGHT)
 
         }*/
-        imgBellIcon.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, Notification::class.java))
-        })
+
+        imgBellIcon.setOnClickListener {
+            startActivity(Intent(this, NotificationActivity::class.java))
+            finish()
+        }
 
 
         //var view : View = dashBordNavigationView.getHeaderView(0)
@@ -384,11 +415,13 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         CoroutineScope(Dispatchers.Main).launch {
             val studentProfileResponse = data as StudentProfileResponseModel
 
-            if (studentProfileResponse.data.s_fName != userName) {
-                val editor = sharedPreferences.edit()
-                editor.putString(Constants.SHARED_PREFS_USER_NAME, studentProfileResponse.data.s_fName)
+            val editor = sharedPreferences.edit()
+            editor.putString(Constants.SHARED_PREFS_USER_NAME, studentProfileResponse.data.s_fName)
+            editor.apply()
+
+            if(itemId == R.id.buttonHome) {
                 loadFragment(HomeFragment.newInstance(studentProfileResponse.data.s_fName))
-                editor.apply()
+
             }
         }
     }

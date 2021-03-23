@@ -32,7 +32,7 @@ class MyInstitute : AppCompatActivity() {
             finish()
         }
         imgInstituteViewBellIcon.setOnClickListener {
-            var intent: Intent = Intent(this, Notification::class.java)
+            var intent: Intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
             finish()
         }

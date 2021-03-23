@@ -7,10 +7,7 @@ import com.brixham.admity.network.interceptors.ConnectivityInterceptorImpl
 import com.brixham.admity.network.interceptors.ResponseInterceptor
 import com.brixham.admity.network.interceptors.ResponseInterceptorImpl
 import com.brixham.admity.repositories.*
-import com.brixham.admity.viewmodels.ChangePasswordViewModelFactory
-import com.brixham.admity.viewmodels.HolidayViewModelFactory
-import com.brixham.admity.viewmodels.LoginViewModelFactory
-import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
+import com.brixham.admity.viewmodels.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -32,6 +29,7 @@ class CustomApplication : Application(), KodeinAware {
         bind<ChangePasswordRepository>() with singleton { ChangePasswordRepositoryImpl(instance()) }
         bind<StudentProfileDataRepository>() with singleton { StudentProfileRepositoryImpl(instance()) }
         bind<HolidayRepository>() with singleton { HolidayRepositoryImpl(instance()) }
+        bind<NotificationsRepository>() with singleton { NotificationsRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
@@ -52,6 +50,11 @@ class CustomApplication : Application(), KodeinAware {
         }
         bind() from provider {
             HolidayViewModelFactory(
+                instance()
+            )
+        }
+        bind() from provider {
+            NotificationsViewModelFactory(
                 instance()
             )
         }

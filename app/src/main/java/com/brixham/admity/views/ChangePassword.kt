@@ -69,7 +69,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewHeader.text = "Change Password"
 
         imgBellIconChangePwd.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, Notification::class.java))
+            startActivity(Intent(this, NotificationActivity::class.java))
             finish()
         })
         backImgChangePwd.setOnClickListener(View.OnClickListener {

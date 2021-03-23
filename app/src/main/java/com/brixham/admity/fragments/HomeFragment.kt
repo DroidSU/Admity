@@ -53,16 +53,17 @@ class HomeFragment : Fragment(){
     private lateinit var currentView: View
     private lateinit var gridView: GridView
     private lateinit var textDate: TextView
+    private lateinit var textViewSalutation : TextView
     private lateinit var textTime: TextView
     private lateinit var calendar: Calendar
     private lateinit var simpleDateFormat: SimpleDateFormat
     private lateinit var simpleTimeFormat: SimpleDateFormat
-    private lateinit var dashBoardTextName: TextView
     private lateinit var gridAdapter : DashboardGridAdapter
     private lateinit var listOfGridModels : ArrayList<DashboardGridModel>
 
     var Date: String? = null
     var Time: String? = null
+    var userName : String = ""
 
 
     private var TAG = HomeFragment::class.java.simpleName
@@ -80,10 +81,18 @@ class HomeFragment : Fragment(){
         // Inflate the layout for this fragment
         currentView = inflater.inflate(R.layout.fragment_home, container, false)
 
+        userName = arguments!!.getString(STUDENT_NAME)!!
+
+        userName = "Good Morning, $userName"
+
         initGridModules()
 
         textDate = currentView.findViewById(R.id.textDateMonthYear)
         textTime = currentView.findViewById(R.id.textTime)
+        textViewSalutation = currentView.findViewById(R.id.textView_salutation)
+
+        textViewSalutation.text = userName
+
         calendar = Calendar.getInstance()
         simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
         simpleTimeFormat = SimpleDateFormat("HH:mm")
@@ -91,8 +100,6 @@ class HomeFragment : Fragment(){
         Time = simpleTimeFormat.format(calendar.time)
         textDate.text = Date
         textTime.text = Time
-
-        dashBoardTextName = currentView.findViewById(R.id.textView_salutation)
 
         gridView = currentView.findViewById(R.id.gridView_home)
         gridAdapter = DashboardGridAdapter(context, R.layout.item_dashboard_grid, listOfGridModels)
@@ -105,8 +112,6 @@ class HomeFragment : Fragment(){
                 startActivity(Intent(activity, HolidayActivity::class.java))
             }
         }
-
-        dashBoardTextName.text = arguments?.getString("Good Morning, $STUDENT_NAME")
 
         return currentView
     }

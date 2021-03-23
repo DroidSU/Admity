@@ -37,7 +37,7 @@ class RoutineActivity : AppCompatActivity() {
            finish()
        }
         imgRoutineBellIcon.setOnClickListener {
-            var intent: Intent = Intent(this, Notification::class.java)
+            var intent: Intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
             finish()
         }
