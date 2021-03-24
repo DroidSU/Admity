@@ -15,6 +15,7 @@ class MyInstitute : AppCompatActivity() {
     private lateinit var imgInstituteViewBellIcon: ImageView
     private lateinit var textViewHeader: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_institute)

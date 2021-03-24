@@ -63,6 +63,7 @@
     <string name="forgot_password">Forgot Password</string>
     <string name="h_w">H/W</string>
     <string name="my_prospectus">My Prospectus</string>
+    <string name="notices">Notices</string>
 
 
     <array name="autosize_text_sizes">

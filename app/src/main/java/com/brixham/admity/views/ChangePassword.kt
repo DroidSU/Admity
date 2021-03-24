@@ -65,7 +65,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         etNewPwd = findViewById(R.id.et_NewPwd)
         etNewCnfPwd = findViewById(R.id.et_ConfirmNewPwd)
         butonChangePwd = findViewById(R.id.changePassword_Button)
-        bottomNavigationView = findViewById(R.id.changePwd_bottom_navigation)
+        //bottomNavigationView = findViewById(R.id.changePwd_bottom_navigation)
         backImgChangePwd.visibility = View.VISIBLE
         imgBellIconChangePwd.visibility = View.GONE
         textViewHeader.visibility = View.VISIBLE
