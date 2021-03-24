@@ -11,7 +11,7 @@ class  RoutineAdaper(private val context: Context, fm: FragmentManager, internal
     override fun getItem(position: Int): Fragment {
         when (position) {
 
-            0 -> {
+            /*0 -> {
                 return MonFrag()
             }
             1 -> {
@@ -31,7 +31,7 @@ class  RoutineAdaper(private val context: Context, fm: FragmentManager, internal
             }
             6 -> {
                 return SunFrag()
-            }
+            }*/
 
         }
         return Fragment()

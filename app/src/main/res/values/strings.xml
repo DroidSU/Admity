@@ -62,6 +62,8 @@
     <string name="institute_prospectus">Institute Prospectus</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="h_w">H/W</string>
+    <string name="my_prospectus">My Prospectus</string>
+
 
     <array name="autosize_text_sizes">
         <item>10sp</item>

@@ -27,6 +27,7 @@ import com.brixham.admity.viewmodels.StudentProfileViewModel
 import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
 import com.brixham.admity.views.DashBoard
 import com.brixham.admity.views.HolidayActivity
+import com.brixham.admity.views.NoticeActivity
 import com.brixham.admity.views.RoutineActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -108,9 +109,13 @@ class HomeFragment : Fragment(){
         gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             if (position == 0) {
                 startActivity(Intent(activity, RoutineActivity::class.java))
-            } else if (position == 9) {
+            }else if (position == 7) {
+                startActivity(Intent(activity, NoticeActivity::class.java))
+            }
+            else if (position == 9) {
                 startActivity(Intent(activity, HolidayActivity::class.java))
             }
+
         }
 
         return currentView

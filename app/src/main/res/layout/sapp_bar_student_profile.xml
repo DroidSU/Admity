@@ -89,7 +89,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/studentProfile_scrollView"
-       android:layout_above="@id/student_profile_content_main"
+       android:layout_above="@id/studentProf_bottom_navigation"
        android:layout_below="@id/profile_FrameLayout">
        <LinearLayout
            android:layout_width="match_parent"
@@ -1091,11 +1091,19 @@
 
        </LinearLayout>
    </androidx.core.widget.NestedScrollView>
-
-    <include layout="@layout/content_main"
-        android:id="@+id/student_profile_content_main"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/studentProf_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/corner_tool"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:menu="@menu/buttom_menu"
+        android:visibility="visible"/>
+
 
    </RelativeLayout>

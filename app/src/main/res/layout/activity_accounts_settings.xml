@@ -9,16 +9,23 @@
     <include layout="@layout/layout_toolbar"
         android:id="@+id/account_settings_layout_toolbaar"/>
     <include layout="@layout/account_settings_layout"
-        android:layout_above="@id/accout_settings_content_main"
+        android:layout_above="@id/accountSettings_bottom_navigation"
         android:layout_below="@id/account_settings_layout_toolbaar"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
-    <include layout="@layout/content_main"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/accout_settings_content_main"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/accountSettings_bottom_navigation"
+        app:menu="@menu/buttom_menu"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:background="@drawable/corner_tool"/>
 
 
 </RelativeLayout>

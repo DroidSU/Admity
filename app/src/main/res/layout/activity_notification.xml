@@ -31,5 +31,5 @@
         app:labelVisibilityMode="labeled"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:menu="@menu/buttom_menu"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </RelativeLayout>

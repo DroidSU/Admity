@@ -243,16 +243,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonHelp -> {
-                    imgMenuIcon.visibility = VISIBLE
-                    imgLogoIcon.visibility = GONE
-                    imgBellIcon.visibility = GONE
-                    dashboardImgCircleDP.visibility = VISIBLE
-                    backIcon.visibility = GONE
-                    toolbarHeader.visibility = VISIBLE
-
-                    toolbarHeader.text = resources.getString(R.string.help)
-                    //toolbar.setTitle(resources.getString(R.string.help))
-                    loadFragment(fragment = HelpFragment.newInstance())
+                    initHelpFragment()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonReport -> {
@@ -297,6 +288,18 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         toolbarHeader.text = resources.getString(R.string.message)
 
         loadFragment(FragmentMessage.newInstance())
+    }
+    private fun initHelpFragment() {
+        imgMenuIcon.visibility = VISIBLE
+        imgLogoIcon.visibility = GONE
+        imgBellIcon.visibility = GONE
+        dashboardImgCircleDP.visibility = VISIBLE
+        backIcon.visibility = GONE
+        toolbarHeader.visibility = VISIBLE
+
+        toolbarHeader.text = resources.getString(R.string.help)
+
+        loadFragment(HelpFragment.newInstance())
     }
 
     private fun initInitialView() {

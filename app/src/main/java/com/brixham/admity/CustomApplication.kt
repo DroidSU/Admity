@@ -30,6 +30,7 @@ class CustomApplication : Application(), KodeinAware {
         bind<StudentProfileDataRepository>() with singleton { StudentProfileRepositoryImpl(instance()) }
         bind<HolidayRepository>() with singleton { HolidayRepositoryImpl(instance()) }
         bind<NotificationsRepository>() with singleton { NotificationsRepositoryImpl(instance()) }
+        bind<MyProspectusRepository>() with singleton { MyProspectusRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
@@ -55,6 +56,11 @@ class CustomApplication : Application(), KodeinAware {
         }
         bind() from provider {
             NotificationsViewModelFactory(
+                instance()
+            )
+        }
+        bind() from provider {
+            MyProspectusViewModelFactory(
                 instance()
             )
         }

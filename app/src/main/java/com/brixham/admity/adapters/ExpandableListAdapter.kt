@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
 import com.brixham.admity.R
+import com.brixham.admity.models.MyPropectusData
 
-class ExpandableListAdapter internal constructor(private val context: Context, private val titleList: ArrayList<String>, private val dataList: HashMap<String, List<String>>) : BaseExpandableListAdapter() {
+/*class ExpandableListAdapter internal constructor(private val context: ArrayList<MyPropectusData>, private val titleList: ArrayList<String>, private val dataList: HashMap<String, List<String>>) : BaseExpandableListAdapter() {
 
     override fun getChild(listPosition: Int, expandedListPosition: Int): Any {
         return this.dataList[this.titleList[listPosition]]!![expandedListPosition]
@@ -23,18 +24,18 @@ class ExpandableListAdapter internal constructor(private val context: Context, p
         var convertView = convertView
         val expandedListText = getChild(listPosition, expandedListPosition) as String
         if (convertView == null) {
-            val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.prospectus_list, null)
+            //val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+           // convertView = layoutInflater.inflate(R.layout.prospectus_list, null)
         }
-        val expandedListTextViewQ = convertView!!.findViewById<TextView>(R.id.expand_txtQ)
+        *//*val expandedListTextViewQ = convertView!!.findViewById<TextView>(R.id.expand_txtQ)
         val expandedListTextViewQues = convertView!!.findViewById<TextView>(R.id.expand_txtQues)
         val expandedListTextViewA = convertView!!.findViewById<TextView>(R.id.expand_txtA)
-        val expandedListTextViewAns = convertView!!.findViewById<TextView>(R.id.expand_txtAnswer)
-        expandedListTextViewQ.text = expandedListText
+        val expandedListTextViewAns = convertView!!.findViewById<TextView>(R.id.expand_txtAnswer)*//*
+        *//*expandedListTextViewQ.text = expandedListText
         expandedListTextViewQues.text = expandedListText
         expandedListTextViewA.text = expandedListText
-        expandedListTextViewAns.text = expandedListText
-        return convertView
+        expandedListTextViewAns.text = expandedListText*//*
+        //return convertView
     }
 
     override fun getChildrenCount(listPosition: Int): Int {
@@ -57,8 +58,8 @@ class ExpandableListAdapter internal constructor(private val context: Context, p
         var convertView = convertView
         val listTitle = getGroup(listPosition) as String
         if (convertView == null) {
-            val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.prospectus_group, null)
+            *//*val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            convertView = layoutInflater.inflate(R.layout.prospectus_group, null)*//*
         }
         val listTitleTextView = convertView!!.findViewById<TextView>(R.id.listTitle)
         listTitleTextView.setTypeface(null, Typeface.BOLD)
@@ -73,4 +74,4 @@ class ExpandableListAdapter internal constructor(private val context: Context, p
     override fun isChildSelectable(listPosition: Int, expandedListPosition: Int): Boolean {
         return true
     }
-}
+}*/

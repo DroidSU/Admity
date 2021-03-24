@@ -107,7 +107,7 @@
 
             </LinearLayout>
 
-            <TextView
+            <TextClock
                 android:id="@+id/textTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,7 +115,8 @@
                 android:fontFamily="@font/segoe_ui"
                 android:padding="10dp"
                 android:text="Time"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:targetApi="jelly_bean_mr1" />
 
 
         </androidx.cardview.widget.CardView>

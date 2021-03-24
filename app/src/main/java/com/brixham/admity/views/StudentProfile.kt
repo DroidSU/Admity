@@ -20,6 +20,7 @@ import com.brixham.admity.utilities.UtilityMethods
 import com.brixham.admity.viewmodels.StudentProfileViewModel
 import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +39,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
     private lateinit var imgBellIconStudentProf: ImageView
     private lateinit var textViewHeader: TextView
     private lateinit var progressDialog: AlertDialog
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     private lateinit var textViewStudentFullName: TextView
     private lateinit var textViewStudentId: TextView
@@ -92,7 +94,7 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewStudentNationality = findViewById(R.id.student_Nationality)
         textViewStudentAdhaarCardNo = findViewById(R.id.student_adhaarCardNo)
         textViewStudentAddress = findViewById(R.id.student_address)
-
+        bottomNavigationView = findViewById(R.id.studentProf_bottom_navigation)
 
         backImgStudentProf.visibility = VISIBLE
         imgBellIconStudentProf.visibility = VISIBLE
@@ -108,6 +110,14 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         backImgStudentProf.setOnClickListener {
             startActivity(Intent(this, DashBoard::class.java))
             finish()
+        }
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            val intent = Intent(this, DashBoard::class.java)
+            intent.putExtra("itemId", it.itemId)
+            startActivity(intent)
+            finish()
+
+            return@setOnNavigationItemSelectedListener true
         }
         /*imgBellIconStudentProf.setOnClickListener {
             startActivity(Intent(this, ChangePassword::class.java))

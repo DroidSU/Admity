@@ -31,6 +31,10 @@ interface ApiService {
     @POST("Notification/StudentNotification")
     fun getNotifications(@HeaderMap headers: Map<String, String>) : Deferred<NotificationsResponseModel>
 
+    @POST("Myinstitute/InstitutePros")
+    fun getProspectus(@HeaderMap headers: Map<String, String>) : Deferred<MyProspectusModel>
+
+
     companion object {
         operator fun invoke(
             connectivityInterceptor: ConnectivityInterceptor,
