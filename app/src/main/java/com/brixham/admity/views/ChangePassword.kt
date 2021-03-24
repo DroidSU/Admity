@@ -40,7 +40,6 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
     private lateinit var etOldPwd: EditText
     private lateinit var etNewPwd: EditText
     private lateinit var etNewCnfPwd: EditText
-    private lateinit var bottomNavigationView: BottomNavigationView
 
     private var oldPassword = ""
     private var newPassword = ""
@@ -65,7 +64,6 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         etNewPwd = findViewById(R.id.et_NewPwd)
         etNewCnfPwd = findViewById(R.id.et_ConfirmNewPwd)
         butonChangePwd = findViewById(R.id.changePassword_Button)
-        //bottomNavigationView = findViewById(R.id.changePwd_bottom_navigation)
         backImgChangePwd.visibility = View.VISIBLE
         imgBellIconChangePwd.visibility = View.GONE
         textViewHeader.visibility = View.VISIBLE
@@ -79,14 +77,15 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
             startActivity(Intent(this, DashBoard::class.java))
             finish()
         })
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            val intent = Intent(this, DashBoard::class.java)
-            intent.putExtra("itemId", it.itemId)
-            startActivity(intent)
-            finish()
 
-            return@setOnNavigationItemSelectedListener true
-        }
+//        bottomNavigationView.setOnNavigationItemSelectedListener {
+//            val intent = Intent(this, DashBoard::class.java)
+//            intent.putExtra("itemId", it.itemId)
+//            startActivity(intent)
+//            finish()
+//
+//            return@setOnNavigationItemSelectedListener true
+//        }
 
 
         butonChangePwd.setOnClickListener {

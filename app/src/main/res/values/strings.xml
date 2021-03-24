@@ -64,6 +64,7 @@
     <string name="h_w">H/W</string>
     <string name="my_prospectus">My Prospectus</string>
     <string name="notices">Notices</string>
+    <string name="downloads">Downloads</string>
 
 
     <array name="autosize_text_sizes">

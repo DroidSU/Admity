@@ -7,34 +7,30 @@
     android:background="@drawable/bg_login"
     tools:context=".views.LoginScreen">
 
-    <LinearLayout
-        android:id="@+id/ll_logo"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:src="@drawable/ic_admity_logo"/>
-
-    </LinearLayout>
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/ic_admity_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_below="@id/ll_logo">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="30dp"
-            app:hintEnabled="false">
+            android:layout_marginEnd="30dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:hintEnabled="false"
+            android:elevation="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_sId"
@@ -42,11 +38,11 @@
                 android:layout_height="60dp"
                 android:background="@drawable/recedittxt"
                 android:gravity="center"
+                android:hint="@string/student_id"
+                android:inputType="text"
                 android:padding="8dp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:hint="@string/student_id"
-                android:inputType="text"/>
+                android:textColorHint="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,10 +61,10 @@
                 android:background="@drawable/recedittxt"
                 android:gravity="center"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:inputType="textPassword"/>
+                android:textColorHint="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,4 +101,10 @@
                 android:textColor="@color/sky_blue" />
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/abstract_4"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

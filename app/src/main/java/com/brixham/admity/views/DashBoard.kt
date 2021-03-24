@@ -1,6 +1,5 @@
 package com.brixham.admity.views
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
@@ -171,20 +170,27 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             })
             .addOnChildClickListener(ExpandableListView.OnChildClickListener { parent, v, groupPosition, childPosition, id ->
                 expandableNavigationListView.setSelected(groupPosition, childPosition)
-                if (id == 0L) {
-                    val intent =
-                        Intent(
-                            this,
-                            MyProspectus::class.java
-                        ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
-                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)
-                } else if (id == 1L) {
-                    dashBordDrawerLayout.closeDrawer(GravityCompat.START)
-                } else if (id == 2L) {
+                when (id) {
+                    0L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                MyProspectus::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    1L -> {
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    2L -> {
+                        val downloadIntent = Intent(this, DownloadsActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(downloadIntent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    3L -> {
 
-                } else if (id == 3L) {
-
+                    }
                 }
                 dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                 false

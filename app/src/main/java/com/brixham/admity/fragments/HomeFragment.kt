@@ -115,10 +115,6 @@ class HomeFragment : Fragment(){
         return currentView
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
 
     private fun initGridModules() {
         listOfGridModels = ArrayList()
@@ -135,9 +131,6 @@ class HomeFragment : Fragment(){
         listOfGridModels.add(DashboardGridModel(R.drawable.holiday, "Holiday"))
         listOfGridModels.add(DashboardGridModel(R.drawable.leave, "Leave"))
         listOfGridModels.add(DashboardGridModel(R.drawable.parents, "Parents"))
-
-
-
     }
 
     companion object{
