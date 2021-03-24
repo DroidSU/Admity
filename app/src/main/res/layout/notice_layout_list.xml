@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <TextView
@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 android:text="Q"/>
             <TextView
                 android:id="@+id/list_NoticeName"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="2dp"
                 app:autoSizeStepGranularity="2sp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="18sp"
                 android:text="What is Lorem Ipsum?"
                 android:textStyle="bold"
@@ -73,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:textSize="15sp"
             android:text="Lorem ipsum, or lipsum as isfnvjnjnbjbjjbnbjgbjg nvnvfn vnfnv jnvj"
             app:autoSizeTextType="uniform"
@@ -89,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Start Date :"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:textSize="15sp"/>
             <TextView
                 android:id="@+id/notice_startDate"

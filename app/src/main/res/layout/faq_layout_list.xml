@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    app:cardElevation="15dp"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:weightSum="4"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAQs Panel"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/faq_panel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" "
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="FAQs Topic Name"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/faq_topicName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" "
+                android:textSize="15sp"/>
+
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/faq_ques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAQs Question"
+            android:layout_marginLeft="10dp"
+            app:autoSizeTextType="uniform"
+            android:lineSpacingExtra="2dp"
+            app:autoSizeStepGranularity="2sp"
+            android:padding="3dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/segoe_ui"/>
+        <TextView
+            android:id="@+id/faq_ans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAQs Question"
+            android:layout_marginLeft="10dp"
+            app:autoSizeTextType="uniform"
+            android:lineSpacingExtra="2dp"
+            app:autoSizeStepGranularity="2sp"
+            android:padding="3dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/segoe_ui"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

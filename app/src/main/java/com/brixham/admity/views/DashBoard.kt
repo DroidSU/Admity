@@ -151,9 +151,13 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                     }
                     3L -> {
-                        //Orders Menu
-                        /* Common.showToast(context, "Orders")
-                                 drawer.closeDrawer(GravityCompat.START)*/
+                        val intent =
+                            Intent(
+                                this,
+                                FAQActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     4L -> {
                         //Wishlist Menu
@@ -184,7 +188,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     2L -> {
-                        val downloadIntent = Intent(this, DownloadsActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        val downloadIntent = Intent(this, DownloadsActivity::class.java)
                         startActivity(downloadIntent)
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }

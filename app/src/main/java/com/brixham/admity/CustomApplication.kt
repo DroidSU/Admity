@@ -32,6 +32,7 @@ class CustomApplication : Application(), KodeinAware {
         bind<NotificationsRepository>() with singleton { NotificationsRepositoryImpl(instance()) }
         bind<MyProspectusRepository>() with singleton { MyProspectusRepositoryImpl(instance()) }
         bind<NoticeRepository>() with singleton { NoticeRepositoryImpl(instance()) }
+        bind<FaqRepository>() with singleton { FaqRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
@@ -67,6 +68,11 @@ class CustomApplication : Application(), KodeinAware {
         }
         bind() from provider {
             NoticeViewModelFactory(
+                instance()
+            )
+        }
+        bind() from provider {
+            FaqViewModelFactory(
                 instance()
             )
         }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
 import com.brixham.admity.R
@@ -13,6 +14,7 @@ class DownloadsActivity : AppCompatActivity() {
     private lateinit var textViewToolbarHeader : TextView
     private lateinit var imageViewBackIcon : ImageView
     private lateinit var imageViewMenuIcon : ImageView
+    private lateinit var downloadGridView: GridView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

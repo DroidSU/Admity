@@ -37,6 +37,9 @@ interface ApiService {
     @POST("Myinstitute/Notice")
     fun getNotice(@HeaderMap headers: Map<String, String>) : Deferred<NoticeResponseModel>
 
+    @POST("Profile/FAQs")
+    fun getFaq(@HeaderMap headers: Map<String, String>) : Deferred<FAQResponseModel>
+
 
     companion object {
         operator fun invoke(
