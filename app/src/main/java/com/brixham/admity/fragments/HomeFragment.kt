@@ -10,10 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.GridView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -55,7 +52,6 @@ class HomeFragment : Fragment(){
     private lateinit var gridView: GridView
     private lateinit var textDate: TextView
     private lateinit var textViewSalutation : TextView
-    private lateinit var textTime: TextView
     private lateinit var calendar: Calendar
     private lateinit var simpleDateFormat: SimpleDateFormat
     private lateinit var simpleTimeFormat: SimpleDateFormat
@@ -89,7 +85,6 @@ class HomeFragment : Fragment(){
         initGridModules()
 
         textDate = currentView.findViewById(R.id.textDateMonthYear)
-        textTime = currentView.findViewById(R.id.textTime)
         textViewSalutation = currentView.findViewById(R.id.textView_salutation)
 
         textViewSalutation.text = userName
@@ -100,7 +95,6 @@ class HomeFragment : Fragment(){
         Date = simpleDateFormat.format(calendar.time)
         Time = simpleTimeFormat.format(calendar.time)
         textDate.text = Date
-        textTime.text = Time
 
         gridView = currentView.findViewById(R.id.gridView_home)
         gridAdapter = DashboardGridAdapter(context, R.layout.item_dashboard_grid, listOfGridModels)

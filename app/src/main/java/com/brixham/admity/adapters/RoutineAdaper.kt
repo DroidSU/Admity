@@ -11,27 +11,27 @@ class  RoutineAdaper(private val context: Context, fm: FragmentManager, internal
     override fun getItem(position: Int): Fragment {
         when (position) {
 
-            /*0 -> {
-                return MonFrag()
-            }
-            1 -> {
-                return TueFrag()
-            }
-            2 -> {
-                return Wedfrag()
-            }
-            3 -> {
-                return ThursFrag()
-            }
-            4 -> {
-                return FriFrag()
-            }
-            5 -> {
-                return SaturFrag()
-            }
-            6 -> {
-                return SunFrag()
-            }*/
+//            0 -> {
+//                return MonFrag()
+//            }
+//            1 -> {
+//                return TueFrag()
+//            }
+//            2 -> {
+//                return Wedfrag()
+//            }
+//            3 -> {
+//                return ThursFrag()
+//            }
+//            4 -> {
+//                return FriFrag()
+//            }
+//            5 -> {
+//                return SaturFrag()
+//            }
+//            6 -> {
+//                return SunFrag()
+//            }
 
         }
         return Fragment()

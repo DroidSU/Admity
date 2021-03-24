@@ -67,7 +67,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         butonChangePwd = findViewById(R.id.changePassword_Button)
         bottomNavigationView = findViewById(R.id.changePwd_bottom_navigation)
         backImgChangePwd.visibility = View.VISIBLE
-        imgBellIconChangePwd.visibility = View.VISIBLE
+        imgBellIconChangePwd.visibility = View.GONE
         textViewHeader.visibility = View.VISIBLE
         textViewHeader.text = "Change Password"
 
@@ -92,6 +92,7 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         butonChangePwd.setOnClickListener {
             startChangePwd()
         }
+
         progressDialog = UtilityMethods().showProgressDialog(this)
 
     }
@@ -99,9 +100,6 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
     private fun getUserDetails() {
         val sharedPrefs = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
         authToken = sharedPrefs.getString(Constants.SHARED_PREFS_AUTH_TOKEN, "")!!
-        if(authToken.isEmpty()){
-            authToken = Constants.DEFAULT_AUTH_TOKEN
-        }
     }
 
     private fun startChangePwd() {
@@ -109,19 +107,29 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
         newPassword = etNewPwd.text.toString()
         newConfPassword = etNewCnfPwd.text.toString()
 
-        if (oldPassword.isNotBlank() && newPassword.isNotEmpty() || newConfPassword.isNotBlank()  && newPassword.isNotBlank() || newConfPassword.isNotBlank() && newPassword.isNotEmpty() || newConfPassword.isNotEmpty()) {
+        if (oldPassword.isNotEmpty() && newPassword.isNotEmpty() && newConfPassword.isNotEmpty() && newPassword == newConfPassword) {
             CoroutineScope(Dispatchers.IO).launch {
                 changepwdViewModel.changepwdUser(authToken, oldPassword, newPassword,  this@ChangePassword)
             }
         } else {
-            if (oldPassword.isEmpty())
-                etOldPwd.error = "Old pwd cannot be empty"
-            else if (newPassword.isEmpty())
-                etNewPwd.error = "New Password cannot be empty"
-            else if (newConfPassword.isEmpty())
-                etNewCnfPwd.error = "New Password cannot be empty"
+            when {
+                oldPassword.isEmpty() -> etOldPwd.error = "Old pwd cannot be empty"
+                newPassword.isEmpty() -> etNewPwd.error = "New Password cannot be empty"
+                newConfPassword.isEmpty() -> etNewCnfPwd.error = "New Password cannot be empty"
+                newPassword != newConfPassword -> showFailedDialog()
+            }
         }
 
+    }
+
+    private fun showFailedDialog() {
+        val failedDialog =
+            UtilityMethods().showFailedDialog(this@ChangePassword, "New password should match with confirm password")
+        failedDialog.show()
+        val btnClose = failedDialog.findViewById<Button>(R.id.btn_close)
+        btnClose!!.setOnClickListener {
+            failedDialog.dismiss()
+        }
     }
 
     override fun callStarted() {
@@ -132,14 +140,17 @@ class ChangePassword : AppCompatActivity(), KodeinAware, NetworkCallback {
     }
 
     override fun callFailed(errorMessage: String) {
-        Log.d(TAG, "callFailed: Unsucessfull")
-        TODO("Not yet implemented")
+        CoroutineScope(Dispatchers.Main).launch {
+            Log.d(TAG, "callFailed: $errorMessage")
+            if(progressDialog.isShowing)
+                progressDialog.dismiss()
+        }
     }
 
     override fun callSuccess(data: Any) {
         CoroutineScope(Dispatchers.Main).launch {
             if (progressDialog.isShowing)
-                progressDialog.cancel()
+                progressDialog.dismiss()
 
 
             val changePasswordResponse: ChangePasswordResponseModel = data as ChangePasswordResponseModel

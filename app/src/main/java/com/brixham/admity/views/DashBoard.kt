@@ -357,29 +357,29 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.menu_logout -> {
                 alertDialog = AlertDialog.Builder(this)
-                alertDialog.setTitle("Confirm Exit...!!!")
+                alertDialog.setTitle("Confirm Exit...!")
                 alertDialog.setIcon(R.drawable.ic_warning)
-                alertDialog.setMessage("Are you sure, You want to Logout")
+                alertDialog.setMessage("Are you sure you want to logout?")
                 alertDialog.setCancelable(false)
-                alertDialog.setPositiveButton(
-                    "Yes",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        val intent =
-                            Intent(
-                                this,
-                                LoginScreen::class.java
-                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        startActivity(intent)
-                    })
+                alertDialog.setPositiveButton("Yes") { _, _ ->
+                    val sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.clear()
+                    editor.apply()
+
+                    val intent = Intent(this, LoginScreen::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    finish()
+                }
                 alertDialog.setNegativeButton(
-                    "No",
-                    DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
+                    "No"
+                ) { dialog, _ -> dialog.cancel() }
                 alertDialog.setNeutralButton(
-                    "Cancel",
-                    DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
+                    "Cancel"
+                ) { dialog, _ -> dialog.cancel() }
+
                 val builder: AlertDialog = alertDialog.create()
                 builder.show()
-
             }
 
 
