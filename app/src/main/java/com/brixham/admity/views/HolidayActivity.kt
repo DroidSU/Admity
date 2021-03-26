@@ -29,7 +29,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
+class HolidayActivity : AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     private val holidayViewModelFactory: HolidayViewModelFactory  by instance()

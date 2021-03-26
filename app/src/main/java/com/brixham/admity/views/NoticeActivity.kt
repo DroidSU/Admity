@@ -35,7 +35,7 @@ import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 import java.text.SimpleDateFormat
 
-class NoticeActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
+class NoticeActivity : AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     private lateinit var noticeViewModel: NoticeViewModel

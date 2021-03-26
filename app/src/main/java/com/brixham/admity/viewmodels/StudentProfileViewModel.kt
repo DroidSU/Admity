@@ -7,7 +7,7 @@ import com.brixham.admity.network.Result
 import com.brixham.admity.repositories.StudentProfileDataRepository
 
 class StudentProfileViewModel(private val studentProfileDataRepository: StudentProfileDataRepository) : ViewModel(){
-    suspend fun getStudentProfile(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getStudentProfile(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = studentProfileDataRepository.getStudentProfile(authToken = authToken)
 

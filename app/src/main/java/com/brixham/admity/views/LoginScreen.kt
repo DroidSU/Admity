@@ -28,7 +28,7 @@ import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
 
-class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback {
+class LoginScreen : AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     private val loginViewModelFactory: LoginViewModelFactory by instance()

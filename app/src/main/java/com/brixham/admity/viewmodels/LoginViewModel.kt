@@ -6,7 +6,7 @@ import com.brixham.admity.network.Result
 import com.brixham.admity.repositories.LoginRepository
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel(){
-    suspend fun loginUser(userId : String, password : String, fcmToken : String, networkCallback: NetworkCallback){
+    suspend fun loginUser(userId : String, password : String, fcmToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val loginResponse = loginRepository.loginUser(userId = userId, password = password, fcmToken = fcmToken)
 

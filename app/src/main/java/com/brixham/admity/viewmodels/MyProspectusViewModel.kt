@@ -7,7 +7,7 @@ import com.brixham.admity.repositories.MyProspectusRepository
 import com.brixham.admity.repositories.NotificationsRepository
 
 class MyProspectusViewModel(private val myProspectusRepository: MyProspectusRepository) : ViewModel() {
-    suspend fun getProspectus(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getProspectus(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = myProspectusRepository.getProspectus(authToken = authToken)
 

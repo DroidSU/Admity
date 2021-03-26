@@ -12,7 +12,7 @@ import com.brixham.admity.R
 import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.UtilityMethods
 
-class ForgotPassword : AppCompatActivity(), NetworkCallback {
+class ForgotPassword : AppCompatActivity(), NetworkCallback<Any?> {
 
     private lateinit var imageBackForgotPassword: ImageView
     private lateinit var textViewHeader: TextView

@@ -35,7 +35,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class FAQActivity : AppCompatActivity(), KodeinAware, NetworkCallback {
+class FAQActivity : AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     private lateinit var faqViewModel: FaqViewModel

@@ -29,7 +29,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
+class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     private val studentprofileViewModelFactory: StudentProfileViewModelFactory by instance()
@@ -40,6 +40,30 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
     private lateinit var textViewHeader: TextView
     private lateinit var progressDialog: AlertDialog
     private lateinit var bottomNavigationView: BottomNavigationView
+
+
+    private lateinit var textViewStudentFirstName: TextView
+    private lateinit var textViewStudentLastName: TextView
+    private lateinit var textViewStudentPhoneName: TextView
+    private lateinit var textViewStudentProdIdImg: ImageView
+    private lateinit var textViewStudentProdIdSignature: ImageView
+    private lateinit var textViewStudentProdIdScanner: ImageView
+    private lateinit var textViewStudentProdIdFirstname: TextView
+    private lateinit var textViewStudentProdIdLastname: TextView
+    private lateinit var textViewStudentProdIdNumber: TextView
+    private lateinit var textViewStudentProdIdGuardianName: TextView
+    private lateinit var textViewStudentProdIdClass: TextView
+    private lateinit var textViewStudentProdIdRollNo: TextView
+    private lateinit var textViewStudentProdIdBloodGroup: TextView
+    private lateinit var textViewStudentProdIdCourse: TextView
+    private lateinit var textViewStudentProdIdDob: TextView
+    private lateinit var textViewStudentProdIdSession: TextView
+    private lateinit var textViewStudentProdIdCity: TextView
+    private lateinit var textViewStudentProdIdState: TextView
+    private lateinit var textViewStudentProdIdCountry: TextView
+    private lateinit var textViewStudentProdIdPinCode: TextView
+    private lateinit var textViewStudentProdEmailId: TextView
+
 
     private lateinit var textViewStudentFullName: TextView
     private lateinit var textViewStudentId: TextView
@@ -95,6 +119,30 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewStudentAdhaarCardNo = findViewById(R.id.student_adhaarCardNo)
         textViewStudentAddress = findViewById(R.id.student_address)
         bottomNavigationView = findViewById(R.id.studentProf_bottom_navigation)
+
+        textViewStudentFirstName = findViewById(R.id.studentProf_firstName)
+        textViewStudentLastName = findViewById(R.id.studentProf_LastName)
+        textViewStudentPhoneName = findViewById(R.id.studentProf_phoneNo)
+        textViewStudentProdIdImg = findViewById(R.id.profStudent_circleImgId)
+        textViewStudentProdIdSignature = findViewById(R.id.studentProf_signatureImg)
+        textViewStudentProdIdScanner = findViewById(R.id.studentProf_ScannerImg)
+        textViewStudentProdIdFirstname = findViewById(R.id.studentId_firstName)
+        textViewStudentProdIdLastname = findViewById(R.id.studentId_lastName)
+        textViewStudentProdIdNumber = findViewById(R.id.studentId_idNumber)
+        textViewStudentProdIdGuardianName = findViewById(R.id.studentId_guardianName)
+        textViewStudentProdIdClass = findViewById(R.id.student_id_class)
+        textViewStudentProdIdRollNo = findViewById(R.id.studentId_rollNo)
+        textViewStudentProdIdBloodGroup = findViewById(R.id.studentId_bloodGroup)
+        textViewStudentProdIdCourse = findViewById(R.id.studentId_course)
+        textViewStudentProdIdDob = findViewById(R.id.studentId_dob)
+        textViewStudentProdIdSession = findViewById(R.id.studentId_session)
+        textViewStudentProdIdCity = findViewById(R.id.studentId_city)
+        textViewStudentProdIdState = findViewById(R.id.studentId_state)
+        textViewStudentProdIdCountry = findViewById(R.id.studentId_country)
+        textViewStudentProdIdPinCode = findViewById(R.id.studentId_pinCode)
+        textViewStudentProdEmailId = findViewById(R.id.student_emailId)
+
+
 
         backImgStudentProf.visibility = VISIBLE
         imgBellIconStudentProf.visibility = VISIBLE
@@ -192,5 +240,28 @@ class StudentProfile : AppCompatActivity(), KodeinAware, NetworkCallback {
         textViewStudentAdhaarCardNo.text = studentProfileResponse.data.aadhar_card_no as CharSequence?
         textViewStudentAddress.text = studentProfileResponse.data.s_pAddress
         Glide.with(this).load(studentProfileResponse.data.studentImage).into(circleStdProfileImgView)
+
+        textViewStudentFirstName.text = studentProfileResponse.data.s_fName
+        textViewStudentLastName.text = studentProfileResponse.data.s_lName
+        textViewStudentPhoneName.text = studentProfileResponse.data.s_ContactNo
+        textViewStudentProdIdFirstname.text = studentProfileResponse.data.s_fName
+        textViewStudentProdIdLastname.text = studentProfileResponse.data.s_lName
+        textViewStudentProdIdNumber.text = studentProfileResponse.data.pk_studentId
+        textViewStudentProdIdGuardianName.text = studentProfileResponse.data.s_FatherName
+        textViewStudentProdIdClass.text = studentProfileResponse.data.classstudent
+        textViewStudentProdIdRollNo.text = studentProfileResponse.data.roll_No
+        textViewStudentProdIdBloodGroup.text = studentProfileResponse.data.s_BloodGp
+        textViewStudentProdIdCourse.text = studentProfileResponse.data.course as CharSequence?
+        textViewStudentProdIdDob.text = studentProfileResponse.data.s_dob
+        textViewStudentProdIdSession.text = studentProfileResponse.data.session
+        textViewStudentProdIdCity.text = studentProfileResponse.data.s_pCity
+        textViewStudentProdIdState.text = studentProfileResponse.data.s_pState
+        textViewStudentProdIdCountry.text = studentProfileResponse.data.s_pCountry
+        textViewStudentProdIdPinCode.text = studentProfileResponse.data.s_pPinCode
+        textViewStudentProdEmailId.text = studentProfileResponse.data.s_Email
+
+
+
+        Glide.with(this).load(studentProfileResponse.data.studentImage).into(textViewStudentProdIdImg)
     }
 }

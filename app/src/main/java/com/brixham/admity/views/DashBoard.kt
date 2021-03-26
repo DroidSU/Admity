@@ -46,7 +46,7 @@ import org.kodein.di.generic.instance
 
 
 class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, KodeinAware,
-    NetworkCallback {
+    NetworkCallback<Any?> {
     override val kodein by closestKodein()
 
     // for student data
@@ -194,6 +194,16 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     }
                     3L -> {
 
+                    }
+                    4L -> {
+                        val guardianCallIntent = Intent(this, GuardianCall::class.java)
+                        startActivity(guardianCallIntent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    5L -> {
+                        val guardianMeetingIntent = Intent(this, GuardianMeeting::class.java)
+                        startActivity(guardianMeetingIntent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                 }
                 dashBordDrawerLayout.closeDrawer(GravityCompat.START)

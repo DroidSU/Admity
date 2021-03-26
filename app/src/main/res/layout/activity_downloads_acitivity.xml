@@ -7,13 +7,14 @@
     tools:context=".views.DownloadsActivity">
 
     <include layout="@layout/layout_toolbar" android:id="@+id/downloads_toolbar"/>
-    <GridView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/downloads_toolbar"
-        android:id="@+id/download_gridView"
+        android:id="@+id/download_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="60dp"
+
         android:gravity="center"
-        android:numColumns="2"
         android:stretchMode="columnWidth" />
+
+
 </RelativeLayout>

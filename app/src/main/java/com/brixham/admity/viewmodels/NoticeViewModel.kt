@@ -7,7 +7,7 @@ import com.brixham.admity.repositories.MyProspectusRepository
 import com.brixham.admity.repositories.NoticeRepository
 
 class NoticeViewModel(private val noticeRepository: NoticeRepository) : ViewModel() {
-    suspend fun getNotice(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getNotice(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = noticeRepository.getNotice(authToken = authToken)
 

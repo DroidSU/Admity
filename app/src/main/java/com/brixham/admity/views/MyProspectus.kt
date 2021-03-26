@@ -31,7 +31,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class MyProspectus: AppCompatActivity(), KodeinAware, NetworkCallback {
+class MyProspectus: AppCompatActivity(), KodeinAware, NetworkCallback<Any?> {
 
     override val kodein by closestKodein()
 

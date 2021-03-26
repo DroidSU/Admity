@@ -66,6 +66,8 @@
     <string name="notices">Notices</string>
     <string name="downloads">Downloads</string>
     <string name="faq">FAQs</string>
+    <string name="guardian_call">Guardian Call</string>
+    <string name="guardian_meeting">Guardian Meeting</string>
 
 
     <array name="autosize_text_sizes">

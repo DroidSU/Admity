@@ -6,7 +6,7 @@ import com.brixham.admity.network.Result
 import com.brixham.admity.repositories.NotificationsRepository
 
 class NotificationsViewModel(private val notificationsRepository : NotificationsRepository) : ViewModel() {
-    suspend fun getNotifications(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getNotifications(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = notificationsRepository.getNotifications(authToken = authToken)
 

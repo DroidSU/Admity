@@ -7,7 +7,7 @@ import com.brixham.admity.repositories.FaqRepository
 import com.brixham.admity.repositories.NoticeRepository
 
 class FaqViewModel(private val faqRepository: FaqRepository) : ViewModel() {
-    suspend fun getFaq(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getFaq(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = faqRepository.getFaq(authToken = authToken)
 

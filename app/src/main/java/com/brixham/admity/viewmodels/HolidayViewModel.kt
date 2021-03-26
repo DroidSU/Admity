@@ -6,7 +6,7 @@ import com.brixham.admity.network.Result
 import com.brixham.admity.repositories.HolidayRepository
 
 class HolidayViewModel(private val holidayRepository: HolidayRepository) : ViewModel() {
-    suspend fun getHoliday(authToken : String, networkCallback: NetworkCallback){
+    suspend fun getHoliday(authToken : String, networkCallback: NetworkCallback<Any?>){
         networkCallback.callStarted()
         val response = holidayRepository.getHoliday(authToken = authToken)
 

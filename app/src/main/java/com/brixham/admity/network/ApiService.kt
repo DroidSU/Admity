@@ -9,11 +9,14 @@ import kotlinx.coroutines.Deferred
 import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.*
 import java.util.concurrent.TimeUnit
+
 
 interface ApiService {
     @POST("Login/Login")
@@ -39,6 +42,18 @@ interface ApiService {
 
     @POST("Profile/FAQs")
     fun getFaq(@HeaderMap headers: Map<String, String>) : Deferred<FAQResponseModel>
+
+    @POST("Myinstitute/Download")
+    fun getDownloads(@HeaderMap headers: HashMap<String, String>) : Deferred<DownloadResponseModel>
+
+    @POST("Myinstitute/GurdianCall")
+    fun getGuardiancall(@HeaderMap headers: Map<String, String>) : Deferred<GuardianCallModel>
+
+    @POST("Myinstitute/GurdianMeeting")
+    fun getGuardianmeeting(@HeaderMap headers: Map<String, String>) : Deferred<GuardianMeetingModel>
+
+    @GET
+    fun downloadFileWithDynamicUrlSync(@Url fileUrl: String?): Deferred<Response<ResponseBody>>
 
 
     companion object {
@@ -68,7 +83,12 @@ interface ApiService {
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(requestInterceptor)
                 .addInterceptor(connectivityInterceptor)
-                .addInterceptor(BasicAuthInterceptor(username = "School_Project", password = "School@2021"))
+                .addInterceptor(
+                    BasicAuthInterceptor(
+                        username = "School_Project",
+                        password = "School@2021"
+                    )
+                )
                 .addInterceptor(responseInterceptor)
                 .build()
 
