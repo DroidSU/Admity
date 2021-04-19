@@ -9,7 +9,10 @@
     <include layout="@layout/layout_toolbar"
         android:id="@+id/attendance_toolbar"/>
 
-    <include layout="@layout/attendance_layout"/>
+    <include layout="@layout/attendance_layout"
+        android:layout_below="@id/attendance_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
 
 </RelativeLayout>

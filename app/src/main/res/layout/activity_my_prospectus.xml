@@ -4,39 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_background"
+    android:background="@drawable/admity_bacground_img"
     tools:context=".views.MyProspectus">
-    <include layout="@layout/layout_toolbar"
-        android:id="@+id/myprospectus_layout_toolbar"/>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/myprospectus_layout_toolbar"
-            android:layout_above="@id/prospectus_bottom_navigation"
-            android:id="@+id/myprospectus_recyclerView">
-
-
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <include
+        android:id="@+id/myprospectus_layout_toolbar"
+        layout="@layout/layout_toolbar" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myprospectus_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/prospectus_bottom_navigation"
+        android:layout_below="@id/myprospectus_layout_toolbar">
+    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/prospectus_bottom_navigation"
-        app:menu="@menu/buttom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/corner_tool"
+        android:visibility="gone"
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"
         app:labelVisibilityMode="labeled"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        android:background="@drawable/corner_tool"/>
+        app:menu="@menu/buttom_menu" />
 
 </RelativeLayout>

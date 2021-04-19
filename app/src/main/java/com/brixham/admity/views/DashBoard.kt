@@ -1,5 +1,7 @@
 package com.brixham.admity.views
 
+
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
@@ -16,7 +18,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +28,7 @@ import com.brixham.admity.R
 import com.brixham.admity.fragments.FragmentMessage
 import com.brixham.admity.fragments.HelpFragment
 import com.brixham.admity.fragments.HomeFragment
+import com.brixham.admity.fragments.HomeWorkFragment
 import com.brixham.admity.models.StudentProfileResponseModel
 import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.Constants
@@ -70,9 +72,12 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var alertDialog: AlertDialog.Builder
 
+
     private var authToken = ""
     private var userName = ""
     private var itemId = R.id.buttonHome
+
+    //var width: Int = metrics.widthPixels
 
     private var TAG = DashBoard::class.java.simpleName
 
@@ -81,8 +86,6 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             studentprofileViewModel.getStudentProfile(authToken, this@DashBoard)
         }
     }
-
-
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,10 +116,12 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         dashBordNavigationViewMenu.setNavigationItemSelectedListener(this)
         navigationView = findViewById(R.id.nav_view)
         expandableNavigationListView = findViewById(R.id.expandable_navigation)
+
+        //expandableNavigationListView.setIndicatorBounds()
         expandableNavigationListView.init(this).addHeaderModel(
             HeaderModel(
                 "My Institute",
-                R.drawable.institute,
+                R.drawable.ic_institute,
                 true
             ).addChildModel(ChildModel("Institute Prospectus"))
                 .addChildModel(ChildModel("Institute Profile"))
@@ -125,9 +130,16 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 .addChildModel(ChildModel("Institute Guardian Call"))
                 .addChildModel(ChildModel("Institute Guardian Meeting"))
         )
-            .addHeaderModel(HeaderModel("My Transaction", R.drawable.transaction))
-            .addHeaderModel(HeaderModel("Enquiry", R.drawable.enquiry))
-            .addHeaderModel(HeaderModel("FAQs", R.drawable.faqs)).build()
+            .addHeaderModel(HeaderModel("My Transaction", R.drawable.ic_transaction))
+            .addHeaderModel(HeaderModel("Enquiry", R.drawable.ic_my_enquiry))
+            .addHeaderModel(HeaderModel("FAQs", R.drawable.ic_faq))
+            .addHeaderModel(HeaderModel("My Warning", R.drawable.ic_my_warning))
+            .addHeaderModel(HeaderModel("Important Link", R.drawable.ic_important_link))
+            .addHeaderModel(HeaderModel("Important Dates", R.drawable.ic_imp_dates))
+            .addHeaderModel(HeaderModel("Question Paper", R.drawable.ic_question))
+            .addHeaderModel(HeaderModel("News Paper", R.drawable.ic_newspaper))
+            .addHeaderModel(HeaderModel("Emergency Notice", R.drawable.ic_emergency_notice))
+            .addHeaderModel(HeaderModel("Payment History", R.drawable.ic_payment_history)).build()
             .addOnGroupClickListener(ExpandableListView.OnGroupClickListener { parent, v, groupPosition, id ->
                 expandableNavigationListView.setSelected(groupPosition)
                 //drawer.closeDrawer(GravityCompat.START);
@@ -135,19 +147,25 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     0L -> {
                         //Home Menu
 
-                        //dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+
                     }
                     1L -> {
-                        //Cart Menu
-                        /*val intent =
-                                    Intent(this, MyInstitute::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                startActivity(intent)
-                                dashBordDrawerLayout.closeDrawer(GravityCompat.START)*/
-                        /*Common.showToast(context, "Cart Select")
-                                drawer.closeDrawer(GravityCompat.START)*/
+                        val intent =
+                            Intent(
+                                this,
+                                MyTransactionActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     2L -> {
-                        //Categories Menu
+                        val intent =
+                            Intent(
+                                this,
+                                EnquiryActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
 
                     }
                     3L -> {
@@ -160,14 +178,67 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     4L -> {
-                        //Wishlist Menu
-                        /*Common.showToast(context, "Wishlist Selected")
-                                drawer.closeDrawer(GravityCompat.START)*/
+                        val intent =
+                            Intent(
+                                this,
+                                MyWarningActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     5L -> {
-                        //Notifications Menu
-                        /*Common.showToast(context, "Notifications")
-                                drawer.closeDrawer(GravityCompat.START)*/
+                        val intent =
+                            Intent(
+                                this,
+                                ImportantLinkActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    6L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                ImportantDatesActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    7L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                QuestionPaperActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    8L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                NewsActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    9L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                EmergencyNoticeActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    10L -> {
+                        val intent =
+                            Intent(
+                                this,
+                                PaymentHistoryActivity::class.java
+                            ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                 }
                 false
@@ -185,6 +256,8 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     1L -> {
+                        val instituteProfileIntent = Intent(this, InstituteProfile::class.java)
+                        startActivity(instituteProfileIntent)
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     2L -> {
@@ -193,7 +266,9 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     3L -> {
-
+                        val timetableIntent = Intent(this, TimeTableActivity::class.java)
+                        startActivity(timetableIntent)
+                        dashBordDrawerLayout.closeDrawer(GravityCompat.START)
                     }
                     4L -> {
                         val guardianCallIntent = Intent(this, GuardianCall::class.java)
@@ -222,7 +297,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         }
 
         if(intent.hasExtra("itemId")){
-            itemId = intent.getIntExtra("itemId",0)
+            itemId = intent.getIntExtra("itemId", 0)
             bottomNavigationView.selectedItemId = itemId
 
             when (itemId){
@@ -230,6 +305,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     initInitialView()
                 }
                 R.id.buttonTask -> {
+                    initHWFragment()
                 }
                 R.id.buttonChat -> {
                     initChatFragment()
@@ -256,6 +332,7 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonTask -> {
+                    initHWFragment()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.buttonChat -> {
@@ -308,6 +385,18 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         toolbarHeader.text = resources.getString(R.string.message)
 
         loadFragment(FragmentMessage.newInstance())
+    }
+    private fun initHWFragment() {
+        imgMenuIcon.visibility = VISIBLE
+        imgLogoIcon.visibility = GONE
+        imgBellIcon.visibility = GONE
+        dashboardImgCircleDP.visibility = VISIBLE
+        backIcon.visibility = GONE
+        toolbarHeader.visibility = VISIBLE
+
+        toolbarHeader.text = getString(R.string.home_work)
+
+        loadFragment(HomeWorkFragment.newInstance())
     }
     private fun initHelpFragment() {
         imgMenuIcon.visibility = VISIBLE
@@ -382,12 +471,18 @@ class DashBoard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 alertDialog.setMessage("Are you sure you want to logout?")
                 alertDialog.setCancelable(false)
                 alertDialog.setPositiveButton("Yes") { _, _ ->
-                    val sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+                    val sharedPreferences = getSharedPreferences(
+                        Constants.SHARED_PREF_FILE_NAME,
+                        MODE_PRIVATE
+                    )
                     val editor = sharedPreferences.edit()
                     editor.clear()
                     editor.apply()
 
-                    val intent = Intent(this, LoginScreen::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    val intent = Intent(
+                        this,
+                        LoginScreen::class.java
+                    ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                     finish()
                 }

@@ -20,12 +20,18 @@ class Attendance : AppCompatActivity() {
         imgBellIconAttendance = findViewById(R.id.imgHeaderBellIcon)
 
         textViewHeader = findViewById(R.id.toolbar_header)
-        textViewHeader.text = "Attendance"
+        textViewHeader.text = getString(R.string.attendance)
 
 
         backImgAttendace.visibility = View.VISIBLE
-        imgBellIconAttendance.visibility = View.VISIBLE
+        imgBellIconAttendance.visibility = View.GONE
         textViewHeader.visibility = View.VISIBLE
-
+        backImgAttendace.setOnClickListener {
+            onBackPressed()
+        }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

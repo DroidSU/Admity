@@ -113,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:fontFamily="@font/segoe_ui"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:textSize="15sp"
                 tools:targetApi="jelly_bean_mr1" />

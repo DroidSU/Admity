@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Admission Fees 2021"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:fontFamily="@font/segoe_ui"
                 android:textStyle="bold"
                 android:textColor="@color/blue"/>
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1st April - 10th April 2021"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/segoe_ui"/>
 
@@ -69,7 +69,7 @@
                 android:textColor="@color/blue"
                 android:fontFamily="@font/segoe_ui"
                 android:textStyle="bold"
-                android:textSize="30sp"/>
+                android:textSize="22sp"/>
         </LinearLayout>
 
 
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Application Fees 2021"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:fontFamily="@font/segoe_ui"
                 android:textStyle="bold"
                 android:textColor="@color/blue"/>
@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1st March - 10th March 2021"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/segoe_ui"/>
 
@@ -137,7 +137,7 @@
                 android:textColor="@color/blue"
                 android:fontFamily="@font/segoe_ui"
                 android:textStyle="bold"
-                android:textSize="30sp"/>
+                android:textSize="22sp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

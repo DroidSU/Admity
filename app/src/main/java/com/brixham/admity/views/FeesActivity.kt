@@ -31,12 +31,10 @@ class FeesActivity : AppCompatActivity() {
         backImgMsg.visibility = View.VISIBLE
         imgMsgBellIcon.visibility = View.VISIBLE
         textViewHeader.visibility = View.VISIBLE
-        textViewHeader.text = "Fees Activity"
+        textViewHeader.text = getString(R.string.fees)
 
         backImgMsg.setOnClickListener {
-            var intent: Intent = Intent(this, DashBoard::class.java)
-            startActivity(intent)
-            finish()
+            onBackPressed()
         }
         imgMsgBellIcon.setOnClickListener {
             var intent: Intent = Intent(this, NotificationActivity::class.java)
@@ -65,6 +63,10 @@ class FeesActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 

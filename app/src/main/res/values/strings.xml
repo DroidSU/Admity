@@ -68,6 +68,32 @@
     <string name="faq">FAQs</string>
     <string name="guardian_call">Guardian Call</string>
     <string name="guardian_meeting">Guardian Meeting</string>
+    <string name="institute_profile">Institute Profile</string>
+    <string name="enquiry_form">Enquiry Form</string>
+    <string name="enquiry_type">Enquiry Type</string>
+    <string name="institute_timetable">Institute Timetable</string>
+    <string name="event">Event</string>
+    <string name="my_assignment">My Assignment</string>
+    <string name="exam_schedule">Exam Schedule</string>
+    <string name="leave_application"><![CDATA[Late-In & Early-Out]]></string>
+    <string name="home_work">Home Work</string>
+    <string name="home_work_details">HomeWork Details</string>
+    <string name="my_warning">My Warning</string>
+    <string name="important_link">Important Link</string>
+    <string name="question_paper">Question Paper</string>
+    <string name="math_qa_paper">Math Q/A Paper</string>
+    <string name="english_qa_paper">English Q/A Paper</string>
+    <string name="bengali_qa_paper">Bengali Q/A Paper</string>
+    <string name="computer_qa_paper">Computer Q/A Paper</string>
+    <string name="physics_qa_paper">Physics Q/A Paper</string>
+    <string name="chemistry_qa_paper">Chemistry Q/A Paper</string>
+    <string name="biology_qa_paper">Biology Q/A Paper</string>
+    <string name="history_qa_paper">History Q/A Paper</string>
+    <string name="geography_qa_paper">Geography Q/A Paper</string>
+    <string name="news">News</string>
+    <string name="emergency_notice">Emergency Notice</string>
+    <string name="important_dates">Important Dates</string>
+
 
 
     <array name="autosize_text_sizes">
@@ -78,4 +104,107 @@
         <item>100sp</item>
     </array>
 
+    <string-array name="EnquiryList">
+        <item>Enquiry Type 1</item>
+        <item>Enquiry Type 2</item>
+        <item>Enquiry Type 3</item>
+        <item>Enquiry Type 4</item>
+        <item>Enquiry Type 5</item>
+        <item>Enquiry Type 6</item>
+        <item>Enquiry Type 7</item>
+    </string-array>
+    <string-array name="AssignmentList">
+        <item>All Assignments</item>
+        <item>Today\'s Assignments</item>
+        <item>Next Day Assignments</item>
+        <item>Monthly Assignments</item>
+    </string-array>
+    <string-array name="MonthList">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
+    <string-array name="YearList">
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+    </string-array>
+    <string-array name="admission_fees">
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+        <item><u>Admission Fees</u></item>
+    </string-array>
+    <string-array name="transaction_amount">
+        <item><u>2000</u></item>
+        <item><u>2500</u></item>
+        <item><u>3000</u></item>
+        <item><u>2000</u></item>
+        <item><u>2000</u></item>
+        <item><u>2000</u></item>
+        <item><u>4000</u></item>
+    </string-array>
+    <string-array name="offline_counter">
+        <item><u>Offline Counter</u></item>
+        <item><u>Online Counter</u></item>
+        <item><u>Online Counter</u></item>
+        <item><u>Offline Counter</u></item>
+        <item><u>Offline Counter</u></item>
+        <item><u>Offline Counter</u></item>
+        <item><u>Offline Counter</u></item>
+    </string-array>
+
+    <string-array name="transaction_id">
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+        <item><u>T29374930373675739038769</u></item>
+    </string-array>
+    <string-array name="paid">
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+        <item><u>Paid</u></item>
+
+    </string-array>
+    <string-array name="_1st_april_2_20pm">
+        <item><u>1st April, 2:20pm</u></item>
+        <item><u>10th April, 2:20pm</u></item>
+        <item><u>21st May, 2:20pm</u></item>
+        <item><u>1st July, 2:20pm</u></item>
+        <item><u>1st April, 2:20pm</u></item>
+        <item><u>12th August, 2:20pm</u></item>
+        <item><u>1st April, 2:20pm</u></item>
+        <item><u>31st December, 2:20pm</u></item>
+    </string-array>
 </resources>

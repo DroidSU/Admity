@@ -22,10 +22,7 @@ import com.brixham.admity.network.NetworkCallback
 import com.brixham.admity.utilities.Constants
 import com.brixham.admity.viewmodels.StudentProfileViewModel
 import com.brixham.admity.viewmodels.StudentProfileViewModelFactory
-import com.brixham.admity.views.DashBoard
-import com.brixham.admity.views.HolidayActivity
-import com.brixham.admity.views.NoticeActivity
-import com.brixham.admity.views.RoutineActivity
+import com.brixham.admity.views.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,11 +100,34 @@ class HomeFragment : Fragment(){
         gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             if (position == 0) {
                 startActivity(Intent(activity, RoutineActivity::class.java))
-            }else if (position == 7) {
+            }else if (position == 1) {
+                startActivity(Intent(activity, SyllabusActivity::class.java))
+            }else if (position == 2) {
+                startActivity(Intent(activity, FacultiesActivity::class.java))
+            }
+            else if (position == 3) {
+                startActivity(Intent(activity, ExamActivity::class.java))
+            }
+            else if (position == 4) {
+                startActivity(Intent(activity, Attendance::class.java))
+            }
+            else if (position == 5) {
+                startActivity(Intent(activity, FeesActivity::class.java))
+            }else if (position == 6) {
+                startActivity(Intent(activity, MyAssignment::class.java))
+            }
+            else if (position == 7) {
                 startActivity(Intent(activity, NoticeActivity::class.java))
+            }
+            else if (position == 8) {
+                startActivity(Intent(activity, EventActivity::class.java))
             }
             else if (position == 9) {
                 startActivity(Intent(activity, HolidayActivity::class.java))
+            }else if (position == 10) {
+                startActivity(Intent(activity, LeaveActivity::class.java))
+            }else if (position == 11) {
+                startActivity(Intent(activity, PaymentActivity::class.java))
             }
 
         }

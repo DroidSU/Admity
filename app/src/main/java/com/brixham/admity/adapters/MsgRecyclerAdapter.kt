@@ -38,6 +38,9 @@ class MsgRecyclerAdapter : RecyclerView.Adapter<MsgRecyclerAdapter.ViewHolder>()
         holder.textViewTxtDetails.text = textV2[position]
         holder.textViewTxtNumber.text = textV3[position]
         holder.textViewTxtTime.text = textV4[position]
+        if (position==0){
+            holder.textViewTxtNumber.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount(): Int {

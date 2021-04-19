@@ -36,6 +36,7 @@ class CustomApplication : Application(), KodeinAware {
         bind<DownloadRepository>() with singleton { DownloadRepositoryImpl(instance()) }
         bind<GuardianCallRepository>() with singleton { GuardianCallRepositoryImpl(instance()) }
         bind<GuardianMeetingRepository>() with singleton { GuardianMeetingRepositoryImpl(instance()) }
+        bind<InstituteProfileRepository>() with singleton { InstituteProfileRepositoryImpl(instance()) }
 
         bind() from provider {
             LoginViewModelFactory(
@@ -91,6 +92,11 @@ class CustomApplication : Application(), KodeinAware {
         }
         bind() from provider {
             GuardianMeetingViewModelFactory(
+                instance()
+            )
+        }
+        bind() from provider {
+            InstituteProfileViewModelFactory(
                 instance()
             )
         }

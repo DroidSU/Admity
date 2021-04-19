@@ -2,35 +2,29 @@ package com.brixham.admity.utilities
 
 //import sun.misc.IOUtils
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.brixham.admity.R
-import com.brixham.admity.network.ApiService
-import com.brixham.admity.utilities.ServiceGenerator.createService
-import okhttp3.Callback
 import okhttp3.OkHttpClient
-import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
 class UtilityMethods {
 
-    fun showProgressDialog(context: Context) : AlertDialog{
+    fun showProgressDialog(context: Context): AlertDialog {
         val builder = AlertDialog.Builder(context, R.style.transparentDialog)
         val dialogView: View = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null)
         builder.setView(dialogView)
 
-        val alertDialog : AlertDialog = builder.create();
+        val alertDialog: AlertDialog = builder.create();
         alertDialog.setCancelable(false)
         return alertDialog
     }
 
-    fun showFailedDialog(context: Context, message: String) : AlertDialog{
+    fun showFailedDialog(context: Context, message: String): AlertDialog {
         val builder = AlertDialog.Builder(context, R.style.CustomAlertDialog)
         val dialogView: View = LayoutInflater.from(context).inflate(R.layout.dialog_failed, null)
         val textView: TextView = dialogView.findViewById(R.id.tv_failed_dialog_body)
@@ -40,6 +34,7 @@ class UtilityMethods {
 
         return builder.create()
     }
+
     /*fun download() {
         *//*val api: ApiService = ApiService.retrofit.create(ApiService::class.java)
         api.download("http://192.168.43.135/retro/pic.jpg")
@@ -70,6 +65,7 @@ class UtilityMethods {
             return retrofit.create(serviceClass)
         }
     }
+
     private fun downloadFile() {
     }
 }

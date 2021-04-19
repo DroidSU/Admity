@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical">
 
-<!--                <include layout="@layout/fragment_home" />-->
+                <!--                <include layout="@layout/fragment_home" />-->
 
 
             </FrameLayout>
@@ -63,8 +63,6 @@
         app:menu="@menu/menu_drawer"
         tools:ignore="DuplicateIds,RtlHardcoded">
 
-        
-
 
     </com.google.android.material.navigation.NavigationView>
 
@@ -78,35 +76,20 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/fragment_menu"
         app:menu="@menu/left_menu_drawer"
-
         tools:ignore="DuplicateIds,RtlHardcoded">
+
         <com.techatmosphere.expandablenavigation.view.ExpandableNavigationListView
             android:id="@+id/expandable_navigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="120dp"
-            android:scrollbars="none"
-            android:nestedScrollingEnabled="true"
+            android:divider="@null"
             android:groupIndicator="@null"
-            android:divider="@null"/>
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none" />
 
 
     </com.google.android.material.navigation.NavigationView>
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

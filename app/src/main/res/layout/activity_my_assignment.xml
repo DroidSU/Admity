@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/admity_bacground_img"
+    tools:context=".views.MyAssignment">
+    <include
+        android:id="@+id/myassignment_layout_toolbar"
+        layout="@layout/layout_toolbar" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/myassignment_cardview1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/myassignment_layout_toolbar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/blue_layout_gradient"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/editText_assignmenyType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/corner_chat_edittext"
+                android:hint="@string/enquiry_type"
+                android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/assignmentForm_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FDFCFC"
+                android:textSize="19sp"
+                android:padding="5dp"
+                android:paddingLeft="3dp"
+                android:popupElevation="10dp"
+                android:dropDownSelector="#ffffff"
+                android:backgroundTint="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:autofillHints="@string/enquiry_type" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/assignment_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myassignment_cardview1"/>
+
+</RelativeLayout>

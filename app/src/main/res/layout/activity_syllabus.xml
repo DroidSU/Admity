@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.SyllabusActivity">
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/Syllabus_layout_toolbaar"
+        android:layout_height="110dp"
+        android:layout_width="match_parent"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/syllabus_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/syllabus_viewPager"
+        android:layout_below="@id/syllabus_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</RelativeLayout>

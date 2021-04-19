@@ -19,6 +19,14 @@ class Constants {
 
         const val SHARED_PREFS_IS_LOGGED_IN = "is_user_logged_in"
 
+
+        const val MONDAY = "monday";
+        const val TUESDAY = "tuesday";
+        const val WEDNESDAY = "wednesday";
+        const val THURSDAY = "thursday";
+        const val FRIDAY = "friday";
+        const val SATURDAY = "saturday";
+
     }
 
 }

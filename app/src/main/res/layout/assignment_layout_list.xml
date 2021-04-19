@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/assignment_subject_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Name"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/segoe_ui"/>
+                <TextView
+                    android:id="@+id/assignment_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:text="Submitted"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Due Date:"/>
+                <TextView
+                    android:id="@+id/assignment_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="31/09/2021"/>
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/assignment_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                app:autoSizeTextType="uniform"
+                android:lineSpacingExtra="2dp"
+                app:autoSizeStepGranularity="2sp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:padding="2dp"
+                android:text="Lorem ipsum, or lipsum as it is sometimes"/>
+
+            <Button
+                android:id="@+id/assignment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="View"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="end"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:background="@drawable/assignment_button_blue"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

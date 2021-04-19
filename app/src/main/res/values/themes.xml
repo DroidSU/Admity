@@ -10,6 +10,11 @@
         <item name="android:fontFamily">@font/segoe_ui</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- White arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
 
 
     <style name="transparentDialog" parent="android:Theme">

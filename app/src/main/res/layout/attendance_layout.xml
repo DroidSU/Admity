@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -11,6 +10,7 @@
 
     <CalendarView
         android:id="@+id/calendarView"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:fontFamily="@font/segoe_ui"
         android:textStyle="bold"
         android:textColor="@color/sky_blue"
@@ -103,6 +103,7 @@
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
@@ -147,7 +148,8 @@
 
 
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/content_main"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

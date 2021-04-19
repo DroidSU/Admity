@@ -13,7 +13,9 @@
     <color name="sky_next_blue">#5E737A</color>
     <color name="black">#000000</color>
     <color name="transparent">#786D6D</color>
+    <color name="red">#F40707</color>
     <color name="background_col">#F1EFEF</color>
+    <color name="yellow">#AF8810</color>
     <color name="view_col">#5CCCB3B3</color>
     <color name="blue">#51D0FF</color>
     <color name="deep_blue">#05A2DE</color>

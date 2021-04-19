@@ -52,6 +52,9 @@ interface ApiService {
     @POST("Myinstitute/GurdianMeeting")
     fun getGuardianmeeting(@HeaderMap headers: Map<String, String>) : Deferred<GuardianMeetingModel>
 
+    @POST("Myinstitute/Insprofile")
+    fun getInstituteProfile(@HeaderMap headers: Map<String, String>) : Deferred<InstituteProfileModel>
+
     @GET
     fun downloadFileWithDynamicUrlSync(@Url fileUrl: String?): Deferred<Response<ResponseBody>>
 
